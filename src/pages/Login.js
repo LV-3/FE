@@ -42,6 +42,7 @@ const Login = () => {
         .then((Response)=>{
             if (Response.data.length>0 && Response.data[0].subsr=== subsr ){
                 localStorage.setItem('subsr', Response.data[0].subsr);
+                console.log(Response);
                 navigate("/main");
             }else{
                 alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.');

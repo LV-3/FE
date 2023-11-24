@@ -19,6 +19,7 @@ export default function DropDownGenres() {
       const getgenres = async () => {
         const result = await genres();
         setGenres(result.data);
+        console.log(result)
       }
       getgenres()
       

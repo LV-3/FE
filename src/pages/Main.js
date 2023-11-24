@@ -49,6 +49,7 @@ export default function Main() {
         setVODs2(result.data["genre_data"]);
         setVODs3(result.data["personal_data"]);
         setLoading(false);
+        console.log(result)
       }catch(error){
         console.log(error);
       }
@@ -61,6 +62,7 @@ export default function Main() {
     try {
       const result = await VOD_model1(subsr);
       setVODs1(result.data);
+      console.log(result)
     }catch(error){
       console.log(error);
     }
@@ -72,6 +74,7 @@ export default function Main() {
       try{
         const result = await VOD_model2(subsr);
         setVODs2(result.data);
+        console.log(result)
       }catch(error){
         console.log(error);
       }
@@ -83,6 +86,7 @@ export default function Main() {
       try{
         const result = await VOD_model3(subsr);
         setVODs3(result.data)
+        console.log(result)
       }catch(error){
         console.log(error);
       }

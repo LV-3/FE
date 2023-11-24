@@ -26,6 +26,7 @@ export default function Mypage() {
     const getreplay = async () => {
       const result = await getReplay();
       setReplayData(result);
+      console.log(result);
     };
     getreplay();
   }, []);
@@ -38,6 +39,7 @@ export default function Mypage() {
         if (response.data.length > 0) {
           setIsWished(true);
           setWishData(response.data);
+          console.log(response);
         } else{
           setIsWished();
         }
@@ -56,6 +58,7 @@ export default function Mypage() {
         if (response.data.length > 0) {
         setIsRated(true);
         setRatingData(response.data);
+        console.log(response);
         } else{
           setIsRated();
         }

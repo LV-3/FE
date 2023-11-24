@@ -38,6 +38,7 @@ export default function Detail() {
         try {
           const response = await getVodData(content_id);
           setVodData(response.data);
+          console.log(response)
         }catch (error){
           console.log(error);
         }
@@ -53,6 +54,7 @@ export default function Detail() {
           const response = await getwishdata(content_id);
           if (response.data.length > 0) {
             setWish(response.data[response.data.length-1]?.wish);
+            console.log(response)
           } 
         } catch (error) {   
           console.log("error", error);
@@ -77,7 +79,7 @@ export default function Detail() {
     // }, [wishClick]);     //subsr, content_id, wish]);
 
     const postWish = async()=>{
-           await postwish(subsr, content_id, Number(!wish));}
+          await postwish(subsr, content_id, Number(!wish));}
 
     //wish 변경 
     const handleWishButton = async() => {
@@ -95,6 +97,7 @@ export default function Detail() {
           const response = await getratingdata(content_id);
           if (response.data.length > 0) {
             setRatingData(response.data);
+            console.log(response)
           } 
         } catch (error) {   
           console.log("error", error);

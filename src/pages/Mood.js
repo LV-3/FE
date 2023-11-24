@@ -14,9 +14,11 @@ export default function Moodpage() {
     //각 mood 별 검색 목록 불러오기
     useEffect(()=>{
     const getmoodList = async()=>{
-            const result =await moodList(mood);    
+            const result =await moodList(mood);
+            console.log(result)
             setMoodVods(result.data)}
             getmoodList()
+            
     },[]);
 
 
