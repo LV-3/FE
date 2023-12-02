@@ -2,8 +2,8 @@ name: REACT_S3_action
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "deploy" ]
+    
 jobs:
   deploy:
     runs-on: ubuntu-latest
