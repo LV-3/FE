@@ -103,42 +103,74 @@ export const PageTitle = styled.h3`
     margin-left: 10%;
     margin-top: 3%;
     margin-bottom: 3%;
-`
+`;
 export const Wrapper = styled.div`
     display: flex;
-    align-items: center;
-    justify-items: center;
     flex-direction: column;
-`;
-export const Inputs = styled.div`
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    margin-right: 10px;
 `;
 
 export const Form = styled.div`
     display: flex;
-    height: 100%;
+    flex-direction: column;
+    align-content: center;
+`;
+
+export const Inputs = styled.div`
+    position: relative;
+    top: 180px;
+    display: flex;
+    height: 400px;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    background-color:black;
 `;
 
 export const Title = styled.div`
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    color:white;
 `;
 
 export const Input = styled.input`
     font-size: 20px;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
-    padding: 10px;
+    padding: 15px;
     &::placeholder {
-        color: darkgray;
+        color: #d4d4d4;
         font-size: 20px;
-        font-weight: 500;
-    }
+        font-weight: 550;
+        border: none;
+    };
+    &:focus {
+        outline: 2px solid #a50034;
+    };
 `;
+
+export const Button = styled.button`
+    background-color: #a50034;
+    height: 60px;
+    width: 280px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    &:disabled {
+        background-color: #F5ADAD;
+      }
+}
+`;
+
 

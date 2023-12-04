@@ -31,7 +31,10 @@
 }
 
 .Logo{
-    color: white;
+   height: 75px;
+   position: absolute;
+   top: 5px;
+   left:0px;
 }
 
 .SubsrContainer{

@@ -42,8 +42,9 @@ export default function Main() {
   // 전체 모델 결과
   useEffect(()=>{
     const getAllVODs = async () => {
+      
+      setLoading(true);
       try {
-        setLoading(true);
         const result = await allVods(subsr);
         setVODs1(result.data["description_data"]);
         setVODs2(result.data["genre_data"]);
@@ -122,20 +123,20 @@ export default function Main() {
               <img src={image.posterurl} alt={index}/>
               </NavLink>
               
-              {image.mood.map((mood,index)=>(
+              {image.mood&&image.mood.map((mood,index)=>(
                 <label key={index}>
                 <NavLink to={"/main/"+mood}>
                 #{mood}</NavLink>
                 </label>
               ))}
               <br />
-              {image.gpt_genres.map((gpt,index)=>(
+              {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>
               ))}
               <br />
-              {image.gpt_subjects.map((gpt,index)=>(
+              {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>
@@ -171,20 +172,20 @@ export default function Main() {
               <img src={image.posterurl} alt={index}/>
               </NavLink>
               
-              {image.mood.map(mood=>(
+              {image.mood&&image.mood.map(mood=>(
                 <label key={mood}>
                 <NavLink to={"/main/"+mood}>
                 #{mood}</NavLink>
                 </label>
               ))}
               <br />
-              {image.gpt_genres.map((gpt,index)=>(
+              {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>
               ))}
               <br />
-              {image.gpt_subjects.map((gpt,index)=>(
+              {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>
@@ -219,20 +220,20 @@ export default function Main() {
               <img src={image.posterurl} alt={index}/>
               </NavLink>
               
-              {image.mood.map(mood=>(
+              {image.mood&&image.mood.map(mood=>(
                 <label key={mood}>
                 <NavLink to={"/main/"+mood}>
                   #{mood}</NavLink>
                   </label>
               ))}
               <br />
-              {image.gpt_genres.map((gpt,index)=>(
+              {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>
               ))}
               <br />
-              {image.gpt_subjects.map((gpt,index)=>(
+              {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
                 <label key={index}>
                 #{gpt}
                 </label>

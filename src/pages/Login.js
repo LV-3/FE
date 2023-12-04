@@ -1,11 +1,11 @@
 import React from 'react'
-import { styled } from 'styled-components';
-import {Wrapper, Title, Form, Inputs, Input} from "../css/StyledComponents";
+import {Wrapper, Title, Form, Inputs, Input, Button} from "../css/StyledComponents";
 //import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
 import { login } from '../apis/login/getlogin_post';
+import background from "../assets/background.png"
 
 
 // 로그인 화면
@@ -74,33 +74,26 @@ const Login = () => {
 
 
   return (
-    <Wrapper>
-        <Title>로그인하기</Title>
-        <Form>
-            <Inputs>
-                <Input placeholder="셋탑박스" value={subsr} onChange={onChangeId}
-                onKeyDown={keyPress} />
-                {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}
-            </Inputs>
-            <Button onClick={onClick} disabled={button} className="LoginButton">Login</Button>
-        </Form>
-        {/* 주석 처리 <CustomLink to='/signup'>회원가입하기</CustomLink> */}
-    </Wrapper>
+    <div style={{margin: '0', width: '100%', height: '100vh', background:`url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
+        <Wrapper>
+            <Form>
+                <Inputs>
+                    <Title>로그인하기</Title>
+                    <Input placeholder="셋탑박스 번호" value={subsr} onChange={onChangeId}
+                    onKeyDown={keyPress} />
+                    {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}
+                    <Button onClick={onClick} disabled={button}><strong>로그인</strong></Button>
+                </Inputs>
+            </Form>
+            {/* 주석 처리 <CustomLink to='/signup'>회원가입하기</CustomLink> */}
+        </Wrapper>
+    </div>
   )
 }
 
 export default Login;
 
-const Button = styled.button`
-    background-color: black;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    &:disabled {
-        background-color: rgba(0, 0, 0, 0.25);
-      }
-}
-`;
+
 
 //링크 css 수정
 // const CustomLink = styled(Link)`

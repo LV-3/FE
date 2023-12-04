@@ -11,6 +11,7 @@ export default function DelConfirmAlert(content_id) {
     const subsr=localStorage.getItem('subsr');
     const deleletereview=async()=>{
       await delReview(subsr,content_id)
+      window.location.reload();
     }
     
     const handleDelete = () => {
@@ -24,10 +25,7 @@ export default function DelConfirmAlert(content_id) {
                 <button onClick={onClose}>취소</button>
                 <button
                   onClick={() => {
-                    //const subsr=localStorage.getItem('subsr');
-                    //delReview(subsr,content_id);
                     deleletereview();
-                    window.location.reload();
                   }}
                 >
                   삭제

@@ -1,3 +1,8 @@
 .LoginButton {
     cursor: pointer;
 }
+
+.Div {
+    display: flex;
+    align-items: center;
+}

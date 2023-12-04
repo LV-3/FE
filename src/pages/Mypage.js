@@ -106,11 +106,11 @@ export default function Mypage() {
   );
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
   };

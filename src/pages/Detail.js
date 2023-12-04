@@ -92,6 +92,7 @@ export default function Detail() {
 
     const deleletereview=async()=>{
       await delReview(subsr,content_id);
+      window.location.reload();
     }
 
     //rating get요청
@@ -143,7 +144,7 @@ export default function Detail() {
           <PageTitle>나의 리뷰</PageTitle>
             {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(
-                <li key={index}>
+                <div key={index} className="ReviewBox">
                   {item.subsr}
                   <Rating
                     fillColor="#A50034"
@@ -155,17 +156,17 @@ export default function Detail() {
                   <br />
                   {item.review}
                   <DelConfirmAlert/>
-                  <hr />
-                </li>
+                  <button className='DelReviewButton' onClick={deleletereview}>리뷰 삭제</button>
+                </div>
               )))
-            }<button className='DelReviewButton' onClick={deleletereview}>리뷰 삭제</button>
+            }
             
         </div>
         <div>
           <PageTitle>모든 리뷰</PageTitle>
             {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr !== subsr).map((item, index)=>(
-                <li key={index}>
+                <div key={index} className="ReviewBox">
                   {item.subsr}
                   <Rating
                     fillColor="#A50034"
@@ -175,8 +176,7 @@ export default function Detail() {
                   />
                   {item.rating_date}
                   {item.review}
-                  <hr />
-                </li>
+                </div>
               )))
             }
 
