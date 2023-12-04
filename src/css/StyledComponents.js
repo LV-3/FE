@@ -71,12 +71,11 @@ export const ImgLabel = styled.label`
     border: 1px #d4d4d4 solid;
     flexDirection: column;
     justifyContent: flex-start;
-    alignItems: flex-start;
-    display: inline-flex;
+    display: flex;
     cursor: pointer;
-    flexDirection: row;
 `
 export const Poster = styled.img`
+    display: flex;
     alignSelf: stretch;
     flex: 1 1 0;
 `

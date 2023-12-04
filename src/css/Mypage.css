@@ -10,9 +10,9 @@
 }
 
 .ProgressBar{
-    position: relative;
-    top: -21px;
-    left: -8px;
+    display:flex;
+    position: absolute;
+    z-index: 1;
 }
 
 progress {

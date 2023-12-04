@@ -130,17 +130,18 @@ export default function Mypage() {
         { replayData?
         <StyledSlider {...settings}>
         {(replayData.map((item, index) =>(
-          <figure key={index} >
+          <div key={index} >
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
-          <ImgLabel>
-            <Poster
-            src={item.posterurl}
-            alt={index}
-            />
-          </ImgLabel>
-          <figcaption><progress className='ProgressBar' value={item.user_preference} max={100} /></figcaption>
-        </NavLink>
-      </figure>
+            <ImgLabel>
+              <Poster
+              src={item.posterurl}
+              alt={index}
+              />
+              <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div>
+            </ImgLabel>
+            {/* <figcaption><progress className='ProgressBar' value={item.user_preference} max={100} /></figcaption> */}
+          </NavLink>
+        </div>
     )))}
     </StyledSlider>
     :(
