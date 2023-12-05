@@ -37,6 +37,13 @@
    left:0px;
 }
 
+.Logo2{
+    height: 75px;
+    position: absolute;
+    top: 10px;
+    left:120px;
+ }
+
 .SubsrContainer{
     display:inline-flex;
     margin-right: 5%;
