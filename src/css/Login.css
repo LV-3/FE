@@ -45,10 +45,10 @@
 }
 
 .LoginLogo{
-    height: 75px;
+    height: 90px;
     position: absolute;
-    top: 10px;
-    left:0px;
+    top: 25px;
+    left:2%;
  }
 
 .playgif{

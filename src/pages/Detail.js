@@ -133,13 +133,12 @@ export default function Detail() {
           <div className='VodData'>
             <div className="TitleContainer">
               <h1 className="VodTitle">{vodData?.title}</h1>
-                 <Button
-                  className="WishButton"
+                 <button className='WishButton'
                   onClick={()=>{
                     handleWishButton();
                     postWish();}}>
-                  {wish? <HeartFilled style={{color:"red", fontSize: '30px'}}/>:<HeartOutlined style={{fontSize: '30px'}}/>}
-              </Button><br/>
+                  {wish? <HeartFilled style={{color:"red", fontSize: '35px', height:'60%'}}/>:<HeartOutlined style={{fontSize: '35px', height:'60%'}}/>}
+              </button><br/>
             </div>
             <div className='Vodtextbox'>
             <p className='VodInfo1'><b>카테고리</b>&nbsp;&nbsp;{vodData.release_year?.release_year}{vodData?.category}·{vodData?.genre}·{vodData?.country}</p>
@@ -200,14 +199,3 @@ export default function Detail() {
     )
 }
   
-
-const Button = styled.button`
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-    border-radius: 10px;
-    &:hover{
-      transform: scale(1.1);
-    }
-}
-`;

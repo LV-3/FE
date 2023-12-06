@@ -1,6 +1,38 @@
 import Slider from "react-slick";
 import styled from "styled-components";
 
+export const MainStyledSlider = styled(Slider)`
+  margin-left: 7%;
+  width: 90%;
+  height: 270px;
+  text-align: center;
+  justify-content: center;
+  
+  .slick-list {
+    margin: 0 -130px;
+    overflow: hidden;
+    height: 300px;
+    text-align: left;
+  }
+  .slick-arrow {
+    display: block;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    align-self: stretch;
+  }
+
+  .slick-arrow:hover {
+    height: 30px;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+`;
+
 export const StyledSlider = styled(Slider)`
   margin-left: 7%;
   width: 90%;
@@ -8,14 +40,12 @@ export const StyledSlider = styled(Slider)`
   text-align: center;
   justify-content: center;
   
-
   .slick-list {
     margin: 0 -130px;
     overflow: hidden;
     height: 270px;
     text-align: center;
   }
-
   .slick-arrow {
     display: block;
     z-index: 10;
@@ -44,6 +74,7 @@ export const MainSliderContainer = styled.div`
   height: 300px;
   margin: 0 10%;
   margin-bottom: 3%;
+  margin-top: -2%;
 `;
 
 export const Div = styled.div`
@@ -119,7 +150,7 @@ export const RatingTitle = styled.div`
 
 export const PageTitle = styled.p`
     margin-left: 5%;
-    margin-top: 3%;
+    margin-top: 0%;
     margin-bottom: 3%;
     color:white;
     font-weight: bold;

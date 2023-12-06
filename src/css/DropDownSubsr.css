@@ -12,10 +12,11 @@
   .dropdown-content {
     display: block;
     position: absolute;
-    left: -105px;
+    left: -70px;
+    top:130%;
     background-color: #28292a;
-    width: 180px;
-    height: 250px;
+    width: 150px;
+    height: 200px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     text-align: center;
@@ -82,8 +83,11 @@
   margin-top: 10%;
 }
   .DropDownMenu p {
+    margin-left: 4%;
     display: block;
     color:white;
+    align-items: center;
+    width: 70%;
   }
 
 .DropDownHello{
@@ -93,8 +97,8 @@
 }
 
 .UserContainer{
-  margin-top: 30%;
-  margin-left: -10%;
+  margin-top: 90%;
+  margin-left: -40%;
   width: 45px;
   height: 45px;
   border: 1px solid #d4d4d4;
@@ -108,3 +112,11 @@
   justify-content: flex-end;
 }
 
+.DropDownMypage {
+ background-color: #393939;
+}
+
+.DropDownLogout {
+  background-color: #393939;
+  margin-top: 5px;
+}

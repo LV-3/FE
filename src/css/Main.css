@@ -1,11 +1,17 @@
 .MainLink {
-    text-decoration: none;
     color: white;
+    font-size:14px
 }
 
 .TextColor{
     color:white;
-    font-weight: 500;
+    font-weight: 300px;
+    font-size:14px
 }
 
+.Tagbox{
+line-height: 100%;
+width: 150px;
+word-break: break-all;
+}
 

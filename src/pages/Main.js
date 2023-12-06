@@ -11,7 +11,7 @@ import { allVods } from '../apis/main/getmain_post';
 import { VOD_model1 } from '../apis/main/getreload1_post';
 import { VOD_model2 } from '../apis/main/getreload2_post';
 import { VOD_model3 } from '../apis/main/getreload3_post';
-import { StyledSlider, Div, DivPre, ImgLabel, Poster, MypageText, 
+import { MainStyledSlider,StyledSlider, Div, DivPre, ImgLabel, Poster, MypageText, 
   MainSliderContainer, PageTitle} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -133,14 +133,14 @@ export default function Main() {
         <PageTitle>인기작</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
-          <StyledSlider {...settings}>
+          <MainStyledSlider {...settings}>
               {VODs1&&VODs1.map((image,index) => (
                 <div>  
                   <ImgLabel key={index}> 
                     <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl} alt={image.title}/>
                     </NavLink>
-                  </ImgLabel>  
+                  </ImgLabel><div className="Tagbox">
                     {image.mood&&image.mood.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
@@ -148,27 +148,27 @@ export default function Main() {
                       </NavLink>
                       </label>
                     ))}
-                    <br />
+                    <br/>
                     {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
                       <label key={index} className='TextColor'>
                       #{gpt}
                       </label>
                     ))}
-                    <br />
+                    <br/>
                     {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
                       <label key={index} className='TextColor'>
                       #{gpt}
                       </label>
-                    ))}
+                    ))}</div>
                   </div>
                 ))
               }
-          </StyledSlider>  
+          </MainStyledSlider>  
         </MainSliderContainer>
         
         <PageTitle>장르별 추천</PageTitle>
         <MainSliderContainer>
-          <StyledSlider {...settings}>
+          <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
           {VODs2&&VODs2.map((image,index) => (
             <div>
@@ -176,7 +176,7 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>
-              </ImgLabel>  
+              </ImgLabel>  <div className="Tagbox">
                 {image.mood&&image.mood.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -195,24 +195,24 @@ export default function Main() {
                   <label key={index} className='TextColor'>
                   #{gpt}
                   </label>
-                ))}
+                ))}</div>
               </div>
             ))
           }
-          </StyledSlider>
+          </MainStyledSlider>
         </MainSliderContainer>
 
         <PageTitle>감독, 배우 추천</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
-          <StyledSlider {...settings}>
+          <MainStyledSlider {...settings}>
           {VODs3&&VODs3.map((image,index) => (
             <div>  
               <ImgLabel key={index}>
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>
-              </ImgLabel>
+              </ImgLabel><div className="Tagbox">
                 {image.mood&&image.mood.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -231,11 +231,11 @@ export default function Main() {
                   <label key={index} className='TextColor'>
                   #{gpt}
                   </label>
-                ))}
+                ))}</div>
               </div>
             ))
           }
-          </StyledSlider>
+          </MainStyledSlider>
         </MainSliderContainer>
         </div>
       </div>
