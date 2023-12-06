@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownGenres.css'
 import { NavLink } from 'react-router-dom';
-import SearchIcon from "@mui/icons-material/Search"
+import MenuIcon from '../assets/hambg_icon.png';
 import { genres } from '../apis/genres/getGenres';
 
 
@@ -51,12 +51,11 @@ export default function DropDownGenres() {
       <button
       className='grdropdownbutton'
       onClick={toggleDropdown}>
-        <SearchIcon className='NavBarSearchIcon' color="white"></SearchIcon>
+        <img src={MenuIcon} className='DropDownHamburg'/>
       </button>
       {isOpen && (
         <div className="grdropdown-content">
-          카테고리 검색
-          <br />{allGenres&&allGenres.map((genre,index)=>(
+          {allGenres&&allGenres.map((genre,index)=>(
             <label key={index}>
               <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>

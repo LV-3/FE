@@ -14,6 +14,7 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
+import { TroubleshootRounded } from '@mui/icons-material';
 
 export default function Mypage() {
   const subsr = localStorage.getItem('subsr');
@@ -109,15 +110,14 @@ export default function Mypage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 7,
+    slidesToScroll: 7,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
   };
 
   return (
-    <>
-    <div className='divbg'>
+    <div className='Mypagebg'>
       {/* <div ><PageTitle>회원정보</PageTitle>
 
       <MypageText>
@@ -133,19 +133,19 @@ export default function Mypage() {
             <ImgLabel>
               <Poster
               src={item.posterurl}
-              alt={index}
+              alt={item.title}
               />
               {/* <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div> */}
               </ImgLabel>
             <figcaption><progress className='ProgressBar' value={item.user_preference} max={100} /></figcaption>
           </NavLink>
         </figure>
-    )))}
-    </StyledSlider>
-    :(
-      <MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>
-    )}
-          </SliderContainer>
+        )))}
+        </StyledSlider>
+        :(
+          <MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>
+        )}
+      </SliderContainer>
 
       
       <PageTitle>찜 목록</PageTitle>
@@ -158,20 +158,20 @@ export default function Mypage() {
           <ImgLabel>
             <Poster 
               src={item.posterurl}
-              alt={index}
+              alt={item.title}
             />
           </ImgLabel>
           <figcaption>{item.title}</figcaption>
         </NavLink>
       </figure>
-    )))} 
-    </StyledSlider>
-    : (
-      <MypageText>찜 내역이 존재하지 않습니다.</MypageText>
-    )}
+        )))} 
+        </StyledSlider>
+        : (
+          <MypageText>찜 내역이 존재하지 않습니다.</MypageText>
+        )}
      </SliderContainer>
 
-      <div>
+      <div className="RatingContainer">
       <PageTitle>리뷰 목록</PageTitle> 
         { isRated ? 
           <div>
@@ -180,9 +180,9 @@ export default function Mypage() {
                 <NavLink to={"/detail/"+item.content_id} className="LinkText">
                   <label className='RatingImgContainer'>
                     <img
-                      className="RatingImg" 
+                      className="RatingImg"
                       src={item.posterurl}
-                      alt={index}
+                      alt={item.title}
                       />
                   </label>
                 </NavLink>
@@ -217,7 +217,7 @@ export default function Mypage() {
           <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
         )}
       </div>
-    </div></>
+    </div>
   )
 
 }

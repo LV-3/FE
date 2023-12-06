@@ -3,8 +3,8 @@ import '../css/Navbar.css';
 import { Link } from 'react-router-dom';
 import DropDownSubsr from '../components/DropDownSubsr';
 import DropDownGenres from '../components/DropDownGenres';
-//import logo from "../assets/logo.png"
-import logo2 from "../assets/logo2.png"
+import logo from "../assets/logo2.png"
+
 
 export default function Navbar() {
 
@@ -12,7 +12,7 @@ export default function Navbar() {
     <div className='NavBar'>
         <div className='LinkContainer'>
           <Link to='/main' className='NavbarLink'>
-              <img src={logo2} className='Logo2'></img>
+              <img src={logo} className='Logo'></img>
           </Link>
         </div>
         

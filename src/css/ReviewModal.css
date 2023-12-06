@@ -1,0 +1,20 @@
+.ModalCloseButton{
+    display: block;
+    margin: 0 auto;
+    float: right;
+}
+
+.ModalSubmitButton{
+    display: block;
+    margin: 1% auto;
+    float: right;
+}
+
+.ModalTextArea{
+    width: 490px; 
+    height:150px;
+    border: 1px solid; 
+    text-align:justify;
+    font-size: 18px;
+}
+

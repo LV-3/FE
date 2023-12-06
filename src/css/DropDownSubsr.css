@@ -77,7 +77,9 @@
 .DropDownMenu{
   flex-direction: column;
   display: block;
-  margin-top: 30%;
+  font-size: 18px;
+  font-weight: 5px;
+  margin-top: 10%;
 }
   .DropDownMenu p {
     display: block;
@@ -87,14 +89,22 @@
 .DropDownHello{
   margin-top: 10%;
   color: white;
+  font-size: 18px;
 }
 
 .UserContainer{
-  width: 35px;
-  height: 35px;
+  margin-top: 30%;
+  margin-left: -10%;
+  width: 45px;
+  height: 45px;
   border: 1px solid #d4d4d4;
   border-radius: 50%;
   background: url('../assets/user.jpg');
   background-size: cover;
+}
+
+.ButtonSet{
+  display: flex;
+  justify-content: flex-end;
 }
 

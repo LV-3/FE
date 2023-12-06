@@ -8,8 +8,8 @@ import moment from "moment/moment";
 import { postrating } from '../apis/detail/postdetailrating';
 import { getratingdata } from '../apis/detail/getdetailrating';
 import { putrating } from '../apis/detail/putdetailrating';
-
-import "../css/Detail.css"
+import '../css/ReviewModal.css';
+import "../css/Detail.css";
 
 export default function ReviewModal() {
     let {content_id}=useParams();
@@ -103,13 +103,12 @@ export default function ReviewModal() {
       
       <Modal
         isOpen={modalIsOpen}
-        
         onRequestClose={closeModal}
         contentLabel="Example Modal"
         style={customStyles}
       >
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{content_id}</h2> */}
-        <button onClick={closeModal}>×</button>
+        <button className='ModalCloseButton' onClick={closeModal}>×</button>
         <div>
         {<Rating
             fillColor="#A50034"
@@ -124,9 +123,9 @@ export default function ReviewModal() {
           value={review}
           onChange={handleChange}
           placeholder='리뷰는 최대 100자까지 작성 가능합니다.'
-          style={{width: '490px', height:'150px', border: '1px solid', tesxtAlign:'justify'}}
+          className='ModalTextArea'
           />
-          <button onClick={clickSubmit}>등록하기</button>
+          <button className='ModalSubmitButton' onClick={clickSubmit}>등록하기</button>
         </form>
       </Modal>
     </>
@@ -136,13 +135,13 @@ export default function ReviewModal() {
 const customStyles = {
     content: {
       width: '500px',
-      height: '500px',
+      height: '220px',
       top: '50%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      flexDirection:"row"
+      flexDirection:"column"
     },
   };

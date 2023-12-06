@@ -1,12 +1,13 @@
 import React from 'react'
-import {Wrapper, Title, Form, Inputs, Input, Button} from "../css/StyledComponents";
+import {Wrapper, Title, Form, Inputs} from "../css/StyledComponents";
 //import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
 import { login } from '../apis/login/getlogin_post';
-import background from "../assets/background.png"
-
+//import background from "../assets/background.png"
+import logo2 from "../assets/logo2.png"
+import playgif from "../assets/video_play-icon.gif"
 
 // 로그인 화면
 
@@ -74,15 +75,20 @@ const Login = () => {
 
 
   return (
-    <div style={{margin: '0', width: '100%', height: '100vh', background:`url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
+    <div className = 'LoginBackground' >
+        <img src={logo2} className='LoginLogo'></img>
+     {/* <div className = 'LoginBackground' style={{background:`url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
+        */}
         <Wrapper>
             <Form>
                 <Inputs>
-                    <Title>로그인하기</Title>
-                    <Input placeholder="셋탑박스 번호" value={subsr} onChange={onChangeId}
+                    <Title>GPT에게 VOD 추천받으러 가기</Title>
+                    {/* <div className='arrow'></div> */}
+                  <img className='playgif'src={playgif}></img>
+                    <input className="LoginInput" placeholder="       셋탑박스 번호 입력" value={subsr} onChange={onChangeId}
                     onKeyDown={keyPress} />
                     {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}
-                    <Button onClick={onClick} disabled={button}><strong>로그인</strong></Button>
+                    <button className="LoginButton" onClick={onClick} disabled={button}><strong>셋탑박스 인증</strong></button>
                 </Inputs>
             </Form>
             {/* 주석 처리 <CustomLink to='/signup'>회원가입하기</CustomLink> */}

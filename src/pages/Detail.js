@@ -15,6 +15,8 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster} from '../css/StyledComponents';
 
+
+
 export default function Detail() {
     
     //url 파라미터("localhost:3000/detail/" 뒤에 붙는 상세 페이지 파라미터)를 content_id 변수로 저장
@@ -123,28 +125,29 @@ export default function Detail() {
     }, []);
 
     return (
-    <div className='divbg'>
+    <div className='Detaildivbg'>
         <div className="VodDataContainer">
           <ImgLabel>
-            <Poster src={vodData?.posterurl} alt=""/>
+            <Poster src={vodData?.posterurl} alt={vodData?.title}/>
           </ImgLabel>
           <div className='VodData'>
             <div className="TitleContainer">
               <h1 className="VodTitle">{vodData?.title}</h1>
-              <Button
+                 <Button
                   className="WishButton"
                   onClick={()=>{
                     handleWishButton();
                     postWish();}}>
                   {wish? <HeartFilled style={{color:"red", fontSize: '30px'}}/>:<HeartOutlined style={{fontSize: '30px'}}/>}
-              </Button>
+              </Button><br/>
             </div>
-            <p className='VodInfo1'>{vodData?.release_year}·{vodData?.category}·{vodData?.genre}·{vodData?.country}</p>
-            <p>{vodData?.disp_rtm}·{vodData?.grade}</p>
-            <div>감독 : {vodData?.director}</div>
-            <div>출연진 : {vodData?.actors}</div>
-            <div>줄거리 : {vodData?.description}</div>
-            <br />
+            <div className='Vodtextbox'>
+            <p className='VodInfo1'><b>카테고리</b>&nbsp;&nbsp;{vodData.release_year?.release_year}{vodData?.category}·{vodData?.genre}·{vodData?.country}</p>
+            <p><b>재생시간</b> &nbsp;&nbsp;{vodData?.disp_rtm}</p>
+            {/* <div><b>감독</b> &nbsp;&nbsp;{vodData?.director}</div> */}
+            <div><b>출연진</b> &nbsp;&nbsp;{vodData?.actors}</div>
+            <div><b>줄거리</b> &nbsp;&nbsp;<div className='Vodsumrybox'>{vodData?.description}</div></div>
+            </div>
             
           </div>
         </div>

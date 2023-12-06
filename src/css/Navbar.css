@@ -15,11 +15,6 @@
     justify-content: flex-start;
 }
 
-.NavBarSearchIcon {
-    text-decoration: none;
-    width: 20px;
-
-}
 
 .LinkContainer{
     margin-left:3%;
@@ -31,14 +26,7 @@
 }
 
 .Logo{
-   height: 75px;
-   position: absolute;
-   top: 5px;
-   left:0px;
-}
-
-.Logo2{
-    height: 75px;
+    height: 90px;
     position: absolute;
     top: 10px;
     left:0px;

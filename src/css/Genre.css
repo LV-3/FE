@@ -1,0 +1,19 @@
+.GenreBackground{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.GenreVodContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.GenreLabel{
+    margin: 2% 2%;
+}

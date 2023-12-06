@@ -11,20 +11,22 @@
   }
   
   .grdropdown-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     position: absolute;
-    left: -120px;
+    left: -560px;
     background-color: #28292a;
-    width: 180px;
-    height: 250px;
+    width: 600px;
+    height: 500px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
     text-align: center;
     border-radius: 3px;
+    opacity: 0.9;
   }
   
   .grdropdown-content p {
-    padding: 12px 16px;
+    padding: 16px;
     text-decoration: none;
     display: block;
     color:#D4D4D4;
@@ -72,6 +74,11 @@
 
 .DropDownNav{
   text-decoration: none;
+}
+.DropDownHamburg{
+  margin-top: 40%;
+  margin-left: 40%;
+  width: 45px;
 }
 
 
