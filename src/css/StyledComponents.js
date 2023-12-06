@@ -79,6 +79,7 @@ export const Poster = styled.img`
     display: flex;
     alignSelf: stretch;
     flex: 1 1 0;
+    border-color: black;
 `
 export const RatingBox = styled.div`
   width: 80%;

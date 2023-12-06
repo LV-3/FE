@@ -25,8 +25,12 @@ export default function Detail() {
     //VOD 데이터
     const [vodData, setVodData] = useState({});
 
-    //rating 데이터
-    const [ratingData, setRatingData] = useState([]);
+    //my rating 데이터
+    const [ratingData, setRatingData] = useState();
+
+    //all rating 데이터
+    const [allRatingData, setAllRatingData] = useState();
+
 
     //찜하기
     //const [count,setCount]=useState(0);
@@ -100,9 +104,16 @@ export default function Detail() {
       const getRatingData = async () => {
         try {
           const response = await getratingdata(content_id);
-          if (response.data) {
-            setRatingData(response.data);
-            console.log(response)
+          console.log("ratingData",response)
+          console.log("ratingData",ratingData)
+          const found = response.data.filter((item) => item.subsr === subsr);
+          const allfound = response.data.filter((item) => item.subsr !== subsr);
+
+          if (found.length > 0) {
+            setRatingData(found);
+          } 
+          if (allfound.length > 0) {
+            setAllRatingData(allfound);
           } 
         } catch (error) {   
           console.log("error", error);
@@ -138,9 +149,7 @@ export default function Detail() {
           </div>
         </div>
         
-        
-            
-        <div>
+       {ratingData?<div>
           <PageTitle>나의 리뷰</PageTitle>
             {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(
@@ -162,12 +171,12 @@ export default function Detail() {
                 </div>
               )))
             }
-            
-        </div>
-        <div>
+          </div>:<><PageTitle>나의 리뷰</PageTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
+          <><br/><br/></>
+        {allRatingData?<div>
           <PageTitle>모든 리뷰</PageTitle>
             {
-              (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr !== subsr).map((item, index)=>(
+              (allRatingData&&allRatingData.filter((allRatingData)=>allRatingData.subsr !== subsr).map((item, index)=>(
                 <div key={index} className="ReviewBox">
                   ID: {item.subsr}&emsp;
                   <Rating
@@ -182,7 +191,7 @@ export default function Detail() {
               )))
             }
 
-        </div>
+        </div>:<><PageTitle>모든 리뷰</PageTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text></>}
 
     </div>
     )

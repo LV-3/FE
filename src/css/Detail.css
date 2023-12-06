@@ -2,6 +2,8 @@
     background-color: black;
     position: absolute;
     display: block;
+    height: 100vh;
+    width: 100vw;
 }
 
 .VodDataContainer{
@@ -39,6 +41,7 @@
 
 .WishButton{
     display: inline-flex;
+    color: white;
 }
 
 .ModalButton{
@@ -58,4 +61,8 @@
     margin-bottom: 4%;
     border-bottom: 2px solid white;
     color:white;
+}
+
+.firstReviewButton{
+    margin-left:-10%;
 }
