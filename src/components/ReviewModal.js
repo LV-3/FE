@@ -9,15 +9,19 @@ import { postrating } from '../apis/detail/postdetailrating';
 import { getratingdata } from '../apis/detail/getdetailrating';
 import { putrating } from '../apis/detail/putdetailrating';
 
+import "../css/Detail.css"
+
 export default function ReviewModal() {
     let {content_id}=useParams();
     const subsr= localStorage.getItem('subsr');
 
     //review get 요청 useState
     const [review, setReview] = useState();
+
     //rating get 요청 useState
     const [rating, setRating] = useState();
     const [isRated, setIsRated] = useState(false);
+    
     //rating_date 설정 useState
     const [ratingDate, setRatingDate] = useState();
   
@@ -91,8 +95,8 @@ export default function ReviewModal() {
 
 
   return (
-    <div>
-      <button 
+    <>
+      <button className='ReviewButton'
         onClick={openModal}>
           {isRated ? "리뷰수정":"리뷰작성"}
       </button>
@@ -125,7 +129,7 @@ export default function ReviewModal() {
           <button onClick={clickSubmit}>등록하기</button>
         </form>
       </Modal>
-    </div>
+    </>
   );
 }
 
@@ -139,5 +143,6 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      flexDirection:"row"
     },
   };

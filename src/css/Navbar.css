@@ -3,7 +3,7 @@
 }
 
 .NavBar {
-    height: 70px;
+    height: 100px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -41,7 +41,7 @@
     height: 75px;
     position: absolute;
     top: 10px;
-    left:120px;
+    left:0px;
  }
 
 .SubsrContainer{

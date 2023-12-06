@@ -6,9 +6,10 @@ export const StyledSlider = styled(Slider)`
   width: 90%;
   height: 270px;
   text-align: center;
+  
 
   .slick-list {
-    margin: 0 50px;
+    margin: 0 10px;
     overflow: hidden;
     height: 270px;
     text-align: center;
@@ -68,7 +69,7 @@ export const ImgLabel = styled.label`
     height: 244px; 
     border-radius: 3px; 
     overflow: hidden;
-    border: 1px #d4d4d4 solid;
+    border: 1px black solid;
     flexDirection: column;
     justifyContent: flex-start;
     display: flex;
@@ -96,13 +97,14 @@ export const RatingTitle = styled.div`
   white-space: nowrap;
 `
 export const SliderContainer = styled.div`
-  height: 350px;
+  height: 250px;
   margin: 0 10%;
 `
 export const PageTitle = styled.h3`
     margin-left: 10%;
     margin-top: 3%;
     margin-bottom: 3%;
+    color:white;
 `;
 export const Wrapper = styled.div`
     display: flex;

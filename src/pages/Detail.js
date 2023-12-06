@@ -11,7 +11,7 @@ import { Rating } from 'react-simple-star-rating'
 import { getVodData} from '../apis/detail/getVodData';
 import { getwishdata } from '../apis/detail/getmywish_post';
 import { getratingdata } from '../apis/detail/getdetailrating';
-import DelConfirmAlert from '../components/DelConfirmAlert';
+//import DelConfirmAlert from '../components/__DelConfirmAlert';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster} from '../css/StyledComponents';
 
@@ -112,7 +112,7 @@ export default function Detail() {
     }, []);
 
     return (
-    <div>
+    <div className='divbg'>
         <div className="VodDataContainer">
           <ImgLabel>
             <Poster src={vodData?.posterurl} alt=""/>
@@ -134,7 +134,7 @@ export default function Detail() {
             <div>출연진 : {vodData?.actors}</div>
             <div>줄거리 : {vodData?.description}</div>
             <br />
-            <ReviewModal />
+            
           </div>
         </div>
         
@@ -145,18 +145,20 @@ export default function Detail() {
             {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(
                 <div key={index} className="ReviewBox">
-                  {item.subsr}
+                  {/* {item.subsr} */}
                   <Rating
                     fillColor="#A50034"
                     size="15"
-                    initialValue={item.rating}
+                    initialValue={item.rating} 
                     readonly="true"
-                  />
+                  />&emsp;
                   {item.rating_date}
+                  &emsp;<ReviewModal /><button className='ReviewButton' onClick={deleletereview}>리뷰 삭제</button>
+                  {/* <DelConfirmAlert/>*/}
+                  
                   <br />
                   {item.review}
-                  <DelConfirmAlert/>
-                  <button className='DelReviewButton' onClick={deleletereview}>리뷰 삭제</button>
+                  
                 </div>
               )))
             }
@@ -167,14 +169,14 @@ export default function Detail() {
             {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr !== subsr).map((item, index)=>(
                 <div key={index} className="ReviewBox">
-                  {item.subsr}
+                  ID: {item.subsr}&emsp;
                   <Rating
                     fillColor="#A50034"
                     size="15"
                     initialValue={item.rating}
                     readonly="true"
-                  />
-                  {item.rating_date}
+                  />&emsp;
+                  {item.rating_date}<br />
                   {item.review}
                 </div>
               )))

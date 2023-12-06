@@ -116,32 +116,30 @@ export default function Mypage() {
   };
 
   return (
-    <div className="Mypage">
-      <div>
-      <PageTitle>회원정보</PageTitle>
+    <>
+    <div className='divbg'>
+      {/* <div ><PageTitle>회원정보</PageTitle>
 
       <MypageText>
         셋탑박스 번호 : {subsr}
-      </MypageText>
-      </div>
- 
+      </MypageText> </div>*/}
       <PageTitle>시청중인 컨텐츠</PageTitle>
       <SliderContainer>
         { replayData?
         <StyledSlider {...settings}>
         {(replayData.map((item, index) =>(
-          <div key={index} >
+          <figure key={index} className='fig'>
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
             <ImgLabel>
               <Poster
               src={item.posterurl}
               alt={index}
               />
-              <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div>
-            </ImgLabel>
-            {/* <figcaption><progress className='ProgressBar' value={item.user_preference} max={100} /></figcaption> */}
+              {/* <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div> */}
+              </ImgLabel>
+            <figcaption><progress className='ProgressBar' value={item.user_preference} max={100} /></figcaption>
           </NavLink>
-        </div>
+        </figure>
     )))}
     </StyledSlider>
     :(
@@ -219,7 +217,7 @@ export default function Mypage() {
           <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
         )}
       </div>
-    </div>
+    </div></>
   )
 
 }
