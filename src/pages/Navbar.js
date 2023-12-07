@@ -12,7 +12,7 @@ export default function Navbar() {
     <div className='NavBar'>
         <div className='LinkContainer'>
           <Link to='/main' className='NavbarLink'>
-              <img src={logo} className='Logo'></img>
+              <img src={logo} className='Logo' alt='logo' />
           </Link>
         </div>
         

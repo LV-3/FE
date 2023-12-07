@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import Modal from 'react-modal';
 import { Rating } from 'react-simple-star-rating'
-
 import { useParams } from 'react-router-dom';
 import moment from "moment/moment";
-
 import { postrating } from '../apis/detail/postdetailrating';
 import { getratingdata } from '../apis/detail/getdetailrating';
 import { putrating } from '../apis/detail/putdetailrating';
 import '../css/ReviewModal.css';
 import "../css/Detail.css";
+import pencil from '../assets/pencil_icon.png'
 
 export default function ReviewModal() {
     let {content_id}=useParams();
@@ -99,6 +98,7 @@ export default function ReviewModal() {
       <button className='ReviewButton'
         onClick={openModal}>
           {isRated ? "리뷰수정":"리뷰작성"}
+          {/* <img src={pencil} alt='pencil' className='PencilIcon' /> */}
       </button>
       
       <Modal

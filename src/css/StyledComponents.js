@@ -68,12 +68,13 @@ export const StyledSlider = styled(Slider)`
 export const SliderContainer = styled.div`
   height: 250px;
   margin: 0 10%;
+  margin-bottom: 5%;
 `;
 
 export const MainSliderContainer = styled.div`
   height: 300px;
   margin: 0 10%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   margin-top: -2%;
 `;
 
@@ -150,7 +151,7 @@ export const RatingTitle = styled.div`
 
 export const PageTitle = styled.p`
     margin-left: 5%;
-    margin-top: 0%;
+    margin-top: 2%;
     margin-bottom: 3%;
     color:white;
     font-weight: bold;

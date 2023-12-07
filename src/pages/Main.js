@@ -11,7 +11,7 @@ import { allVods } from '../apis/main/getmain_post';
 import { VOD_model1 } from '../apis/main/getreload1_post';
 import { VOD_model2 } from '../apis/main/getreload2_post';
 import { VOD_model3 } from '../apis/main/getreload3_post';
-import { MainStyledSlider,StyledSlider, Div, DivPre, ImgLabel, Poster, MypageText, 
+import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
   MainSliderContainer, PageTitle} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -130,7 +130,7 @@ export default function Main() {
       <div>
         {loading ? <Loading /> :null}
         <div>
-        <PageTitle>인기작</PageTitle>
+        <PageTitle>분위기 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -166,7 +166,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>장르별 추천</PageTitle>
+        <PageTitle>장르 기반 추천</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
@@ -202,7 +202,7 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
 
-        <PageTitle>감독, 배우 추천</PageTitle>
+        <PageTitle>줄거리 기반 추천</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
