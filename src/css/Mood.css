@@ -1,0 +1,20 @@
+.MoodBackground{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.MoodVodContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.MoodLabel{
+    margin: 2% 2%;
+}
+

@@ -18,3 +18,19 @@
     font-size: 18px;
 }
 
+.ReviewButton{
+    color:white;
+    background-color: #a50034;
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100px;
+    height: 30px;
+    font-weight: 500;
+}
+
+/* .PencilIcon{
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    margin-right: -10%;
+} */

@@ -14,7 +14,6 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
-import { TroubleshootRounded } from '@mui/icons-material';
 
 export default function Mypage() {
   const subsr = localStorage.getItem('subsr');
