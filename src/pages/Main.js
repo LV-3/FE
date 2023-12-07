@@ -51,40 +51,40 @@ export default function Main() {
     getAllVODs();
   },[]);
 
-  //모델 1 새로고침 결과
-  const getVOD1 = async () => {
-    try {
-      const result = await VOD_model1(subsr);
-      setVODs1(result.data);
-      console.log(result)
-    }catch(error){
-      console.log(error);
-    }
+  // //모델 1 새로고침 결과
+  // const getVOD1 = async () => {
+  //   try {
+  //     const result = await VOD_model1(subsr);
+  //     setVODs1(result.data);
+  //     console.log(result)
+  //   }catch(error){
+  //     console.log(error);
+  //   }
     
-  };
+  // };
 
-  //모델 2 새로고침 결과
-    const getVOD2 = async () => {
-      try{
-        const result = await VOD_model2(subsr);
-        setVODs2(result.data);
-        console.log(result)
-      }catch(error){
-        console.log(error);
-      }
+  // //모델 2 새로고침 결과
+  //   const getVOD2 = async () => {
+  //     try{
+  //       const result = await VOD_model2(subsr);
+  //       setVODs2(result.data);
+  //       console.log(result)
+  //     }catch(error){
+  //       console.log(error);
+  //     }
       
-    };
+  //   };
 
-  //모델 3 새로고침 결과
-    const getVOD3 = async () => {
-      try{
-        const result = await VOD_model3(subsr);
-        setVODs3(result.data)
-        console.log(result)
-      }catch(error){
-        console.log(error);
-      }
-    };
+  // //모델 3 새로고침 결과
+  //   const getVOD3 = async () => {
+  //     try{
+  //       const result = await VOD_model3(subsr);
+  //       setVODs3(result.data)
+  //       console.log(result)
+  //     }catch(error){
+  //       console.log(error);
+  //     }
+  //   };
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
