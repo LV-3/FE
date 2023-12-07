@@ -1,8 +1,9 @@
 import React,{useEffect, useState} from 'react'
-
 import { useParams } from 'react-router-dom';
 import { moodList } from '../apis/main/getmood';
 import { NavLink } from 'react-router-dom';
+import { ImgLabel, PageTitle, Poster } from '../css/StyledComponents';
+import '../css/Mood.css';
 
 export default function Moodpage() {
     
@@ -23,14 +24,17 @@ export default function Moodpage() {
 
 
     return (
-        <div>
-        <h3>{mood} VOD 목록 </h3>
-         {moodVods&&moodVods.map((image, index) => (
-            <label key={index}>
-              <NavLink to={"/detail/"+image.content_id}>
-              <img src={image.posterurl} alt={image.alt}/>
-              </NavLink></label>))}
-              </div> 
+        <div className='MoodBackground'>
+            <PageTitle>#{mood} 느낌의 VOD</PageTitle>
+            <div className='MoodVodContainer'>
+            {moodVods&&moodVods.map((image, index) => (
+                <ImgLabel key={index} className='MoodLabel'>
+                    <NavLink to={"/detail/"+image.content_id}>
+                        <Poster src={image.posterurl} alt={image.title}/>
+                    </NavLink>
+                </ImgLabel>))}
+            </div>
+        </div> 
     );
 
 }
