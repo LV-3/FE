@@ -5,7 +5,7 @@ import ReviewModal from '../components/ReviewModal';
 
 //상세페이지 동적 url 라우팅 위한 useParams 
 import { useParams } from 'react-router-dom';
-import { styled } from 'styled-components';
+
 import { postwish } from '../apis/detail/postdetailwish';
 import { Rating } from 'react-simple-star-rating'
 import { getVodData} from '../apis/detail/getVodData';
@@ -98,7 +98,7 @@ export default function Detail() {
 
     const deleletereview=async()=>{
       await delReview(subsr,content_id);
-      window.location.reload();
+      window.location.reload(true);
     }
 
     //rating get요청

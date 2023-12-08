@@ -7,4 +7,3 @@ export const delReview = async(subsr,content_id) => {
     return result;
 }
 
-//{ //("http://localhost:30/ratings", { 
