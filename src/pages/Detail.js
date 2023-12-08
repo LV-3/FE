@@ -165,9 +165,7 @@ export default function Detail() {
                   />&emsp;
                   {item.rating_date}
                   &emsp;<ReviewModal /><button className='ReviewButton' 
-                  onClick={()=>{
-                    deleletereview();
-                    window.location.reload();}}>리뷰 삭제</button>
+                  onClick={deleletereview}>리뷰 삭제</button>
                   {/* <DelConfirmAlert/>*/}
                   
                   <br />
