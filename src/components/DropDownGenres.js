@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownGenres.css'
 import { NavLink } from 'react-router-dom';
-import MenuIcon from '../assets/hambg_icon.png';
+//import MenuIcon from '../assets/hambg_icon.png';
 import { genres } from '../apis/genres/getGenres';
 
 
@@ -51,7 +51,8 @@ export default function DropDownGenres() {
       <button
       className='grdropdownbutton'
       onClick={toggleDropdown}>
-        <img src={MenuIcon} className='DropDownHamburg'/>
+        {/* <img src={MenuIcon} className='DropDownHamburg'/> */}
+        영화
       </button>
       {isOpen && (
         <div className="grdropdown-content">
