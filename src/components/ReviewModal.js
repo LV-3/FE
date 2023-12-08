@@ -8,7 +8,6 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { putrating } from '../apis/detail/putdetailrating';
 import '../css/ReviewModal.css';
 import "../css/Detail.css";
-import pencil from '../assets/pencil_icon.png'
 
 export default function ReviewModal() {
     let {content_id}=useParams();
