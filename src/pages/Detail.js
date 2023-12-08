@@ -98,7 +98,7 @@ export default function Detail() {
 
     const deleletereview=async()=>{
       await delReview(subsr,content_id);
-      window.location.reload(true);
+      location.reload();
     }
 
     //rating get요청
