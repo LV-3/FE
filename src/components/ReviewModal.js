@@ -86,8 +86,10 @@ export default function ReviewModal() {
       }else{
         if (isRated){
           await putrating(content_id, subsr, rating, review, rating_date);
+          window.location.reload(true);
         } else {
           await postrating(content_id, subsr, rating, review, rating_date);
+          window.location.reload(true);
         }
       }
     }

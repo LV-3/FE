@@ -8,9 +8,9 @@ import { Loading } from '../components/Loading';
 //처음 추천 결과 요청
 import { allVods } from '../apis/main/getmain_post';
 //각 모델 새로고침 결과 요청
-import { VOD_model1 } from '../apis/main/getreload1_post';
-import { VOD_model2 } from '../apis/main/getreload2_post';
-import { VOD_model3 } from '../apis/main/getreload3_post';
+// import { VOD_model1 } from '../apis/main/getreload1_post';
+// import { VOD_model2 } from '../apis/main/getreload2_post';
+// import { VOD_model3 } from '../apis/main/getreload3_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
   MainSliderContainer, PageTitle} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
