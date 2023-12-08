@@ -98,7 +98,7 @@ export default function Detail() {
 
     const deleletereview=async()=>{
       await delReview(subsr,content_id);
-      location.reload();
+      window.location.reload();
     }
 
     //rating get요청
@@ -164,7 +164,10 @@ export default function Detail() {
                     readonly="true"
                   />&emsp;
                   {item.rating_date}
-                  &emsp;<ReviewModal /><button className='ReviewButton' onClick={deleletereview}>리뷰 삭제</button>
+                  &emsp;<ReviewModal /><button className='ReviewButton' 
+                  onClick={()=>{
+                    deleletereview();
+                    window.location.reload();}}>리뷰 삭제</button>
                   {/* <DelConfirmAlert/>*/}
                   
                   <br />
