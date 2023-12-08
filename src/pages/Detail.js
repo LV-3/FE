@@ -31,7 +31,7 @@ export default function Detail() {
     const [ratingData, setRatingData] = useState();
 
     //all rating 데이터
-    const [allRatingData, setAllRatingData] = useState();
+    const [allRatingData, setAllRatingData] = useState([]);
 
 
     //찜하기
@@ -112,7 +112,7 @@ export default function Detail() {
           const allfound = response.data.filter((item) => item.subsr !== subsr);
 
           if (found.length > 0) {
-            setRatingData(found);
+            setRatingData(found[0]);
           } 
           if (allfound.length > 0) {
             setAllRatingData(allfound);
@@ -153,30 +153,30 @@ export default function Detail() {
         
        {ratingData?<div>
           <PageTitle>나의 리뷰</PageTitle>
-            {
-              (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(
-                <div key={index} className="ReviewBox">
+            {/*{
+              (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(*/}
+                <div className="ReviewBox">
                   {/* {item.subsr} */}
                   <Rating
                     fillColor="#A50034"
                     size="15"
-                    initialValue={item.rating} 
+                    initialValue={ratingData.rating} 
                     readonly="true"
                   />&emsp;
-                  {item.rating_date}
+                  {ratingData.rating_date}
                   &emsp;<ReviewModal /><button className='ReviewButton' 
                   onClick={deleletereview}>리뷰 삭제</button>
                   {/* <DelConfirmAlert/>*/}
                   
                   <br />
-                  {item.review}
+                  {ratingData.review}
                   
                 </div>
               )))
-            }
+            {/* } */}
           </div>:<><PageTitle>나의 리뷰</PageTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
           <><br/><br/></>
-        {allRatingData?<div>
+        {allRatingData.length>0?<div>
           <PageTitle>모든 리뷰</PageTitle>
             {
               (allRatingData&&allRatingData.filter((allRatingData)=>allRatingData.subsr !== subsr).map((item, index)=>(
