@@ -8,7 +8,6 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { putrating } from '../apis/detail/putdetailrating';
 import '../css/ReviewModal.css';
 import "../css/Detail.css";
-import pencil from '../assets/pencil_icon.png'
 
 export default function ReviewModal() {
     let {content_id}=useParams();
@@ -86,10 +85,10 @@ export default function ReviewModal() {
       }else{
         if (isRated){
           await putrating(content_id, subsr, rating, review, rating_date);
-          window.location.reload(true);
+          location.reload();
         } else {
           await postrating(content_id, subsr, rating, review, rating_date);
-          window.location.reload(true);
+          location.reload();
         }
       }
     }
