@@ -20,15 +20,15 @@ jobs:
       - name: node 버전 설정
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 21.3.0
 
-      - name: 캐싱 작업
-        uses: actions/cache@v2
-        with:
-          path: cache
-          key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-yarn-
+      # - name: 캐싱 작업
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: cache
+      #     key: ${{ runner.OS }}-yarn-${{ hashFiles('**/yarn-lock') }}
+      #     restore-keys: |
+      #       ${{ runner.OS }}-yarn-
 
       - name: yarn 설치
         run: npm install -g yarn
@@ -47,11 +47,11 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{secrets.ACCESS_KEY}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.SECRET_KEY}}
       
-      - name: CloudFront 캐시 무력화 설정
-        uses: chetan/invalidate-cloudfront-action@v2
-        env:
-          DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_ID }}
-          PATHS: "/*"
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+      # - name: CloudFront 캐시 무력화 설정
+      #   uses: chetan/invalidate-cloudfront-action@v2
+      #   env:
+      #     DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_ID }}
+      #     PATHS: "/*"
+      #     AWS_REGION: ${{ secrets.AWS_REGION }}
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
