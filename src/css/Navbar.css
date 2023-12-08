@@ -66,4 +66,13 @@
     };
 }
 
+.DropDownTv{
+    display: flex;
+    margin-right: 5%;
+}
+
+.DropDownKids{
+    display: flex;
+    margin-right: 5%;
+}
 
