@@ -47,3 +47,23 @@
     margin-right: 5%;
 }
 
+.SearchInput{
+    width: 400px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 30%;
+    margin-top: 1.5%;
+    font-size: 18px;
+    font-weight: 500;
+    &::placeholder {
+        color: #d4d4d4;
+        font-size: 18px;
+        font-weight: 550;
+        border: none;
+    };
+}
+
+
