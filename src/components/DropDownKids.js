@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownGenres.css'
 import { NavLink } from 'react-router-dom';
-import MenuIcon from '../assets/hambg_icon.png';
 import { genres } from '../apis/genres/getGenres';
 
 
