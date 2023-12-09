@@ -7,3 +7,6 @@ export const delReview = async(subsr,content_id) => {
     return result;
 }
 
+// https://d225nwg9l5o274.cloudfront.net
+// http://lv3-loadbalancer-918926550.ap-northeast-2.elb.amazonaws.com
+// http://localhost:30
