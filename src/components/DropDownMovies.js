@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownGenres.css'
+import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
 //import MenuIcon from '../assets/hambg_icon.png';
 import { genres } from '../apis/genres/getGenres';
 
 
-export default function DropDownGenres() {
+export default function DropDownMovies() {
     const [isOpen, setIsOpen] = useState(false);
     const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
@@ -52,7 +52,7 @@ export default function DropDownGenres() {
       className='grdropdownbutton'
       onClick={toggleDropdown}>
         {/* <img src={MenuIcon} className='DropDownHamburg'/> */}
-        영화
+        <h2>영화</h2>
       </button>
       {isOpen && (
         <div className="grdropdown-content">

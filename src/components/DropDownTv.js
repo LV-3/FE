@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownGenres.css'
+import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
 import { genres } from '../apis/genres/getGenres';
 

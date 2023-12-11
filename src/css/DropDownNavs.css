@@ -6,8 +6,12 @@
 }
 
 .grdropdown {
-    position: relative;
+    position: absolute;
     display: inline-block;
+    width: 50px;
+    left: 25%;
+    top: 50%;
+
   }
   
   .grdropdown-content {
@@ -15,12 +19,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     position: absolute;
-    left: -1000px;
     background-color: #28292a;
     top:120%;
-    left:-1650%;
+    left:-50%;
     width: 1000px;
-    height: 320px;
+    height: 400px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     text-align: center;
     border-radius: 3px;
@@ -80,8 +83,8 @@
 }
 .DropDownHamburg{
   margin-top: 50%;
-  margin-left: 0%;
-  width: 45px;
+  margin-left: 50%;
+  width: 120px;
 }
 
 

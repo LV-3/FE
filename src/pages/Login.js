@@ -39,18 +39,35 @@ const Login = () => {
     //토큰 없이 json-server 이용 로그인
     const onClick = async() => {
         //토큰 없이 json-server 이용 로그인
-    await login(subsr)
-        .then((Response)=>{
-            if (Response.data){ // && Response.data=== subsr 
-                console.log(Response.data)
-                localStorage.setItem('subsr', Response.data);
-                navigate("/main");
+        try{
+            const response = await login(subsr)
+                if (response.data===Number(subsr)&&response.status===200){
+                    
+                    localStorage.setItem('subsr', response.data);
+                    console.log("getlogin_post: ",response)
+                    navigate("/main");
+
+                }else{
+                    console.log("getlogin_post: ",response)
+                    alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.');
+                };
+        }catch(error){
+            //에러 코드 잡기
+            console.log("getlogin_post error: ",error);
+
+            //에러 처리
+            if (Object.keys(error).includes("response")){
+                if (error.response.request.status===401){
+                    alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.\n에러코드 :'+error.response.request.status);
+                }
+                else{
+                    alert('예상치 못한 에러입니다!\n에러코드: '+error.response.request.status);
+                }
             }else{
-                alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.');
+                navigate("/noResponse");
             }
-        }
-            );
-    };
+        }}
+            
 
     const keyPress=e=>{
         if (e.key==='Enter'){
@@ -96,6 +113,7 @@ const Login = () => {
     </div>
   )
 }
+
 
 export default Login;
 
