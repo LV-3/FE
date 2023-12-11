@@ -56,10 +56,15 @@ const Login = () => {
             console.log("getlogin_post error: ",error);
 
             //에러 처리
-            if (error.response.status===400){
-                alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.');
+            if (Object.keys(error).includes("response")){
+                if (error.response.request.status===401){
+                    alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.\n에러코드 :'+error.response.request.status);
+                }
+                else{
+                    alert('예상치 못한 에러입니다!\n에러코드: '+error.response.request.status);
+                }
             }else{
-                alert('예상치 못한 에러입니다!\n에러코드:',error.response.status);
+                navigate("/noResponse");
             }
         }}
             
