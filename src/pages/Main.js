@@ -5,12 +5,8 @@ import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
 import { Loading } from '../components/Loading';
 
-//처음 추천 결과 요청
+//추천 결과 요청
 import { allVods } from '../apis/main/getmain_post';
-//각 모델 새로고침 결과 요청
-// import { VOD_model1 } from '../apis/main/getreload1_post';
-// import { VOD_model2 } from '../apis/main/getreload2_post';
-// import { VOD_model3 } from '../apis/main/getreload3_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
   MainSliderContainer, PageTitle} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
@@ -50,41 +46,6 @@ export default function Main() {
     };
     getAllVODs();
   },[]);
-
-  // //모델 1 새로고침 결과
-  // const getVOD1 = async () => {
-  //   try {
-  //     const result = await VOD_model1(subsr);
-  //     setVODs1(result.data);
-  //     console.log(result)
-  //   }catch(error){
-  //     console.log(error);
-  //   }
-    
-  // };
-
-  // //모델 2 새로고침 결과
-  //   const getVOD2 = async () => {
-  //     try{
-  //       const result = await VOD_model2(subsr);
-  //       setVODs2(result.data);
-  //       console.log(result)
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-      
-  //   };
-
-  // //모델 3 새로고침 결과
-  //   const getVOD3 = async () => {
-  //     try{
-  //       const result = await VOD_model3(subsr);
-  //       setVODs3(result.data)
-  //       console.log(result)
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-  //   };
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -141,25 +102,14 @@ export default function Main() {
                     <Poster src={image.posterurl} alt={image.title}/>
                     </NavLink>
                   </ImgLabel><div className="Tagbox">
-                    {image.mood&&image.mood.map((mood,index)=>(
+                    {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
                         #{mood}
                       </NavLink>
                       </label>
                     ))}
-                    <br/>
-                    {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
-                      <label key={index} className='TextColor'>
-                      #{gpt}
-                      </label>
-                    ))}
-                    <br/>
-                    {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
-                      <label key={index} className='TextColor'>
-                      #{gpt}
-                      </label>
-                    ))}</div>
+                    </div>
                   </div>
                 ))
               }
@@ -177,25 +127,14 @@ export default function Main() {
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>
               </ImgLabel>  <div className="Tagbox">
-                {image.mood&&image.mood.map(mood=>(
+                {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
                   </NavLink>
                   </label>
                 ))}
-                <br />
-                {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
-                  <label key={index} className='TextColor'>
-                  #{gpt}
-                  </label>
-                ))}
-                <br />
-                {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
-                  <label key={index} className='TextColor'>
-                  #{gpt}
-                  </label>
-                ))}</div>
+                </div>
               </div>
             ))
           }
@@ -213,25 +152,14 @@ export default function Main() {
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>
               </ImgLabel><div className="Tagbox">
-                {image.mood&&image.mood.map(mood=>(
+                {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
                   </NavLink>
                   </label>
                 ))}
-                <br />
-                {image.gpt_genres&&image.gpt_genres.map((gpt,index)=>(
-                  <label key={index} className='TextColor'>
-                    #{gpt}
-                  </label>
-                ))}
-                <br />
-                {image.gpt_subjects&&image.gpt_subjects.map((gpt,index)=>(
-                  <label key={index} className='TextColor'>
-                  #{gpt}
-                  </label>
-                ))}</div>
+                </div>
               </div>
             ))
           }
