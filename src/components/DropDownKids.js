@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownGenres.css'
+import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
 import { genres } from '../apis/genres/getGenres';
 
@@ -50,7 +50,7 @@ export default function DropDownGenres() {
       <button
       className='grdropdownbutton'
       onClick={toggleDropdown}>
-        <h3>키즈</h3>
+        <h2>키즈</h2>
       </button>
       {isOpen && (
         <div className="grdropdown-content">
