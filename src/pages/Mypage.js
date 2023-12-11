@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { Rating } from 'react-simple-star-rating'
@@ -18,60 +19,56 @@ import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, Rat
 export default function Mypage() {
   const subsr = localStorage.getItem('subsr');
 
-  const [isWished, setIsWished] = useState(false);
   const [wishData, setWishData] = useState();
-  
-  const [isRated, setIsRated] = useState(false);
   const [ratingData, setRatingData] = useState();
-  
   const [replayData, setReplayData] = useState();
-  //const [reviewData, setReviewData] = useState();
   
   //replay GET
   useEffect(()=> {
     const getreplay = async () => {
-      const result = await getReplay(subsr);
-      setReplayData(result.data);
+      try{
+        const response = await getReplay(subsr);
+        setReplayData(response.data);
+      }catch(error){
+        console.log("getmypagereplay_post",error)
+        setReplayData(-1);
+    }
     };
     getreplay();
   }, []);
-  
+
+
   //위시 GET
   useEffect(() => {
     const checkWishes = async () => {
       try {
         const response = await getmypagewish(subsr);
         const found = response.data.filter((item) => item.wish === 1);
-        if (found) {
-          setIsWished(true);
-          setWishData(found);
-        } else{
-          setIsWished();
-        }
+        setWishData(found);
       } catch (error) {
-        console.log(error);
+        console.log("getmypagereplay_post",error)
+        setWishData(-1);
       }
     };
     checkWishes();
-  }, [subsr]);
+  }, []);
   
+
   //평점 GET
   useEffect(() => {
     const checkRatings = async () => {
       try {
         const response = await getmypagerating(subsr);
         if (response.data) {
-        setIsRated(true);
         setRatingData(response.data);
-        } else{
-          setIsRated();
-        }
+        } 
       } catch (error) {
-        console.log(error);
+        console.log("getmypagereplay_post",error)
+        setRatingData(-1);
       }
     };
     checkRatings();
-  }, [subsr]);
+  }, []);
 
 
   //arrow를 이렇게 설정하지 않으면 크롬 개발자 도구에서 warning이 뜸
@@ -124,8 +121,11 @@ export default function Mypage() {
       </MypageText> </div>*/}
       <PageTitle>시청중인 컨텐츠</PageTitle>
       <SliderContainer>
-        { replayData?
-        <StyledSlider {...settings}>
+        {replayData?
+
+        (replayData===-1? 
+        <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
+         :<StyledSlider {...settings}>
         {(replayData.map((item, index) =>(
           <figure key={index} className='fig'>
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
@@ -141,15 +141,16 @@ export default function Mypage() {
         </figure>
         )))}
         </StyledSlider>
-        :(
-          <MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>
-        )}
+        ):(<MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>)}
       </SliderContainer>
 
       
       <PageTitle>찜 목록</PageTitle>
       <SliderContainer>
-        { isWished ? 
+        {wishData ? 
+        (wishData===-1? 
+          <MypageText>찜 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
+         :
         <StyledSlider {...settings}>
         {(wishData.map((item, index) => (
           <figure key={index}>
@@ -165,14 +166,17 @@ export default function Mypage() {
       </figure>
         )))} 
         </StyledSlider>
-        : (
+        ): (
           <MypageText>찜 내역이 존재하지 않습니다.</MypageText>
         )}
      </SliderContainer>
 
       <div className="RatingContainer">
       <PageTitle>리뷰 목록</PageTitle> 
-        { isRated ? 
+        { ratingData ? 
+        (ratingData===-1? 
+          <MypageText>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
+           :
           <div>
           {(ratingData.map((item, index) => (
               <RatingBox key={index}>
@@ -212,7 +216,7 @@ export default function Mypage() {
               </RatingBox>
             )))}
           </div> 
-        : (
+        ): (
           <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
         )}
       </div>
