@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import '../css/Navbar.css';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import logo from "../assets/logo2.png"
 import { useState } from 'react';
 import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
+import DropDownEtc from "../components/DropDownEtc"
 import searchIcon from "../assets/search.png"
 
 
@@ -25,11 +27,8 @@ export default function Navbar() {
               <img src={logo} className='Logo' alt='logo' />
           </Link>
         </div>
+
         
-
-          
-
-          {/* <Link to='/search'> */}
            <div className="GenreMenu"> 
             <DropDownMovies/>
             </div>
@@ -40,6 +39,10 @@ export default function Navbar() {
             
           <div className="DropDownKids">  
             <DropDownKids />
+          </div>
+
+          <div className="DropDownEtc">  
+            <DropDownEtc />
           </div>
 
     
