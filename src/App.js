@@ -9,6 +9,7 @@ import Detail from './pages/Detail';
 import Modal from 'react-modal';
 import Mood from './pages/Mood';
 import Genre from './pages/Genre'
+import NoResponse from './errors/NoResponse';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path='/detail/:content_id' element={<><Navbar /><Detail /></>} />
         <Route path='/main/:mood' element={<><Navbar /><Mood /></>} />
         <Route path='/genres/:genre' element={<><Navbar /><Genre /></>} />
+
+        <Route path='/noResponse' element={<><NoResponse /></>} />
       </Routes>
     </BrowserRouter>
   );
