@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
-//import MenuIcon from '../assets/hambg_icon.png';
 import { genres } from '../apis/genres/getGenres';
+// import { getMovies } from '../reducer/MovieReducer';
+// import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function DropDownMovies() {
@@ -10,6 +11,15 @@ export default function DropDownMovies() {
     const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
     
+    // const dispatch = useDispatch();
+
+    // const moviegenre = useSelector(state=>state.MovieGenres.genreData)
+    
+    // useEffect(()=>{
+    //   if(moviegenre === undefined) {
+    //     dispatch(getMovies());
+    //   }
+    // }, [])
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);

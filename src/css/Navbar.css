@@ -33,8 +33,9 @@
  }
 
 .SubsrContainer{
-    display:inline-flex;
-    margin-right: 5%;
+    display:flex;
+    margin-top: 2%;
+    margin-left: 79%;
 }
 
 .Subsr{
@@ -70,7 +71,7 @@
     width:30px;
 }
 
-.GenreMenu{
+.DropDownMovies{
     position: absolute;
     display:flex;
     margin-top: -1%;

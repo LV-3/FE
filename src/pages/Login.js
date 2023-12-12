@@ -93,7 +93,7 @@ const Login = () => {
 
   return (
     <div className = 'LoginBackground' >
-        <img src={logo2} className='LoginLogo'></img>
+        <img src={logo2} className='LoginLogo' alt='logo2'></img>
      {/* <div className = 'LoginBackground' style={{background:`url(${background})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
         */}
         <Wrapper>
@@ -101,7 +101,7 @@ const Login = () => {
                 <Inputs>
                     <Title>GPT에게 VOD 추천받으러 가기</Title>
                     {/* <div className='arrow'></div> */}
-                  <img className='playgif'src={playgif}></img>
+                  <img className='playgif'src={playgif} alt='playgif'></img>
                     <input className="LoginInput" placeholder="       셋탑박스 번호 입력" value={subsr} onChange={onChangeId}
                     onKeyDown={keyPress} />
                     {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}

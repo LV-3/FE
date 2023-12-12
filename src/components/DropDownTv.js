@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
 import { genres } from '../apis/genres/getGenres';
+// import { getTvs } from '../reducer/TvReducer';
+// import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function DropDownGenres() {
@@ -9,6 +11,15 @@ export default function DropDownGenres() {
     const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
     
+    // const dispatch = useDispatch();
+    // const tvgenre = useSelector(state=>state.TvGenres.genreData)
+    
+    // useEffect(()=>{
+    //   if(tvgenre === undefined) {
+    //     dispatch(getTvs());
+    //     console.log('tvgenre', tvgenre);
+    //   }
+    // }, [])
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
