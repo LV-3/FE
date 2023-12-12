@@ -29,7 +29,7 @@ export default function Navbar() {
         </div>
 
         
-           <div className="GenreMenu"> 
+           <div className="DropDownMovies"> 
             <DropDownMovies/>
             </div>
 
