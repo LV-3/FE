@@ -2,24 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
 import { genres } from '../apis/genres/getGenres';
-// import { getMovies } from '../reducer/MovieReducer';
-// import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function DropDownMovies() {
+export default function DropDownGenres() {
     const [isOpen, setIsOpen] = useState(false);
     const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
     
-    // const dispatch = useDispatch();
-
-    // const moviegenre = useSelector(state=>state.MovieGenres.genreData)
-    
-    // useEffect(()=>{
-    //   if(moviegenre === undefined) {
-    //     dispatch(getMovies());
-    //   }
-    // }, [])
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
@@ -61,8 +50,7 @@ export default function DropDownMovies() {
       <button
       className='grdropdownbutton'
       onClick={toggleDropdown}>
-        {/* <img src={MenuIcon} className='DropDownHamburg'/> */}
-        <h2>영화</h2>
+        <h2>기타</h2>
       </button>
       {isOpen && (
         <div className="grdropdown-content">
