@@ -87,6 +87,9 @@
   width: 120px;
 }
 
-
+.KidsEtc{
+  display: flex;
+  white-space: nowrap;
+}
 
 
