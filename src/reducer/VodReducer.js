@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { allVods } from '../apis/main/getmain_post';
 
-
 export const getVODs = createAsyncThunk("GetVods", async (subsr)=>{
     try{
         const result = await allVods(subsr);
@@ -27,7 +26,10 @@ const vodSlice = createSlice({
             .addCase(getVODs.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
                 state.status = false;
-            });
+            })
+            // .addCase(PURGE, (state)=> {
+            //     state.vodData = {};
+            // })
     },
 });
 

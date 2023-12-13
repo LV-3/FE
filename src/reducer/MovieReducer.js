@@ -14,14 +14,19 @@ export const getMovies = createAsyncThunk("GetMovies", async ()=>{
 const movieSlice = createSlice({
     name: "MovieGenres",
     initialState: {
-        genreData: []
+        genreData: [],
+        //status: 'loading'
         // error: '요청에 실패하였습니다.'
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
+            // .addCase(getMovies.pending, (state)=>{
+            //     state.status = 'loading';
+            // })
             .addCase(getMovies.fulfilled, (state, action)=>{
                 state.genreData = action.payload;
+                // state.status = 'complete';
             });
     },
 });

@@ -4,13 +4,15 @@ import '../css/Navbar.css';
 import { Link } from 'react-router-dom';
 import DropDownSubsr from '../components/DropDownSubsr';
 import DropDownMovies from '../components/DropDownMovies';
-import logo from "../assets/logo2.png"
-import { useState } from 'react';
 import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
-import DropDownEtc from "../components/DropDownEtc"
 import searchIcon from "../assets/search.png"
-
+import logo from "../assets/logo2.png"
+import { useState, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getMovies } from '../reducer/MovieReducer';
+// import { getTvs } from '../reducer/TvReducer';
+// import { getKids } from '../reducer/KidsReducer';
 
 export default function Navbar() {
 
@@ -19,6 +21,19 @@ export default function Navbar() {
   const onChange = (e) => {
     setSearchText(e.target.value);
   }
+
+  // const moviegenre = useSelector(state=>state.MovieGenres.genreData)
+  // const status = useSelector(state=>state.MovieGenres.status)
+
+  // const dispatch = useDispatch();
+
+  // useEffect(()=>{
+  //   if(moviegenre===undefined){
+  //     dispatch(getMovies);
+  //     console.log('moviegenre', moviegenre)
+  //     console.log('navbarstatus', status);
+  //   }
+  // }, [])
 
   return (
     <div className='NavBar'>
@@ -41,14 +56,16 @@ export default function Navbar() {
             <DropDownKids />
           </div>
 
-          <div className="DropDownEtc">  
+          {/* <div className="DropDownEtc">  
             <DropDownEtc />
-          </div>
+          </div> */}
 
-    
-          <input className="SearchInput" placeholder='' onChange={onChange} value={searchText}></input>
-          <img src={searchIcon} className='searchIcon'></img>
-
+        <div className='SearchContainer'>
+          <input className="SearchInput" placeholder='VOD, 배우를 검색해보세요.' onChange={onChange} value={searchText}></input>
+          <button className='SearchButton'>
+            <img src={searchIcon} className='searchIcon' alt ='search'/>
+          </button>
+        </div>
 
 
         <div className="SubsrContainer"> 
