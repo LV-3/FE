@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import '../css/Genre.css';
 import { useParams } from 'react-router-dom';
-import { genreList } from '../apis/genres/getGenre';
+import { genreList } from '../apis/genres/__getGenre';
 import { NavLink } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster} from '../css/StyledComponents'
 
@@ -15,7 +15,7 @@ export default function Mood() {
     //각 genre 별 검색 목록 불러오기
     useEffect(()=>{
       try {
-    const getgenreList = async()=>{
+            const getgenreList = async()=>{
             const result =await genreList(genre);    
             setGenreVods(result.data)
             console.log(result)

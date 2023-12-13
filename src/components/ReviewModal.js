@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Modal from 'react-modal';
 import { Rating } from 'react-simple-star-rating'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import moment from "moment/moment";
 import { postrating } from '../apis/detail/postdetailrating';
 import { getratingdata } from '../apis/detail/getdetailrating';
@@ -27,6 +27,7 @@ export default function ReviewModal() {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
+    const navigate = useNavigate();
     //rating get요청
     useEffect(() => {
       const checkRatings = async () => {
@@ -78,17 +79,24 @@ export default function ReviewModal() {
     //   }
     // };
 
-    const clickSubmit = async(e) => {
-      if(rating === 0){
-        alert("평점을 메겨주세요");
-        e.preventDefault();
-      }else{
-        if (isRated){
-          await putrating(content_id, subsr, rating, review, rating_date);
-        } else {
-          await postrating(content_id, subsr, rating, review, rating_date);
+    const clickSubmit = async() => {
+        try{
+          if (isRated){
+            await putrating(content_id, subsr, rating, review, rating_date);
+          } else {
+            await postrating(content_id, subsr, rating, review, rating_date);
+          }
+        }catch(error){
+          if(Object.keys(error).includes("response")){
+            if(error.response.request.status===400){
+              alert('평점과 리뷰를 작성해주세요.\n에러코드 : '+error.response.request.status)
+            }else{
+              alert('예상치 못한 에러입니다!\n에러코드 : '+error.response.request.status)
+            }
+          }else{
+            navigate("/noResponse");
+          }
         }
-      }
     }
 
 

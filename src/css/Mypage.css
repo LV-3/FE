@@ -95,3 +95,12 @@ progress::-webkit-progress-value {
 .RatingContainer{
     margin-bottom: 3%;
 }
+
+.RatingError{
+    margin-left: 18%;
+    margin-bottom: 5%;
+    font-size: 18px;
+    color: white;
+    text-decoration: underline;
+}
+

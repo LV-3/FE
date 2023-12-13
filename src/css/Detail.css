@@ -29,7 +29,7 @@
     width: 900px;
     display: flex;
     flex-direction: column;
-    margin-left: 1%;
+    margin-left: 3%;
 
 }
 
@@ -53,12 +53,14 @@
 .ModalButton{
     margin-left:10%;
     color:white;
+    cursor: pointer;
 }
 
 .ReviewButton{
     margin-left:1%;
     color:black;
     border-color: white;
+    cursor:pointer;
 }
 
 .ReviewBox{
@@ -71,6 +73,7 @@
 
 .firstReviewButton{
     margin-left:-10%;
+    cursor: pointer;
 }
 
 .WishButton{
@@ -87,3 +90,8 @@
     }
 
 }
+
+.AllReviewConatiner{
+    margin-bottom: 5%;
+}
+

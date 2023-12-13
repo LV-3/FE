@@ -10,6 +10,10 @@ import Modal from 'react-modal';
 import Mood from './pages/Mood';
 import Genre from './pages/Genre'
 import NoResponse from './errors/NoResponse';
+import Search from './pages/Search';
+import MovieGenre from './pages/MovieGenre';
+import TvGenre from './pages/TvGenre';
+import KidsGenre from './pages/KidsGenre';
 
 function App() {
   return (
@@ -20,7 +24,10 @@ function App() {
         <Route path='/main' element={<><Navbar /><Main /></>} />
         <Route path='/detail/:content_id' element={<><Navbar /><Detail /></>} />
         <Route path='/main/:mood' element={<><Navbar /><Mood /></>} />
-        <Route path='/genres/:genre' element={<><Navbar /><Genre /></>} />
+        <Route path='/search/:input' element={<><Navbar /><Search /></>} />
+        <Route path='/movie/:genre' element={<><Navbar /><MovieGenre /></>} />
+        <Route path='/tv/:genre' element={<><Navbar /><TvGenre /></>} />
+        <Route path='/kids/:genre' element={<><Navbar /><KidsGenre /></>} />
 
         <Route path='/noResponse' element={<><NoResponse /></>} />
       </Routes>

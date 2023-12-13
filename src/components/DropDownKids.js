@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownNavs.css'
+import '../css/DropDownKids.css'
 import { NavLink } from 'react-router-dom';
 // import { genres } from '../apis/genres/getGenres';
 import { useSelector, useDispatch } from 'react-redux';
@@ -56,17 +56,17 @@ export default function DropDownGenres() {
       setIsOpen(!isOpen);}
 
     return (
-    <div className="grdropdown" ref={dropdownRef}>
+    <div className="kidsdropdown" ref={dropdownRef}>
       <button
-      className='grdropdownbutton'
+      className='kidsdropdownbutton'
       onClick={toggleDropdown}>
         <h2 className='KidsEtc'>키즈/기타</h2>
       </button>
       {isOpen && (
-        <div className="grdropdown-content">
+        <div className="kidsdropdown-content">
           {kidsgenre&&kidsgenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../genres/${genre}`} className="kidsDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}
