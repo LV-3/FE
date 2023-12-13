@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#https 설정을 위한 key
+.cert.pem
+key.pem
