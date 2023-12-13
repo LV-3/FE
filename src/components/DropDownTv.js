@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownNavs.css'
+import '../css/DropDownTv.css'
 import { NavLink } from 'react-router-dom';
 //import { genres } from '../apis/genres/getGenres';
 import { getTvs } from '../reducer/TvReducer';
@@ -17,7 +17,6 @@ export default function DropDownGenres() {
     useEffect(()=>{
       if(!tvgenre.length) {
         dispatch(getTvs());
-        console.log('tvgenre', tvgenre);
       }
     }, [])
 
@@ -57,17 +56,17 @@ export default function DropDownGenres() {
       setIsOpen(!isOpen);}
 
     return (
-    <div className="grdropdown" ref={dropdownRef}>
+    <div className="tvdropdown" ref={dropdownRef}>
       <button
-      className='grdropdownbutton'
+      className='tvdropdownbutton'
       onClick={toggleDropdown}>
         <h2>TV</h2>
       </button>
       {isOpen && (
-        <div className="grdropdown-content">
+        <div className="tvdropdown-content">
           {tvgenre&&tvgenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../genres/${genre}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}

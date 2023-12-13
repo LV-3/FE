@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { genres } from '../apis/genres/getGenres';
+import { getMovie } from '../apis/genres/getMovie';
 
 
 export const getMovies = createAsyncThunk("GetMovies", async ()=>{
     try{
-        const result = await genres();
+        const result = await getMovie();
         return result.data
     } catch (error){
         console.log("get Movies Error:", error);

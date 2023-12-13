@@ -1,0 +1,56 @@
+.kidsdropdownbutton {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    color:white;
+}
+
+.kidsdropdown {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    left: 25%;
+    top: 50%;
+
+  }
+  
+  .kidsdropdown-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: #28292a;
+    top:120%;
+    left:-90%;
+    width: 180px;
+    height: 427px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 3px;
+    opacity: 0.9;
+  }
+  
+  .kidsdropdown-content p {
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    color:#D4D4D4;
+    font-size:20px;
+  }
+  
+  .kidsdropdown-content p:hover {
+    background-color: #393939;
+    cursor: pointer;
+    color: white;
+  }
+
+.kidsDropDownNav{
+  text-decoration: none;
+}
+
+.KidsEtc{
+  display: flex;
+  white-space: nowrap;
+}
+
+

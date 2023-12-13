@@ -1,0 +1,53 @@
+.tvdropdownbutton {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    color:white;
+}
+
+.tvdropdown {
+    position: absolute;
+    display: inline-block;
+    width: 50px;
+    left: 25%;
+    top: 50%;
+  }
+  
+  .tvdropdown-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: #28292a;
+    top:120%;
+    left: -140%;
+    width: 180px;
+    height: 244px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 3px;
+    opacity: 0.9;
+  }
+  
+  .tvdropdown-content p {
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+    color:#D4D4D4;
+    font-size:20px;
+  }
+  
+  .tvdropdown-content p:hover {
+    background-color: #393939;
+    cursor: pointer;
+    color: white;
+  }
+
+  
+
+.tvDropDownNav{
+  text-decoration: none;
+}
+
+
+
