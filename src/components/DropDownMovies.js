@@ -1,39 +1,44 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
-import { genres } from '../apis/genres/getGenres';
-// import { getMovies } from '../reducer/MovieReducer';
-// import { useDispatch, useSelector } from 'react-redux';
+//import { genres } from '../apis/genres/getGenres';
+import { useSelector, useDispatch } from 'react-redux';
+import { getMovies } from '../reducer/MovieReducer';
 
 
 export default function DropDownMovies() {
     const [isOpen, setIsOpen] = useState(false);
-    const [allGenres,setGenres] = useState();
+    //const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
-    
-    // const dispatch = useDispatch();
 
-    // const moviegenre = useSelector(state=>state.MovieGenres.genreData)
+    const moviegenre = useSelector(state=>state.MovieGenres.genreData)
+    // const status = useSelector(state=>state.MovieGenres.status)
     
-    // useEffect(()=>{
-    //   if(moviegenre === undefined) {
-    //     dispatch(getMovies());
-    //   }
-    // }, [])
-
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
 
+    const dispatch = useDispatch();
+
     useEffect(()=>{
-      const getgenres = async () => {
-        const result = await genres();
-        setGenres(result.data);
-        console.log(result)
+      if(!moviegenre.length){
+        dispatch(getMovies());
       }
-      getgenres()
+    }, [])
+
+    //확인용 status
+    // console.log('afterstatus', status);
+
+    // 기존 코드
+    // useEffect(()=>{
+    //   const getgenres = async () => {
+    //     const result = await genres();
+    //     setGenres(result.data);
+    //     console.log(result)
+    //   }
+    //   getgenres()
       
-    },[]);
+    // },[]);
 
   
     const handleClickOutside = (event) => {
@@ -66,7 +71,7 @@ export default function DropDownMovies() {
       </button>
       {isOpen && (
         <div className="grdropdown-content">
-          {allGenres&&allGenres.map((genre,index)=>(
+          {moviegenre&&moviegenre.map((genre,index)=>(
             <label key={index}>
               <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>

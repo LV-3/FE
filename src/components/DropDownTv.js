@@ -1,39 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
-import { genres } from '../apis/genres/getGenres';
-// import { getTvs } from '../reducer/TvReducer';
-// import { useDispatch, useSelector } from 'react-redux';
+//import { genres } from '../apis/genres/getGenres';
+import { getTvs } from '../reducer/TvReducer';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function DropDownGenres() {
     const [isOpen, setIsOpen] = useState(false);
-    const [allGenres,setGenres] = useState();
+    //const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
     
-    // const dispatch = useDispatch();
-    // const tvgenre = useSelector(state=>state.TvGenres.genreData)
+    const dispatch = useDispatch();
+    const tvgenre = useSelector(state=>state.TvGenres.genreData)
     
-    // useEffect(()=>{
-    //   if(tvgenre === undefined) {
-    //     dispatch(getTvs());
-    //     console.log('tvgenre', tvgenre);
-    //   }
-    // }, [])
+    useEffect(()=>{
+      if(!tvgenre.length) {
+        dispatch(getTvs());
+        console.log('tvgenre', tvgenre);
+      }
+    }, [])
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
 
-    useEffect(()=>{
-      const getgenres = async () => {
-        const result = await genres();
-        setGenres(result.data);
-        console.log(result)
-      }
-      getgenres()
+    // useEffect(()=>{
+    //   const getgenres = async () => {
+    //     const result = await genres();
+    //     setGenres(result.data);
+    //     console.log(result)
+    //   }
+    //   getgenres()
       
-    },[]);
+    // },[]);
 
   
     const handleClickOutside = (event) => {
@@ -65,7 +65,7 @@ export default function DropDownGenres() {
       </button>
       {isOpen && (
         <div className="grdropdown-content">
-          {allGenres&&allGenres.map((genre,index)=>(
+          {tvgenre&&tvgenre.map((genre,index)=>(
             <label key={index}>
               <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>

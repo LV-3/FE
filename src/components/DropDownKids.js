@@ -1,28 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownNavs.css'
 import { NavLink } from 'react-router-dom';
-import { genres } from '../apis/genres/getGenres';
+// import { genres } from '../apis/genres/getGenres';
+import { useSelector, useDispatch } from 'react-redux';
+import { getKids } from '../reducer/KidsReducer';
 
 
 export default function DropDownGenres() {
     const [isOpen, setIsOpen] = useState(false);
-    const [allGenres,setGenres] = useState();
+    // const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
-    
+
+    const kidsgenre = useSelector(state=>state.KidsGenres.genreData)
+    const dispatch = useDispatch();
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
 
     useEffect(()=>{
-      const getgenres = async () => {
-        const result = await genres();
-        setGenres(result.data);
-        console.log(result)
+      if(!kidsgenre.length){
+        dispatch(getKids());
       }
-      getgenres()
+    }, [])
+
+    // useEffect(()=>{
+    //   const getgenres = async () => {
+    //     const result = await genres();
+    //     setGenres(result.data);
+    //     console.log(result)
+    //   }
+    //   getgenres()
       
-    },[]);
+    // },[]);
 
   
     const handleClickOutside = (event) => {
@@ -50,11 +60,11 @@ export default function DropDownGenres() {
       <button
       className='grdropdownbutton'
       onClick={toggleDropdown}>
-        <h2>키즈</h2>
+        <h2 className='KidsEtc'>키즈/기타</h2>
       </button>
       {isOpen && (
         <div className="grdropdown-content">
-          {allGenres&&allGenres.map((genre,index)=>(
+          {kidsgenre&&kidsgenre.map((genre,index)=>(
             <label key={index}>
               <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
