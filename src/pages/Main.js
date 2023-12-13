@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {React, useState,useEffect} from 'react' 
+import {React, useState, useEffect} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
@@ -37,21 +37,16 @@ export default function Main() {
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
 
   useEffect(()=> {
-    if(VODs1===undefined) {
+    if(VODs1===undefined || VODs2===undefined || VODs3===undefined) {
       dispatch(getVODs(subsr));
     }
   }, []);
-
-    console.log('status', status);
-    console.log( 'VODs1', VODs1);
-    console.log( 'VODs2', VODs2);
-    console.log( 'VODs3', VODs3);
 
 
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
-  // // 전체 모델 결과
+  // 전체 모델 결과
   // useEffect(()=>{
   //   const getAllVODs = async () => {
       
@@ -63,6 +58,9 @@ export default function Main() {
   //       setVODs3(result.data["personal_data"]);
   //       setLoading(false);
   //       console.log(result)
+  //       console.log(VODs1);
+  //       console.log(VODs2);
+  //       console.log(VODs3);
   //     }catch(error){
   //       console.log(error);
   //     }
@@ -114,13 +112,13 @@ export default function Main() {
       <div>
         {status ? <Loading /> :null}
         <div>
-        <PageTitle> {personal_words} 분위기 기반 추천</PageTitle>
+        <PageTitle> 분위기 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
               {VODs1&&VODs1.map((image,index) => (
-                <div>  
-                  <ImgLabel key={index}> 
+                <div key={index}>  
+                  <ImgLabel> 
                     <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl} alt={image.title}/>
                     </NavLink>
@@ -144,8 +142,8 @@ export default function Main() {
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
           {VODs2&&VODs2.map((image,index) => (
-            <div>
-              <ImgLabel key={index}>
+            <div key={index}>
+              <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>
@@ -169,8 +167,8 @@ export default function Main() {
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
           {VODs3&&VODs3.map((image,index) => (
-            <div>  
-              <ImgLabel key={index}>
+            <div key={index}>  
+              <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl} alt={image.title}/>
                 </NavLink>

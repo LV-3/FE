@@ -32,6 +32,7 @@ export default function DropDownSubsr() {
       };
     }, []);
 
+
     const handleLogout = () => {
         setIsOpen(!isOpen);
         confirmAlert({
@@ -45,7 +46,9 @@ export default function DropDownSubsr() {
                   <button
                     onClick={() => {
                       localStorage.removeItem('subsr', subsr);
-                      navigate("../")
+                      localStorage.removeItem('persist:root');
+                      navigate("../");
+                      window.location.reload();
                       onClose();
                     }}
                   >
@@ -60,6 +63,7 @@ export default function DropDownSubsr() {
       const handleMyPageClick = () => {
         setIsOpen(false);
       };
+
 
     return (
     <div className="dropdown" ref={dropdownRef}>

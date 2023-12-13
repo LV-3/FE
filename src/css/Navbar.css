@@ -34,12 +34,19 @@
 
 .SubsrContainer{
     display:flex;
-    margin-top: 2%;
-    margin-left: 79%;
+    margin-left: 22%;
+    margin-top: -0.5%;
 }
 
 .Subsr{
     font-size : 21px;
+}
+
+.SearchContainer{
+    display:flex;
+    flex-direction: row;
+    margin-left: 60%;
+    margin-top: -1%;
 }
 
 .SearchInput{
@@ -51,24 +58,30 @@
     justify-content: center;
     border: 1px solid black;
     border-bottom: 1px solid white;
-    margin-left: 67%;
-    margin-top: 2%;
     font-size: 17px;
     font-weight: 500;
     color: white;
     &::placeholder {
-        color: #d4d4d4;
-        font-size: 17px;
+        color: #bababa;
+        font-size: 16px;
         font-weight: 550;
         border: #d4d4d4;
+        align-items: center;
     };
 }
 
 .searchIcon{
     position: absolute;
-    margin-left: 82%;
-    margin-top: 2%;
     width:30px;
+}
+
+.SearchButton{
+    cursor:pointer;
+    position: absolute;
+    margin-left: 15%;
+    margin-top: 0.25%;
+    border: 0;
+    background-color: transparent;
 }
 
 .DropDownMovies{
@@ -99,3 +112,5 @@
     margin-top: -1%;
     margin-left: 44%;
 }
+
+
