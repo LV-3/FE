@@ -30,14 +30,14 @@ export default function Main() {
   //리덕스 사용
   const dispatch = useDispatch();
     
-  const status = useSelector(state=>state.Vods.status);
+  const status = useSelector(state=>state.Vods.status); //로딩페이지
   const VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
   const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
 
   useEffect(()=> {
-    if(VODs1===undefined || VODs2===undefined || VODs3===undefined) {
+    if(!VODs1 || !VODs2 || !VODs3) {
       dispatch(getVODs(subsr));
     }
   }, []);
@@ -112,7 +112,7 @@ export default function Main() {
       <div>
         {status ? <Loading /> :null}
         <div>
-        <PageTitle> 분위기 기반 추천</PageTitle>
+        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -126,7 +126,7 @@ export default function Main() {
                     {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
-                        #{mood}
+                        #{mood} 
                       </NavLink>
                       </label>
                     ))}
@@ -151,7 +151,7 @@ export default function Main() {
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
+                    #{mood} 
                   </NavLink>
                   </label>
                 ))}
@@ -176,7 +176,7 @@ export default function Main() {
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
+                    #{mood} 
                   </NavLink>
                   </label>
                 ))}

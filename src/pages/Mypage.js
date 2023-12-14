@@ -15,27 +15,42 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
+import { useDispatch, useSelector } from 'react-redux';
+import { getReplays } from '../reducer/ReplayReducer';
+
 
 export default function Mypage() {
   const subsr = localStorage.getItem('subsr');
 
   const [wishData, setWishData] = useState();
   const [ratingData, setRatingData] = useState();
-  const [replayData, setReplayData] = useState();
+  //const [replayError, setReplayError] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const replayData = useSelector(state=>state.Replays.vodData);
+  const replayError = useSelector(state=>state.Replays.vodData);
   
-  //replay GET
-  useEffect(()=> {
-    const getreplay = async () => {
-      try{
-        const response = await getReplay(subsr);
-        setReplayData(response.data);
-      }catch(error){
-        console.log("getmypagereplay_post",error)
-        setReplayData(-1);
+  //replayData 리덕스 적용
+  useEffect(()=>{
+    if(!replayData||replayData.length === 0){
+      dispatch(getReplays(subsr))
     }
-    };
-    getreplay();
-  }, []);
+  },[]);
+
+  //replay GET
+  // useEffect(()=> {
+  //   const getreplay = async () => {
+  //     try{
+  //       const response = await getReplay(subsr);
+  //       setReplayData(response.data);
+  //     }catch(error){
+  //       console.log("getmypagereplay_post",error)
+  //       setReplayData(-1);
+  //   }
+  //   };
+  //   getreplay();
+  // }, []);
 
 
   //위시 GET
@@ -122,11 +137,10 @@ export default function Mypage() {
       <PageTitle>시청중인 컨텐츠</PageTitle>
       <SliderContainer>
         {replayData?
-
-        (replayData===-1? 
+        (replayError===-1? 
         <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
          :<StyledSlider {...settings}>
-        {(replayData.map((item, index) =>(
+        {(replayData&&replayData.map((item, index) =>(
           <figure key={index} className='fig'>
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
             <ImgLabel>
@@ -175,7 +189,7 @@ export default function Mypage() {
       <PageTitle>리뷰 목록</PageTitle> 
         { ratingData ? 
         (ratingData===-1? 
-          <MypageText>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
+          <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>
            :
           <div>
           {(ratingData.map((item, index) => (

@@ -13,7 +13,8 @@ import { getwishdata } from '../apis/detail/getmywish_post';
 import { getratingdata } from '../apis/detail/getdetailrating';
 //import DelConfirmAlert from '../components/__DelConfirmAlert';
 import { delReview } from '../apis/detail/deldetailrating';
-import {PageTitle, ImgLabel, Poster} from '../css/StyledComponents';
+import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText} from '../css/StyledComponents';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -33,7 +34,7 @@ export default function Detail() {
     //all rating 데이터
     const [allRatingData, setAllRatingData] = useState([]);
 
-
+    const navigate = useNavigate()
     //찜하기
     //const [count,setCount]=useState(0);
     const [wish, setWish] = useState();
@@ -47,12 +48,18 @@ export default function Detail() {
           setVodData(response.data);
           console.log(response)
         }catch (error){
-          console.log(error);
+          if(Object.keys(error).includes("response")){
+              setVodData(-1);
+              console.log('getVodData', error)
+          }else{
+            navigate("/noResponse");
+          }
         }
       };
       getvoddata();
     },[]);
-
+    //console.log('getVodData', error);
+    //setVodData(-1);
     
     //wish get요청
     useEffect(() => {
@@ -91,8 +98,6 @@ export default function Detail() {
       const getRatingData = async () => {
         try {
           const response = await getratingdata(content_id);
-          console.log("ratingData",response)
-          console.log("ratingData",ratingData)
           const found = response.data.filter((item) => item.subsr === subsr);
           const allfound = response.data.filter((item) => item.subsr !== subsr);
 
@@ -107,11 +112,17 @@ export default function Detail() {
         }
       };
       getRatingData();
-    }, []);
+    }, [ratingData]);
 
     return (
     <div className='Detaildivbg'>
+      {vodData?
+          (vodData===-1?
+          <PageErrorText>VOD정보를 불러올 수 없습니다. <br />잠시 후 다시 시도해주세요.</PageErrorText>
+          :
+          <>
         <div className="VodDataContainer">
+          
           <ImgLabel>
             <Poster src={vodData?.posterurl} alt={vodData?.title}/>
           </ImgLabel>
@@ -131,9 +142,9 @@ export default function Detail() {
             {/* <div><b>감독</b> &nbsp;&nbsp;{vodData?.director}</div> */}
             <div><b>출연진</b> &nbsp;&nbsp;{vodData?.actors}</div>
             <div><b>줄거리</b> &nbsp;&nbsp;<div className='Vodsumrybox'>{vodData?.description}</div></div>
-            </div>
-            
+            </div>  
           </div>
+          
         </div>
         
        {ratingData?<div>
@@ -157,7 +168,7 @@ export default function Detail() {
                   {ratingData.review}
                   
                 </div>
-              )))
+              {/* ))) */}
             {/* } */}
           </div>:<><PageTitle>나의 리뷰</PageTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
           <><br/><br/></>
@@ -179,9 +190,13 @@ export default function Detail() {
               )))
             }
 
-        </div>:<><PageTitle>모든 리뷰</PageTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text></>}
-
+        </div>:
+          <div className='AllReviewConatiner'>
+            <PageTitle>모든 리뷰</PageTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text>
+          </div>}
+          </>
+          ):(<MypageText>VOD정보가 없습니다.</MypageText>)}
     </div>
-    )
+  )
 }
   

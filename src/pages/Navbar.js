@@ -3,7 +3,7 @@ import React from 'react'
 import '../css/Navbar.css';
 import { Link } from 'react-router-dom';
 import DropDownSubsr from '../components/DropDownSubsr';
-import DropDownMovies from '../components/DropDownMovies';
+import DropDownMovie from '../components/DropDownMovie';
 import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
 import searchIcon from "../assets/search.png"
@@ -22,19 +22,6 @@ export default function Navbar() {
     setSearchText(e.target.value);
   }
 
-  // const moviegenre = useSelector(state=>state.MovieGenres.genreData)
-  // const status = useSelector(state=>state.MovieGenres.status)
-
-  // const dispatch = useDispatch();
-
-  // useEffect(()=>{
-  //   if(moviegenre===undefined){
-  //     dispatch(getMovies);
-  //     console.log('moviegenre', moviegenre)
-  //     console.log('navbarstatus', status);
-  //   }
-  // }, [])
-
   return (
     <div className='NavBar'>
         <div className='LinkContainer'>
@@ -44,8 +31,8 @@ export default function Navbar() {
         </div>
 
         
-           <div className="DropDownMovies"> 
-            <DropDownMovies/>
+           <div className="DropDownMovie"> 
+            <DropDownMovie/>
             </div>
 
           <div className="DropDownTv">

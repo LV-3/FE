@@ -193,4 +193,12 @@ export const Title = styled.div`
     color:white;
 `;
 
+export const PageErrorText = styled.div`
+    text-align: center;
+    color:white;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 20%;
+`
+
 

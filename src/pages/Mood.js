@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { moodList } from '../apis/main/getmood';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster } from '../css/StyledComponents';
 import '../css/Mood.css';
 
@@ -12,15 +12,22 @@ export default function Moodpage() {
 
     const [moodVods,setMoodVods]=useState();
 
+    const navigate = useNavigate();
+
     //각 mood 별 검색 목록 불러오기
-    useEffect(()=>{
-    const getmoodList = async()=>{
-            const result =await moodList(mood);
-            console.log(result)
-            setMoodVods(result.data)}
-            getmoodList()
-            
-    },[]);
+    useEffect(() => {
+        const getMoodList = async () => {
+            try {
+                const result = await moodList(mood);
+                console.log(result);
+                setMoodVods(result.data);
+            } catch (error) {
+                console.log('gettagsError : ', error);
+                navigate("/noResponse");
+            }
+        };
+        getMoodList();
+    }, []);
 
 
     return (

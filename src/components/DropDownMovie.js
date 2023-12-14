@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import '../css/DropDownNavs.css'
+import '../css/DropDownMovie.css'
 import { NavLink } from 'react-router-dom';
 //import { genres } from '../apis/genres/getGenres';
 import { useSelector, useDispatch } from 'react-redux';
@@ -62,18 +62,18 @@ export default function DropDownMovies() {
       setIsOpen(!isOpen);}
 
     return (
-    <div className="grdropdown" ref={dropdownRef}>
+    <div className="moviedropdown" ref={dropdownRef}>
       <button
-      className='grdropdownbutton'
+      className='moviedropdownbutton'
       onClick={toggleDropdown}>
         {/* <img src={MenuIcon} className='DropDownHamburg'/> */}
         <h2>영화</h2>
       </button>
       {isOpen && (
-        <div className="grdropdown-content">
+        <div className="moviedropdown-content">
           {moviegenre&&moviegenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../genres/${genre}`} className="DropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../genres/${genre}`} className="movieDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}
