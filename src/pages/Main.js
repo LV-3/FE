@@ -126,7 +126,7 @@ export default function Main() {
                     {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
-                        #{mood}
+                        #{mood} 
                       </NavLink>
                       </label>
                     ))}
@@ -151,7 +151,7 @@ export default function Main() {
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
+                    #{mood} 
                   </NavLink>
                   </label>
                 ))}
@@ -176,7 +176,7 @@ export default function Main() {
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
+                    #{mood} 
                   </NavLink>
                   </label>
                 ))}

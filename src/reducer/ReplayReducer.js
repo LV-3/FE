@@ -6,7 +6,7 @@ export const getReplays = createAsyncThunk("GetReplay", async (subsr)=>{
         const result = await getReplay(subsr);
         return result.data
     } catch (error){
-        console.log('getReplay error :', error);
+        console.log('Replay Error', error);
     }
 })
 
@@ -14,13 +14,18 @@ const replaySlice = createSlice({
     name: "Replays",
     initialState: {
         vodData: [],
+        error: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getReplays.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
-            });
+                state.error = null;
+            })
+            .addCase(getReplays.rejected, (state)=>{
+                state.error = -1;
+            })
     },
 });
 
