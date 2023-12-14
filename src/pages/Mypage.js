@@ -24,21 +24,17 @@ export default function Mypage() {
 
   const [wishData, setWishData] = useState();
   const [ratingData, setRatingData] = useState();
-  const [replayError, setReplayError] = useState(0);
+  //const [replayError, setReplayError] = useState(0);
 
   const dispatch = useDispatch();
 
   const replayData = useSelector(state=>state.Replays.vodData);
+  const replayError = useSelector(state=>state.Replays.vodData);
   
   //replayData 리덕스 적용
   useEffect(()=>{
-    try{
-      if(!replayData||replayData.length === 0){
-        dispatch(getReplays(subsr))
-      }
-    }catch(error){
-      console.error('replayDispatchError', error);
-      setReplayError(-1);
+    if(!replayData||replayData.length === 0){
+      dispatch(getReplays(subsr))
     }
   },[]);
 

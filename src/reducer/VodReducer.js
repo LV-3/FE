@@ -4,6 +4,7 @@ import { allVods } from '../apis/main/getmain_post';
 export const getVODs = createAsyncThunk("GetVods", async (subsr)=>{
     try{
         const result = await allVods(subsr);
+        console.log('result', result);
         return result.data
     } catch (error){
         console.log("VodError:", error);
