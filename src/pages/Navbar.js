@@ -8,7 +8,9 @@ import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
 import searchIcon from "../assets/search.png"
 import logo from "../assets/logo2.png"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { getSearch } from '../apis/search/getsearch';
+import { useParams, useNavigate } from 'react-router-dom'
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getMovies } from '../reducer/MovieReducer';
 // import { getTvs } from '../reducer/TvReducer';
@@ -16,11 +18,21 @@ import { useState, useEffect } from 'react';
 
 export default function Navbar() {
 
-  const [searchText, setSearchText] = useState("");
+  let {input} = useParams();
 
+  const navigate = useNavigate();
+
+  const [searchText, setSearchText] = useState("");
+  
   const onChange = (e) => {
+    e.preventDefault();
     setSearchText(e.target.value);
   }
+
+  const buttonClick = (()=>{
+    getSearch(searchText);
+    navigate(`../search/${input}`)
+  })
 
   return (
     <div className='NavBar'>
@@ -31,9 +43,9 @@ export default function Navbar() {
         </div>
 
         
-           <div className="DropDownMovie"> 
+          <div className="DropDownMovie"> 
             <DropDownMovie/>
-            </div>
+          </div>
 
           <div className="DropDownTv">
             <DropDownTv />
@@ -49,7 +61,7 @@ export default function Navbar() {
 
         <div className='SearchContainer'>
           <input className="SearchInput" placeholder='VOD, 배우를 검색해보세요.' onChange={onChange} value={searchText}></input>
-          <button className='SearchButton'>
+          <button className='SearchButton' onClick={buttonClick}>
             <img src={searchIcon} className='searchIcon' alt ='search'/>
           </button>
         </div>

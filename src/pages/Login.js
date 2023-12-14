@@ -64,7 +64,10 @@ const Login = () => {
                     alert('예상치 못한 에러입니다!\n에러코드: '+error.response.request.status);
                 }
             }else{
+                localStorage.removeItem('subsr', subsr);
+                localStorage.removeItem('persist:root');
                 navigate("/noResponse");
+                window.location.reload();
             }
         }}
             
