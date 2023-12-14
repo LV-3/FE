@@ -5,7 +5,7 @@ import tvSlice from '../reducer/TvReducer';
 import kidsSlice from '../reducer/KidsReducer';
 import { persistReducer } from 'redux-persist'
 import { combineReducers } from 'redux';
-import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage/session';
 import replaySlice from "../reducer/ReplayReducer";
 
 const reducers = combineReducers({

@@ -31,16 +31,25 @@ export default function Main() {
   const dispatch = useDispatch();
     
   const status = useSelector(state=>state.Vods.status); //로딩페이지
-  const VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
-  const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);
-  const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
-  const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
-
+  
+  let VODs1;
+  let VODs2;
+  let VODs3;
+  let personal_words;
+  
   useEffect(()=> {
     if(!VODs1 || !VODs2 || !VODs3) {
       dispatch(getVODs(subsr));
     }
   }, []);
+
+  VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
+  VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);  
+  VODs3  = useSelector(state=>state.Vods.vodData["personal_data"]);
+  personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
+
+
+
 
 
   //로딩 페이지 변수

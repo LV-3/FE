@@ -14,6 +14,8 @@ export default function Moodpage() {
 
     const navigate = useNavigate();
 
+    const subsr = localStorage.getItem('subsr')
+
     //각 mood 별 검색 목록 불러오기
     useEffect(() => {
         const getMoodList = async () => {
@@ -23,7 +25,10 @@ export default function Moodpage() {
                 setMoodVods(result.data);
             } catch (error) {
                 console.log('gettagsError : ', error);
+                localStorage.removeItem('subsr', subsr);
+                localStorage.removeItem('persist:root');
                 navigate("/noResponse");
+                window.location.reload();
             }
         };
         getMoodList();

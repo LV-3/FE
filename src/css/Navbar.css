@@ -4,8 +4,9 @@
 
 .NavBar {
     height: 120px;
-    width: 100%;
+    width: 100vw;
     display: flex;
+    flex: 1 0 auto;
     align-items: center;
     background-color: black;
     position: sticky;
