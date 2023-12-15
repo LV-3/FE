@@ -24,18 +24,25 @@ export default function Mypage() {
 
   const [wishData, setWishData] = useState();
   const [ratingData, setRatingData] = useState();
-  //const [replayError, setReplayError] = useState(0);
-
+  const [replayError, setReplayError] = useState(0);
+  console.log('replayError', replayError)
   const dispatch = useDispatch();
 
   const replayData = useSelector(state=>state.Replays.vodData);
-  const replayError = useSelector(state=>state.Replays.vodData);
   
   //replayData 리덕스 적용
   useEffect(()=>{
-    if(!replayData||replayData.length === 0){
-      dispatch(getReplays(subsr))
+    const getreplay = async() => {
+      try{
+        if(!replayData||replayData.length === 0){
+        dispatch(getReplays(subsr))
+        }
+      }catch(error){
+        console.log("getmypagereplay_post", error);
+        setReplayError(-1)
+      }
     }
+    getreplay();
   },[]);
 
   //replay GET

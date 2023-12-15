@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import '../css/Genre.css';
 import { useParams } from 'react-router-dom';
-import { tvGenreList } from '../apis/genres/getTvGenreList';
+import { movieGenreList } from '../apis/genres/getMovieGenreList';
 import { NavLink } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster} from '../css/StyledComponents'
 
@@ -9,7 +9,6 @@ export default function Mood() {
     
      //url 파라미터("localhost:3000/vods/" 뒤에 붙는 파라미터)를 mood 변수로 저장
     let {genre2}=useParams();
-    genre2 = genre2.replaceAll("/", ":")
 
     const [genreVods,setGenreVods]=useState();
 
@@ -17,7 +16,7 @@ export default function Mood() {
     useEffect(()=>{
       try {
             const getgenreList = async()=>{
-              const result =await tvGenreList(genre2);
+              const result =await movieGenreList(genre2);
               setGenreVods(result.data)
               console.log(result)
             }
@@ -29,7 +28,7 @@ export default function Mood() {
 
     return (
         <div className='GenreBackground'>
-          <PageTitle>{genre2}</PageTitle>
+          <PageTitle>{genre2.replace(':', '/')}</PageTitle>
           <div className='GenreVodContainer'>
           {genreVods&&genreVods.map((image,index) => (
               <ImgLabel key={index} className='GenreLabel'>

@@ -9,7 +9,6 @@ export default function Mood() {
     
      //url 파라미터("localhost:3000/vods/" 뒤에 붙는 파라미터)를 mood 변수로 저장
     let {genre1}=useParams();
-    genre1 = genre1.replaceAll("/", ":")
 
     const [genreVods,setGenreVods]=useState();
 
@@ -29,7 +28,7 @@ export default function Mood() {
 
     return (
         <div className='GenreBackground'>
-          <PageTitle>{genre1}</PageTitle>
+          <PageTitle>{genre1.replace(':', '/')}</PageTitle>
           <div className='GenreVodContainer'>
           {genreVods&&genreVods.map((image,index) => (
               <ImgLabel key={index} className='GenreLabel'>

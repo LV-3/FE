@@ -1,9 +1,37 @@
+.NoResBg{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .NoResponseText{
+    display: flex;
     text-align: center;
+    justify-content: center;
     color:white;
     font-size: 24px;
     font-weight: 500;
     margin-top: 20%;
   }
-  
-  
+
+.BtnContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.BackBtn{
+  width: 100px;
+  height: 40px;
+  border: 1px solid #a50034;
+  border-radius: 3px;
+  color:white;
+  background-color: #a50034;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
