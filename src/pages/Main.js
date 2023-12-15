@@ -118,6 +118,7 @@ export default function Main() {
                       <NavLink to={"/main/"+mood} className='MainLink'>
                         #{mood}
                       </NavLink>&nbsp;
+                      </NavLink>&nbsp;
                       </label>
                     ))}
                     </div>
@@ -142,6 +143,7 @@ export default function Main() {
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
+                  </NavLink>&nbsp;
                   </NavLink>&nbsp;
                   </label>
                 ))}

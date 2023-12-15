@@ -43,6 +43,7 @@ const Login = () => {
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
                     dispatch(getVODs(subsr));
+                    dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     localStorage.setItem('subsr', response.data);
                     console.log("getlogin_post: ",response)
