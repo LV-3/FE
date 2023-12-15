@@ -46,7 +46,7 @@ export default function DropDownSubsr() {
                   <button
                     onClick={() => {
                       localStorage.removeItem('subsr', subsr);
-                      localStorage.removeItem('persist:root');
+                      sessionStorage.removeItem('persist:root');
                       navigate("../");
                       window.location.reload();
                       onClose();

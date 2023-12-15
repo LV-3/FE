@@ -11,7 +11,7 @@ export default function Moodpage() {
     let {mood}=useParams();
 
     const [moodVods,setMoodVods]=useState();
-
+    console.log('moodVods', moodVods)
     const navigate = useNavigate();
 
     //각 mood 별 검색 목록 불러오기
@@ -24,6 +24,7 @@ export default function Moodpage() {
             } catch (error) {
                 console.log('gettagsError : ', error);
                 navigate("/noResponse");
+                window.location.reload();
             }
         };
         getMoodList();

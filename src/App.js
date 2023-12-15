@@ -23,7 +23,7 @@ function App() {
         <Route path='/main' element={<><Navbar /><Main /></>} />
         <Route path='/detail/:content_id' element={<><Navbar /><Detail /></>} />
         <Route path='/main/:mood' element={<><Navbar /><Mood /></>} />
-        <Route path='/search/:input' element={<><Navbar /><Search /></>} />
+        <Route path='/search/*' element={<><Navbar /><Search /></>} />
         <Route path='/tv/:genre1' element={<><Navbar /><TvGenre /></>} />
         <Route path='/movie/:genre2' element={<><Navbar /><MovieGenre /></>} />
         <Route path='/kids/:genre3' element={<><Navbar /><KidsGenre /></>} />

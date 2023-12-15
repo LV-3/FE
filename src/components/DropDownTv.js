@@ -66,7 +66,7 @@ export default function DropDownGenres() {
         <div className="tvdropdown-content">
           {tvgenre&&tvgenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../genres/${genre}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../tv/${genre.replace('/', ':')}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}

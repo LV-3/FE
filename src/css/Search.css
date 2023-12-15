@@ -1,4 +1,4 @@
-.GenreBackground{
+.SearchBackground{
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     margin-left: 12%;
 }
 
-.GenreVodContainer {
+.SearchVodContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,6 +15,20 @@
     justify-content: flex-start;
 }
 
-.GenreLabel{
+.SearchLabel{
     margin: 2% 2%;
+}
+
+.SearchTitle{
+    margin-left: -3%;
+    margin-top: 4%;
+}
+
+.NoResult{
+    margin-left: 3%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
 }

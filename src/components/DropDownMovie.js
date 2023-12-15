@@ -73,7 +73,7 @@ export default function DropDownMovies() {
         <div className="moviedropdown-content">
           {moviegenre&&moviegenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../genres/${genre}`} className="movieDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../movie/${genre.replace('/', ':')}`} className="movieDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}
