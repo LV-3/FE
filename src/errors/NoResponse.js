@@ -3,12 +3,10 @@ import '../css/NoResponse.css'
 import { useEffect } from 'react';
 
 const NoResponse = () => {
-  
-  const subsr = localStorage.getItem('subsr');
 
   useEffect(()=>{
-    localStorage.removeItem('subsr', subsr);
     sessionStorage.removeItem('persist:root');
+    window.location.reload();
   })
 
   return (
