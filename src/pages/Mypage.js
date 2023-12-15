@@ -16,7 +16,6 @@ import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReplays } from '../reducer/ReplayReducer';
 
 
 export default function Mypage() {
@@ -32,17 +31,13 @@ export default function Mypage() {
   
   //replayData 리덕스 적용
   useEffect(()=>{
-    const getreplay = async() => {
-      try{
+    const catchError = async() => {
         if(!replayData||replayData.length === 0){
-        dispatch(getReplays(subsr))
+          setReplayError(-1)
+          console.log("getmypagereplay_post", error);
         }
-      }catch(error){
-        console.log("getmypagereplay_post", error);
-        setReplayError(-1)
-      }
     }
-    getreplay();
+    catchError();
   },[]);
 
   //replay GET

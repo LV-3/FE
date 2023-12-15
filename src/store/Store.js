@@ -7,6 +7,9 @@ import { persistReducer } from 'redux-persist'
 import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage/session';
 import replaySlice from "../reducer/ReplayReducer";
+// import tvGenreSlice from "../reducer/TvGenreListReducer";
+// import movieGenreSlice from "../reducer/MovieGenreListReducer";
+// import kidGenreSlice from "../reducer/KidsGenreListReducer";
 
 const reducers = combineReducers({
     Vods: vodSlice.reducer,
@@ -14,6 +17,9 @@ const reducers = combineReducers({
     TvGenres: tvSlice.reducer,
     KidsGenres: kidsSlice.reducer,
     Replays: replaySlice.reducer,
+    // GetTvGenres: tvGenreSlice.reducer,
+    // GetMovieGenres: movieGenreSlice.reducer,
+    // GetKidGenres: kidGenreSlice.reducer,
 });
 
 const persistConfig = {
