@@ -9,16 +9,9 @@ import DropDownKids from '../components/DropDownKids';
 import searchIcon from "../assets/search.png"
 import logo from "../assets/logo2.png"
 import { useState } from 'react';
-import { getSearch } from '../apis/search/getsearch';
-import { useParams, useNavigate } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getMovies } from '../reducer/MovieReducer';
-// import { getTvs } from '../reducer/TvReducer';
-// import { getKids } from '../reducer/KidsReducer';
+import { useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
-
-  let {input} = useParams();
 
   const navigate = useNavigate();
 
@@ -30,9 +23,15 @@ export default function Navbar() {
   }
 
   const buttonClick = (()=>{
-    getSearch(searchText);
-    navigate(`../search/${input}`)
+    navigate(`../search/?input=${searchText}`)
+    setSearchText('');
   })
+
+  const keyPress=e=>{
+    if (e.key==='Enter'){
+      buttonClick();
+    }
+}
 
   return (
     <div className='NavBar'>
@@ -60,7 +59,7 @@ export default function Navbar() {
           </div> */}
 
         <div className='SearchContainer'>
-          <input className="SearchInput" placeholder='VOD, 배우를 검색해보세요.' onChange={onChange} value={searchText}></input>
+          <input className="SearchInput" placeholder='VOD, 배우를 검색해보세요.' onChange={onChange} value={searchText} onKeyDown={keyPress}></input>
           <button className='SearchButton' onClick={buttonClick}>
             <img src={searchIcon} className='searchIcon' alt ='search'/>
           </button>

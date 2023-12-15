@@ -66,7 +66,7 @@ export default function DropDownGenres() {
         <div className="kidsdropdown-content">
           {kidsgenre&&kidsgenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../kids/${genre}`} className="kidsDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../kids/${genre.replace('/', ':')}`} className="kidsDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}
