@@ -4,7 +4,8 @@
     flex-direction: column;
     background-size: cover;
     background-attachment: fixed;
-    margin-left: 12%;
+    margin-left: 3%;
+    margin-top:1%;
 }
 
 .GenreVodContainer {
@@ -13,8 +14,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 3%
 }
 
 .GenreLabel{
-    margin: 2% 2%;
+    margin: 2% 1.55%;
 }

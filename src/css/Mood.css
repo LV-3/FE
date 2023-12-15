@@ -4,6 +4,8 @@
     flex-direction: column;
     background-size: cover;
     background-attachment: fixed;
+    margin-left: 3%;
+    margin-top: 1%;
 }
 
 .MoodVodContainer {
@@ -12,9 +14,10 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-left: 3%
 }
 
 .MoodLabel{
-    margin: 2% 2%;
+    margin: 2% 1.55%;
 }
 
