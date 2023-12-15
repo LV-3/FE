@@ -8,6 +8,8 @@ import { login } from '../apis/login/getlogin_post';
 //import background from "../assets/background.png"
 import logo2 from "../assets/logo2.png"
 import playgif from "../assets/video_play-icon.gif"
+import { useDispatch } from 'react-redux';
+import { getVODs } from '../reducer/VodReducer';
 
 // 로그인 화면
 
@@ -18,6 +20,7 @@ const Login = () => {
     
     const [button, setButton] = useState(true);
 
+    const dispatch = useDispatch();
 
     function changeButton(subsr) {
         subsr.length > 7 ? setButton(false) :setButton(true);
@@ -42,8 +45,8 @@ const Login = () => {
         try{
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
-                    
                     localStorage.setItem('subsr', response.data);
+                    dispatch(getVODs(subsr));
                     console.log("getlogin_post: ",response)
                     navigate("/main");
 

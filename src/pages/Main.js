@@ -1,10 +1,9 @@
 /* eslint-disable */
-import {React, useState, useEffect} from 'react' 
+import {React, useEffect} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
 import { Loading } from '../components/Loading';
-
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
@@ -14,8 +13,8 @@ import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getVODs } from '../reducer/VodReducer';
+import { useSelector, useDispatch } from 'react-redux';
+// import { getVODs } from '../reducer/VodReducer';
 
 export default function Main() {
 
@@ -37,11 +36,11 @@ export default function Main() {
   const VODs3  = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
   
-  useEffect(()=> {
-    if(!VODs1 || !VODs2 || !VODs3) {
-      dispatch(getVODs(subsr));
-    }
-  }, [VODs1, VODs2, VODs3]);
+  // useEffect(()=> {
+  //   if(!VODs1 || !VODs2 || !VODs3) {
+  //     dispatch(getVODs(subsr));
+  //   }
+  // }, [VODs1, VODs2, VODs3]);
 
   
 
