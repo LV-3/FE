@@ -36,10 +36,6 @@ const Login = () => {
         changeButton(subsr);
     }, [subsr]);
 
-    useEffect(()=>{
-        sessionStorage.removeItem('persist:root');
-    },[])
-
     //토큰 없이 json-server 이용 로그인
     const onClick = async() => {
         //토큰 없이 json-server 이용 로그인
