@@ -5,7 +5,9 @@ export const getVODs = createAsyncThunk("GetVods", async (subsr)=>{
     try{
         const result = await allVods(subsr);
         //console.log('result', result);
+        console.log('result.data', result.data)
         return result.data
+        
     } catch (error){
         console.log("VodError:", error);
     }
@@ -16,7 +18,6 @@ const vodSlice = createSlice({
     initialState: {
         vodData: {},
         status: false,
-        rejected: false
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -27,9 +28,6 @@ const vodSlice = createSlice({
             .addCase(getVODs.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
                 state.status = false;
-            })
-            .addCase(getVODs.rejected, (state)=>{
-                state.rejected = true;
             })
     },
 });

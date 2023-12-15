@@ -36,12 +36,15 @@ export default function Main() {
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
 
-  useEffect(()=> {
-    if(!VODs1 || !VODs2 || !VODs3) {
-      dispatch(getVODs(subsr));
-    }
-  }, [VODs1, VODs2, VODs3]);
+  // useEffect(()=> {
+  //   if(!VODs1 || !VODs2 || !VODs3) {
+  //     dispatch(getVODs(subsr));
+  //   }
+  // }, [VODs1, VODs2, VODs3]);
 
+  console.log('VODs1', VODs1)
+  console.log('VODs1', VODs2)
+  console.log('VODs1', VODs3)
   
 
 
@@ -132,7 +135,7 @@ export default function Main() {
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
                         #{mood}
-                      </NavLink>
+                      </NavLink>&nbsp;
                       </label>
                     ))}
                     </div>
@@ -157,7 +160,7 @@ export default function Main() {
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
-                  </NavLink>
+                  </NavLink>&nbsp;
                   </label>
                 ))}
                 </div>
@@ -182,7 +185,7 @@ export default function Main() {
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
-                  </NavLink>
+                  </NavLink>&nbsp;
                   </label>
                 ))}
                 </div>

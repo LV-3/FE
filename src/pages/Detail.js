@@ -15,7 +15,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-
+import back from '../assets/back.png'
 
 
 export default function Detail() {
@@ -116,6 +116,11 @@ export default function Detail() {
 
     return (
     <div className='Detaildivbg'>
+      <div className='BackButtonContainer'>
+        <button className='BackButton'>
+          <img src={back} className='BackImg'/>
+        </button>
+      </div>
       {vodData?
           (vodData===-1?
           <PageErrorText>VOD정보를 불러올 수 없습니다. <br />잠시 후 다시 시도해주세요.</PageErrorText>
