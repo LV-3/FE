@@ -95,3 +95,17 @@
     margin-bottom: 5%;
 }
 
+.BackButtonContainer{
+    margin-left: 3%;
+}
+
+.BackButton{
+    background-color:transparent;
+    border: 0;
+    cursor:pointer;
+}
+
+.BackImg{
+    width: 26px;
+    height: 26px;
+}

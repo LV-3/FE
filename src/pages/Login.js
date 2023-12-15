@@ -9,7 +9,7 @@ import { login } from '../apis/login/getlogin_post';
 import logo2 from "../assets/logo2.png"
 import playgif from "../assets/video_play-icon.gif"
 import { useDispatch } from 'react-redux';
-// import { getVODs } from '../reducer/VodReducer';
+import { getVODs } from '../reducer/VodReducer';
 import { getReplays } from '../reducer/ReplayReducer';
 
 // 로그인 화면
@@ -37,8 +37,8 @@ const Login = () => {
     }, [subsr]);
 
     useEffect(()=>{
-      sessionStorage.removeItem('persist:root');
-    }, []);
+        sessionStorage.removeItem('persist:root');
+    },[])
 
     //토큰 없이 json-server 이용 로그인
     const onClick = async() => {
@@ -46,6 +46,7 @@ const Login = () => {
         try{
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
+                    dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     localStorage.setItem('subsr', response.data);
                     console.log("getlogin_post: ",response)
