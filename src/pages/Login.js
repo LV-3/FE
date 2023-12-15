@@ -9,14 +9,14 @@ import { login } from '../apis/login/getlogin_post';
 import logo2 from "../assets/logo2.png"
 import playgif from "../assets/video_play-icon.gif"
 import { useDispatch } from 'react-redux';
-import { getVODs } from '../reducer/VodReducer';
+// import { getVODs } from '../reducer/VodReducer';
+import { getReplays } from '../reducer/ReplayReducer';
 
 // 로그인 화면
 
 const Login = () => {
     //회원 정보 입력
     const [subsr, setId] = useState("");
-    //const [password, setPw] = useState("");
     
     const [button, setButton] = useState(true);
 
@@ -31,13 +31,14 @@ const Login = () => {
     const onChangeId = (e) => {
         setId(e.target.value);
     };
-    // const onChangePw = (e) => {
-    //     setPw(e.target.value);
-    //     changeButton();
-    // };
+    
     useEffect(()=> {
         changeButton(subsr);
-    }, [subsr])
+    }, [subsr]);
+
+    useEffect(()=>{
+      sessionStorage.removeItem('persist:root');
+    }, []);
 
     //토큰 없이 json-server 이용 로그인
     const onClick = async() => {
@@ -45,8 +46,8 @@ const Login = () => {
         try{
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
+                    dispatch(getReplays(subsr));
                     localStorage.setItem('subsr', response.data);
-                    dispatch(getVODs(subsr));
                     console.log("getlogin_post: ",response)
                     navigate("/main");
 

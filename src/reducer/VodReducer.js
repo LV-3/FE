@@ -15,8 +15,8 @@ const vodSlice = createSlice({
     name: "Vods",
     initialState: {
         vodData: {},
-        status: false
-        // error: '요청에 실패하였습니다.'
+        status: false,
+        rejected: false
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -28,9 +28,9 @@ const vodSlice = createSlice({
                 state.vodData = action.payload;
                 state.status = false;
             })
-            // .addCase(PURGE, (state)=> {
-            //     state.vodData = {};
-            // })
+            .addCase(getVODs.rejected, (state)=>{
+                state.rejected = true;
+            })
     },
 });
 

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { tvGenreList } from '../apis/genres/getTvGenreList';
 import { NavLink } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster} from '../css/StyledComponents'
+// import { useSelector } from 'react-redux';
 
 export default function Mood() {
     
@@ -11,6 +12,10 @@ export default function Mood() {
     let {genre1}=useParams();
 
     const [genreVods,setGenreVods]=useState();
+
+    // const GenreVods = useSelector(state=>state.TvGenreLists.genreData)
+    // const genreVods = GenreVods.genre1
+    // console.log('GenreVods', GenreVods)
 
     //각 genre 별 검색 목록 불러오기
     useEffect(()=>{
