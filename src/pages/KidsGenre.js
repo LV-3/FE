@@ -16,6 +16,8 @@ export default function Mood() {
 
     const navigate=useNavigate;
 
+    const navigatetoMain=navigate("/main");
+
     //각 genre 별 검색 목록 불러오기
     useEffect(()=>{
       try {
@@ -34,7 +36,7 @@ export default function Mood() {
         <div className='GenreBackground'>
       <BackButtonContainer>
       <BackButton>
-          <BackImg src={back} onClick={()=>{navigate("/mypage")}}/>
+          <BackImg src={back} onClick={navigatetoMain}/>
            </BackButton>
       </BackButtonContainer>
 
