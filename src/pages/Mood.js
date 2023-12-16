@@ -5,6 +5,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg } from '../css/StyledComponents';
 import '../css/Mood.css';
 import back from '../assets/back.png'
+import altImg from '../assets/altImg2.png'
+
+
 
 export default function Moodpage() {
     
@@ -48,7 +51,7 @@ export default function Moodpage() {
             {moodVods&&moodVods.map((image, index) => (
                 <ImgLabel key={index} className='MoodLabel'>
                     <NavLink to={"/detail/"+image.content_id}>
-                        <Poster src={image.posterurl} alt={image.title}/>
+                        <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </NavLink>
                 </ImgLabel>))}
             </div>

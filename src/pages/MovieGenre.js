@@ -5,7 +5,7 @@ import { movieGenreList } from '../apis/genres/getMovieGenreList';
 import { NavLink } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 import back from '../assets/back.png'
-
+import altImg from '../assets/altImg2.png'
 
 export default function Mood() {
     
@@ -43,7 +43,7 @@ export default function Mood() {
           {genreVods&&genreVods.map((image,index) => (
               <ImgLabel key={index} className='GenreLabel'>
                 <NavLink to={"/detail/"+image.content_id}>
-                  <Poster src={image.posterurl} alt={image.title}/>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel>))} 
           </div> 
