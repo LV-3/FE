@@ -5,6 +5,9 @@ import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
 import { Loading } from '../components/Loading';
 
+import altImg from '../assets/altImg2.png'
+
+
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
@@ -14,7 +17,6 @@ import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
-import { useSelector } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 export default function Main() {
@@ -126,7 +128,7 @@ export default function Main() {
             <div key={index}>
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl} alt={image.title}/>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel> 
             </div>
@@ -144,7 +146,7 @@ export default function Main() {
                 <div key={index}>  
                   <ImgLabel> 
                     <NavLink to={"/detail/"+image.content_id}>
-                    <Poster src={image.posterurl} alt={image.title}/>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </NavLink>
                   </ImgLabel><div className="Tagbox">
                     {image.tags&&image.tags.map((mood,index)=>(
@@ -169,7 +171,7 @@ export default function Main() {
             <div key={index}>
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl} alt={image.title}/>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel>  <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
@@ -194,7 +196,7 @@ export default function Main() {
             <div key={index}>  
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl} alt={image.title}/>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel><div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
