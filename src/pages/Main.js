@@ -122,9 +122,9 @@ export default function Main() {
     const settingspopular = {
       dots: false,
       infinite: true,
-      speed: 500,
+      speed: 200,
       slidesToShow: 7,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
