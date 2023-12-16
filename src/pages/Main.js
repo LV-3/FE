@@ -19,6 +19,7 @@ import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
 
+
 export default function Main() {
 
   //모델별 결과 받을 리스트
