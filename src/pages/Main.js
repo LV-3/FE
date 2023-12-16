@@ -14,8 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getVODs } from '../reducer/VodReducer';
+import { useSelector } from 'react-redux';
 
 export default function Main() {
 
@@ -27,29 +26,12 @@ export default function Main() {
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
 
-  //리덕스 사용
-  const dispatch = useDispatch();
-    
+  //리덕스 사용   
   const status = useSelector(state=>state.Vods.status);
   const VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
   const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
-
-  // useEffect(()=> {
-  //   if(!VODs1 || !VODs2 || !VODs3) {
-  //     dispatch(getVODs(subsr));
-  //   }
-  // }, [VODs1, VODs2, VODs3]);
-
-  console.log('VODs1', VODs1)
-  console.log('VODs1', VODs2)
-  console.log('VODs1', VODs3)
-  
-
-
-
-
 
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
@@ -136,6 +118,7 @@ export default function Main() {
                       <NavLink to={"/main/"+mood} className='MainLink'>
                         #{mood}
                       </NavLink>&nbsp;
+                      </NavLink>&nbsp;
                       </label>
                     ))}
                     </div>
@@ -160,6 +143,7 @@ export default function Main() {
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
                     #{mood}
+                  </NavLink>&nbsp;
                   </NavLink>&nbsp;
                   </label>
                 ))}

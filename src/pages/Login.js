@@ -36,16 +36,13 @@ const Login = () => {
         changeButton(subsr);
     }, [subsr]);
 
-    useEffect(()=>{
-        sessionStorage.removeItem('persist:root');
-    },[])
-
     //토큰 없이 json-server 이용 로그인
     const onClick = async() => {
         //토큰 없이 json-server 이용 로그인
         try{
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
+                    dispatch(getVODs(subsr));
                     dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     localStorage.setItem('subsr', response.data);

@@ -8,8 +8,6 @@ export default function DropDownSubsr() {
     const subsr = localStorage.getItem('subsr')
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-    
-    const navigate = useNavigate();
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
@@ -43,17 +41,16 @@ export default function DropDownSubsr() {
                 <p>정말로 로그아웃하시겠습니까?</p>
                 <div className="ButtonSet">
                   <button onClick={onClose}>닫기</button>
-                  <button
+                  <a className="LogoutBtn"
+                    href = '../'
                     onClick={() => {
                       localStorage.removeItem('subsr', subsr);
                       sessionStorage.removeItem('persist:root');
-                      navigate("../");
-                      window.location.reload();
                       onClose();
                     }}
                   >
                     로그아웃
-                  </button>
+                  </a>
                 </div>
               </div>
             );
