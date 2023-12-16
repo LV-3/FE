@@ -1,10 +1,10 @@
-import React,{useEffect, useState, useNavigate} from 'react'
+import React,{useEffect, useState} from 'react'
 import '../css/Genre.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import { kidGenreList } from '../apis/genres/getKidGenreList';
 import { NavLink } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
-import back from '../assets/back.png'
+// import back from '../assets/back.png'
 import altImg from '../assets/altImg2.png'
 
 export default function Mood() {
@@ -14,9 +14,9 @@ export default function Mood() {
 
     const [genreVods,setGenreVods]=useState();
 
-    const navigate=useNavigate;
+    // const navigate=useNavigate;
 
-    const navigatetoMain=navigate("/main");
+    // const navigatetoMain=navigate("/main");
 
     //각 genre 별 검색 목록 불러오기
     useEffect(()=>{
@@ -34,11 +34,11 @@ export default function Mood() {
 
     return (
         <div className='GenreBackground'>
-      <BackButtonContainer>
+      {/* <BackButtonContainer>
       <BackButton>
           <BackImg src={back} onClick={navigatetoMain}/>
            </BackButton>
-      </BackButtonContainer>
+      </BackButtonContainer> */}
 
           <PageTitle>{genre3.replace(':', '/')}</PageTitle>
           <div className='GenreVodContainer'>
