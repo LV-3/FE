@@ -18,6 +18,7 @@ const vodSlice = createSlice({
     initialState: {
         vodData: {},
         status: false,
+        error: false,
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -28,6 +29,10 @@ const vodSlice = createSlice({
             .addCase(getVODs.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
                 state.status = false;
+            })
+            .addCase(getVODs.rejected, (state)=>{
+                state.status = false;
+                state.error = true
             })
     },
 });
