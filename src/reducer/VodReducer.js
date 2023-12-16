@@ -5,7 +5,9 @@ export const getVODs = createAsyncThunk("GetVods", async (subsr)=>{
     try{
         const result = await allVods(subsr);
         //console.log('result', result);
+        console.log('result.data', result.data)
         return result.data
+        
     } catch (error){
         console.log("VodError:", error);
     }
@@ -15,8 +17,8 @@ const vodSlice = createSlice({
     name: "Vods",
     initialState: {
         vodData: {},
-        status: false
-        // error: '요청에 실패하였습니다.'
+        status: false,
+        error: false,
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -28,9 +30,10 @@ const vodSlice = createSlice({
                 state.vodData = action.payload;
                 state.status = false;
             })
-            // .addCase(PURGE, (state)=> {
-            //     state.vodData = {};
-            // })
+            .addCase(getVODs.rejected, (state)=>{
+                state.status = false;
+                state.error = true
+            })
     },
 });
 

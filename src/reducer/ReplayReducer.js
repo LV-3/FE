@@ -14,17 +14,13 @@ const replaySlice = createSlice({
     name: "Replays",
     initialState: {
         vodData: [],
-        error: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getReplays.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
-                state.error = null;
-            })
-            .addCase(getReplays.rejected, (state)=>{
-                state.error = -1;
+                state.error = 0;
             })
     },
 });

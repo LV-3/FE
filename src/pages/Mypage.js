@@ -16,7 +16,9 @@ import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReplays } from '../reducer/ReplayReducer';
+
+
+import altImg from '../assets/altImg2.png'
 
 
 export default function Mypage() {
@@ -24,18 +26,21 @@ export default function Mypage() {
 
   const [wishData, setWishData] = useState();
   const [ratingData, setRatingData] = useState();
-  //const [replayError, setReplayError] = useState(0);
-
+  const [replayError, setReplayError] = useState(0);
+  console.log('replayError', replayError)
   const dispatch = useDispatch();
 
   const replayData = useSelector(state=>state.Replays.vodData);
-  const replayError = useSelector(state=>state.Replays.vodData);
   
   //replayData 리덕스 적용
   useEffect(()=>{
-    if(!replayData||replayData.length === 0){
-      dispatch(getReplays(subsr))
+    const catchError = async() => {
+        if(!replayData||replayData.length === 0){
+          setReplayError(-1)
+          console.log("getmypagereplay_post", error);
+        }
     }
+    catchError();
   },[]);
 
   //replay GET
@@ -145,7 +150,7 @@ export default function Mypage() {
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
             <ImgLabel>
               <Poster
-              src={item.posterurl}
+              src={item.posterurl?item.posterurl:altImg}
               alt={item.title}
               />
               {/* <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div> */}
@@ -171,7 +176,7 @@ export default function Mypage() {
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
           <ImgLabel>
             <Poster 
-              src={item.posterurl}
+              src={item.posterurl?item.posterurl:altImg}
               alt={item.title}
             />
           </ImgLabel>
@@ -198,7 +203,7 @@ export default function Mypage() {
                   <label className='RatingImgContainer'>
                     <img
                       className="RatingImg"
-                      src={item.posterurl}
+                      src={item.posterurl?item.posterurl:altImg}
                       alt={item.title}
                       />
                   </label>

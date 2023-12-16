@@ -5,17 +5,20 @@ import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
 import { Loading } from '../components/Loading';
 
+import altImg from '../assets/altImg2.png'
+
+
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
-  MainSliderContainer, PageTitle} from '../css/StyledComponents';
+  MainSliderContainer, PageTitle, MypageText} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getVODs } from '../reducer/VodReducer';
+import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Main() {
 
@@ -27,27 +30,13 @@ export default function Main() {
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
 
-  //리덕스 사용
-  const dispatch = useDispatch();
-    
-  const status = useSelector(state=>state.Vods.status); //로딩페이지
-  
+  //리덕스 사용   
+  const status = useSelector(state=>state.Vods.status);
   const VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
-  const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);  
-  const VODs3  = useSelector(state=>state.Vods.vodData["personal_data"]);
+  const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);
+  const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
-  
-  useEffect(()=> {
-    if(!VODs1 || !VODs2 || !VODs3) {
-      dispatch(getVODs(subsr));
-    }
-  }, [VODs1, VODs2, VODs3]);
-
-  
-
-
-
-
+  const popular = useSelector(state=>state.Populars.vodData);
 
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
@@ -114,9 +103,41 @@ export default function Main() {
       nextArrow: <SlickArrowRight />,
     };
 
+    const settingspopular = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      prevArrow: <SlickArrowLeft />,
+      nextArrow: <SlickArrowRight />,
+    };
+
     return (
       <div>
         {status ? <Loading /> :null}
+        <div>
+          <PageTitle>인기작</PageTitle>
+        </div>
+        {!popular.length?
+        <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
+        :
+        <MainSliderContainer>
+          <MainStyledSlider {...settingspopular}>
+        {/* <button onClick={getVOD2}>새로고침</button> */}
+          {popular&&popular.map((image,index) => (
+            <div key={index}>
+              <ImgLabel>
+                <NavLink to={"/detail/"+image.content_id}>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                </NavLink>
+              </ImgLabel> 
+            </div>
+            ))
+          }
+          </MainStyledSlider>
+        </MainSliderContainer>
+        }
         <div>
         <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
@@ -126,14 +147,14 @@ export default function Main() {
                 <div key={index}>  
                   <ImgLabel> 
                     <NavLink to={"/detail/"+image.content_id}>
-                    <Poster src={image.posterurl} alt={image.title}/>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </NavLink>
                   </ImgLabel><div className="Tagbox">
                     {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
-                        #{mood} 
-                      </NavLink>
+                        #{mood}
+                      </NavLink>&nbsp;
                       </label>
                     ))}
                     </div>
@@ -151,14 +172,14 @@ export default function Main() {
             <div key={index}>
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl} alt={image.title}/>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel>  <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood} 
-                  </NavLink>
+                    #{mood}
+                  </NavLink>&nbsp;
                   </label>
                 ))}
                 </div>
@@ -176,14 +197,14 @@ export default function Main() {
             <div key={index}>  
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl} alt={image.title}/>
+                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel><div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood} 
-                  </NavLink>
+                    #{mood}
+                  </NavLink>&nbsp;
                   </label>
                 ))}
                 </div>
