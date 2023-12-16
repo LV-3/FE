@@ -63,12 +63,15 @@ export default function Mypage() {
     const checkWishes = async () => {
       try {
         const response = await getmypagewish(subsr);
+        console.log("getmypagerwish_get_response",response);
+
         const found = response.data.filter((item) => item.wish === 1);
+        console.log("getmypagerwish_get_found",found);
         setWishData(found);
-      } catch (error) {
-        console.log("getmypagereplay_post",error)
+      }catch(error) {
+        console.log("getmypagerwish_get_error",error);
         setWishData(-1);
-      }
+      };
     };
     checkWishes();
   }, []);
