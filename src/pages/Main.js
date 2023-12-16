@@ -27,7 +27,7 @@ export default function Main() {
   // const [VODs3, setVODs3] = useState([]);
 
   // const [weather, setWeather] = useState();
-  console.log('weather', weather);
+ 
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
 
@@ -124,7 +124,7 @@ export default function Main() {
       infinite: true,
       speed: 500,
       slidesToShow: 7,
-      slidesToScroll: 7,
+      slidesToScroll: 1,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
@@ -147,7 +147,7 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel> 
+              </ImgLabel>
             </div>
             ))
           }
