@@ -11,6 +11,7 @@ import playgif from "../assets/video_play-icon.gif"
 import { useDispatch } from 'react-redux';
 import { getVODs } from '../reducer/VodReducer';
 import { getReplays } from '../reducer/ReplayReducer';
+import { getPopulars } from '../reducer/PopularReducer';
 
 // 로그인 화면
 
@@ -45,6 +46,7 @@ const Login = () => {
                     dispatch(getVODs(subsr));
                     dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
+                    dispatch(getPopulars());
                     localStorage.setItem('subsr', response.data);
                     console.log("getlogin_post: ",response)
                     navigate("/main");
