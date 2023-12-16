@@ -2,8 +2,9 @@ import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { moodList } from '../apis/main/getmood';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ImgLabel, PageTitle, Poster } from '../css/StyledComponents';
+import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg } from '../css/StyledComponents';
 import '../css/Mood.css';
+import back from '../assets/back.png'
 
 export default function Moodpage() {
     
@@ -11,8 +12,10 @@ export default function Moodpage() {
     let {mood}=useParams();
 
     const [moodVods,setMoodVods]=useState();
-    console.log('moodVods', moodVods)
+
     const navigate = useNavigate();
+
+    const subsr = localStorage.getItem('subsr')
 
     //각 mood 별 검색 목록 불러오기
     useEffect(() => {
@@ -23,6 +26,8 @@ export default function Moodpage() {
                 setMoodVods(result.data);
             } catch (error) {
                 console.log('gettagsError : ', error);
+                localStorage.removeItem('subsr', subsr);
+                localStorage.removeItem('persist:root');
                 navigate("/noResponse");
                 window.location.reload();
             }
@@ -33,6 +38,11 @@ export default function Moodpage() {
 
     return (
         <div className='MoodBackground'>
+       <BackButtonContainer>
+      <BackButton>
+          <BackImg src={back} onClick={()=>{navigate(-1)}}/>
+           </BackButton>
+      </BackButtonContainer>
             <PageTitle>#{mood} 느낌의 VOD</PageTitle>
             <div className='MoodVodContainer'>
             {moodVods&&moodVods.map((image, index) => (

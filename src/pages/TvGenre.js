@@ -1,10 +1,12 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useNavigate} from 'react'
 import '../css/Genre.css';
 import { useParams } from 'react-router-dom';
 import { tvGenreList } from '../apis/genres/getTvGenreList';
 import { NavLink } from 'react-router-dom';
-import { ImgLabel, PageTitle, Poster} from '../css/StyledComponents'
+import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 // import { useSelector } from 'react-redux';
+import back from '../assets/back.png'
+
 
 export default function Mood() {
     
@@ -12,6 +14,8 @@ export default function Mood() {
     let {genre1}=useParams();
 
     const [genreVods,setGenreVods]=useState();
+
+    const navigate=useNavigate;
 
     // const GenreVods = useSelector(state=>state.TvGenreLists.genreData)
     // const genreVods = GenreVods.genre1
@@ -33,6 +37,13 @@ export default function Mood() {
 
     return (
         <div className='GenreBackground'>
+
+      <BackButtonContainer>
+      <BackButton>
+          <BackImg src={back} onClick={()=>{navigate("/mypage")}}/>
+           </BackButton>
+      </BackButtonContainer>
+
           <PageTitle>{genre1.replace(':', '/')}</PageTitle>
           <div className='GenreVodContainer'>
           {genreVods&&genreVods.map((image,index) => (
