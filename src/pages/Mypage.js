@@ -18,6 +18,9 @@ import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, Rat
 import { useDispatch, useSelector } from 'react-redux';
 
 
+import altImg from '../assets/altImg2.png'
+
+
 export default function Mypage() {
   const subsr = localStorage.getItem('subsr');
 
@@ -147,7 +150,7 @@ export default function Mypage() {
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
             <ImgLabel>
               <Poster
-              src={item.posterurl}
+              src={item.posterurl?item.posterurl:altImg}
               alt={item.title}
               />
               {/* <div><progress className='ProgressBar' value={item.user_preference} max={100} /></div> */}
@@ -173,7 +176,7 @@ export default function Mypage() {
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
           <ImgLabel>
             <Poster 
-              src={item.posterurl}
+              src={item.posterurl?item.posterurl:altImg}
               alt={item.title}
             />
           </ImgLabel>
@@ -200,7 +203,7 @@ export default function Mypage() {
                   <label className='RatingImgContainer'>
                     <img
                       className="RatingImg"
-                      src={item.posterurl}
+                      src={item.posterurl?item.posterurl:altImg}
                       alt={item.title}
                       />
                   </label>
