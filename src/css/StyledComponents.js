@@ -200,5 +200,20 @@ export const PageErrorText = styled.div`
     font-weight: 500;
     margin-top: 20%;
 `
+export const BackButtonContainer=styled.div`
+  position: absolute;
+  left: 50px;
+  top: 120px;
+`
 
+export const BackButton=styled.button`
+  background-color:transparent;
+  border: 0;
+  cursor:pointer;
+  `
+
+export const BackImg= styled.img`
+  width: 26px;
+  height: 26px;
+`
 
