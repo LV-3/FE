@@ -18,6 +18,7 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Main() {
 
