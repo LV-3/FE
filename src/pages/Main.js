@@ -145,7 +145,8 @@ export default function Main() {
             <div key={index}>
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  <h2 className='RankText'>{index}+1</h2>
                 </NavLink>
               </ImgLabel>
             </div>
