@@ -4,10 +4,7 @@ import {React, useState, useEffect} from 'react'
 import "react-multi-carousel/lib/styles.css";
 import {NavLink} from "react-router-dom";
 import { Loading } from '../components/Loading';
-
 import altImg from '../assets/altImg2.png'
-
-
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
@@ -18,7 +15,7 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
-
+// import { getWeather } from '../apis/main/getweather';
 
 
 
@@ -29,6 +26,8 @@ export default function Main() {
   // const [VODs2, setVODs2] = useState([]);
   // const [VODs3, setVODs3] = useState([]);
 
+  // const [weather, setWeather] = useState();
+ 
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
 
@@ -64,6 +63,21 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
+
+  // useEffect(()=>{
+  //   const getweatherRec =  async () => {
+  //     try {
+  //       result = await getWeather();
+  //       setWeather(result.data);
+  //       console.log('result', result);
+  //       console.log('result.data', result.data);
+  //     } catch(error) {
+  //       console.log('Weather Error : ', error);
+  //       setWeather(-1);
+  //     }
+  //   }
+  //   getweatherRec();
+  // })
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -109,8 +123,8 @@ export default function Main() {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToShow: 7,
+      slidesToScroll: 1,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
@@ -133,7 +147,7 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel> 
+              </ImgLabel>
             </div>
             ))
           }
