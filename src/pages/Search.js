@@ -3,7 +3,7 @@ import { useLocation, NavLink } from 'react-router-dom';
 import { getSearch} from '../apis/search/getsearch';
 import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 import '../css/Search.css';
-import back from '../assets/back.png'
+// import back from '../assets/back.png'
 import altImg from '../assets/altImg2.png'
 
 
@@ -15,7 +15,7 @@ export default function Search() {
 
   const [search, setSearch] = useState();
 
-  const navigate = useNavigate;
+  // const navigate = useNavigate;
 
   useEffect(()=> {
     const search = async () => {
@@ -28,11 +28,11 @@ export default function Search() {
   return (
     <div className='SearchBackground'>
       
-      <BackButtonContainer>
+      {/* <BackButtonContainer>
       <BackButton>
           <BackImg src={back} onClick={()=>{navigate("/mypage")}}/>
            </BackButton>
-      </BackButtonContainer>
+      </BackButtonContainer> */}
 
       <PageTitle className='SearchTitle'>"{input}"의 검색 결과</PageTitle>
       {search&&search.length !== 0?
