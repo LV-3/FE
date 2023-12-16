@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
 import ReviewModal from '../components/ReviewModal';
+import altImg from '../assets/altImg2.png'
 
 //상세페이지 동적 url 라우팅 위한 useParams 
 import { useParams } from 'react-router-dom';
@@ -129,7 +130,7 @@ export default function Detail() {
         <div className="VodDataContainer">
           
           <ImgLabel>
-            <Poster src={vodData?.posterurl} alt={vodData?.title}/>
+            <Poster src={vodData.posterurl?vodData.posterurl:altImg} alt={vodData?.title}/>
           </ImgLabel>
           <div className='VodData'>
             <div className="TitleContainer">
