@@ -14,7 +14,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 3%
+    margin-left: 3%;
+    margin-bottom: 1%;
 }
     
 .SearchLabel{
@@ -33,4 +34,24 @@
     color:white;
     font-weight: bold;
     font-size: 20px;
+}
+
+.SearchVodBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchVodTitle{
+    width: 176px;
+    position: absolute;
+    color: white;
+    word-break: break-all;
+    margin-top: -0.5%;
+    line-height: 95%;
+    justify-content: center;
+    display: flex;
+}
+
+.SearchLink{
+    text-decoration: none;
 }
