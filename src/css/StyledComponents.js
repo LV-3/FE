@@ -65,6 +65,11 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
+export const BannerSlider = styled(Slider)`
+  width: 100vw;
+  height: 250px;
+`;
+
 export const SliderContainer = styled.div`
   height: 250px;
   margin: 0 10%;
@@ -76,6 +81,14 @@ export const MainSliderContainer = styled.div`
   margin: 0 10%;
   margin-bottom: 2%;
   margin-top: -2%;
+`;
+
+export const BannerSliderContainer = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 250px;
+  width: 100vw;
 `;
 
 export const Div = styled.div`
