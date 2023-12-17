@@ -34,14 +34,14 @@ export const MainStyledSlider = styled(Slider)`
 `;
 
 export const StyledSlider = styled(Slider)`
-  margin-left: 7%;
-  width: 90%;
+  margin-left: 11%;
+  width: 100%;
   height: 270px;
   text-align: center;
   justify-content: center;
   
   .slick-list {
-    margin: 0 -130px;
+    margin: 0 -140px;
     overflow: hidden;
     height: 270px;
     text-align: center;
