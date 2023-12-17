@@ -2,14 +2,14 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 export const MainStyledSlider = styled(Slider)`
-  margin-left: 7%;
-  width: 90%;
+  margin-left: 11%;
+  width: 100%;
   height: 270px;
   text-align: center;
   justify-content: center;
   
   .slick-list {
-    margin: 0 -130px;
+    margin: 0 -140px;
     overflow: hidden;
     height: 300px;
     text-align: left;
@@ -150,7 +150,7 @@ export const RatingTitle = styled.div`
 `;
 
 export const PageTitle = styled.p`
-    margin-left: 5%;
+    margin-left: 5.2%;
     margin-top: 2%;
     margin-bottom: 3%;
     color:white;
