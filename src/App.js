@@ -13,10 +13,12 @@ import Search from './pages/Search';
 import MovieGenre from './pages/MovieGenre';
 import TvGenre from './pages/TvGenre';
 import KidsGenre from './pages/KidsGenre';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/mypage' element={<><Navbar /><Mypage /></>} />

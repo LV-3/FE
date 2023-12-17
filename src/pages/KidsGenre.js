@@ -3,7 +3,7 @@ import '../css/Genre.css';
 import { useParams, useNavigate} from 'react-router-dom';
 import { kidGenreList } from '../apis/genres/getKidGenreList';
 import { NavLink } from 'react-router-dom';
-import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
+import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 // import back from '../assets/back.png'
 import altImg from '../assets/altImg2.png'
 
@@ -40,13 +40,16 @@ export default function Mood() {
            </BackButton>
       </BackButtonContainer> */}
 
-          <PageTitle>{genre3.replace(':', '/')}</PageTitle>
+          <SearchTitle>{genre3.replace(':', '/')}</SearchTitle>
           <div className='GenreVodContainer'>
           {genreVods&&genreVods.map((image,index) => (
               <ImgLabel key={index} className='GenreLabel'>
-                <NavLink to={"/detail/"+image.content_id}>
-                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
+                <div className='GenreVodBox'>
+                  <NavLink to={"/detail/"+image.content_id} className='GenreLink'>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                    <div className='GenreVodTitle'>{image.title}</div>
+                  </NavLink>
+                </div>
               </ImgLabel>))} 
           </div> 
         </div>

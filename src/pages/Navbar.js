@@ -40,7 +40,11 @@ export default function Navbar() {
               <img src={logo} className='Logo' alt='logo' />
           </Link>
         </div>
-
+          <div className='HomeBtnContainer'>
+            <Link to ='/main' className='HomeBtn'>
+              홈
+            </Link>
+          </div>
         
           <div className="DropDownMovie"> 
             <DropDownMovie/>

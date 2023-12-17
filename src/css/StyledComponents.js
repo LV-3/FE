@@ -34,14 +34,14 @@ export const MainStyledSlider = styled(Slider)`
 `;
 
 export const StyledSlider = styled(Slider)`
-  margin-left: 7%;
-  width: 90%;
+  margin-left: 11%;
+  width: 100%;
   height: 270px;
   text-align: center;
   justify-content: center;
   
   .slick-list {
-    margin: 0 -130px;
+    margin: 0 -140px;
     overflow: hidden;
     height: 270px;
     text-align: center;
@@ -65,6 +65,11 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
+export const BannerSlider = styled(Slider)`
+  width: 100vw;
+  height: 250px;
+`;
+
 export const SliderContainer = styled.div`
   height: 250px;
   margin: 0 10%;
@@ -78,11 +83,19 @@ export const MainSliderContainer = styled.div`
   margin-top: -2%;
 `;
 
+export const BannerSliderContainer = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 250px;
+  width: 100vw;
+`;
+
 export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: -8vw;
+    right: -8.5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -127,9 +140,10 @@ export const ImgLabel = styled.label`
 
 export const Poster = styled.img`
     display: flex;
-    alignSelf: stretch;
-    flex: 1 1 0;
+    flex: 0 1 0;
     border-color: black;
+    height: 100%;
+    border-radius: 3px; 
 `;
 export const RatingBox = styled.div`
   width: 80%;
@@ -152,7 +166,7 @@ export const RatingTitle = styled.div`
 export const PageTitle = styled.p`
     margin-left: 5.2%;
     margin-top: 2%;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
     color:white;
     font-weight: bold;
     font-size: 22px;
@@ -215,5 +229,14 @@ export const BackButton=styled.button`
 export const BackImg= styled.img`
   width: 26px;
   height: 26px;
+`
+
+export const SearchTitle = styled.p`
+  margin-left: 16.5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color:white;
+  font-weight: bold;
+  font-size: 22px;
 `
 

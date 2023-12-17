@@ -48,5 +48,10 @@
   text-decoration: none;
 }
 
+.movietitle{
+  font-size: 25px;
+  font-weight: bold;
+  white-space: nowrap;
+}
 
 

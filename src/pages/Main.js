@@ -8,13 +8,18 @@ import altImg from '../assets/altImg2.png'
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
-  MainSliderContainer, PageTitle, MypageText} from '../css/StyledComponents';
+  MainSliderContainer, PageTitle, MypageText, BannerSlider, BannerSliderContainer} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
+import lgevent from '../assets/lgevent.png'
+import lginternet from '../assets/lginternet.png'
+import lgmarket from '../assets/lgmarket.png'
+import lgmobile from '../assets/lgmobile.png'
+import lgrental from '../assets/lgrental.png'
 // import { getWeather } from '../apis/main/getweather';
 
 
@@ -38,7 +43,9 @@ export default function Main() {
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
   const popular = useSelector(state=>state.Populars.vodData);
+  const error = useSelector(state=>state.Vods.error);
 
+  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -129,9 +136,30 @@ export default function Main() {
       nextArrow: <SlickArrowRight />,
     };
 
+    const settingsbanner = {
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+    };
+
     return (
       <div>
         {status ? <Loading /> :null}
+          <BannerSliderContainer>
+            <BannerSlider {...settingsbanner}>
+              {lgimg&&lgimg.map((img, index) => (
+                <div key={index}>
+                  <label className='BannerContainer'>
+                    <img src={img} alt={img} className='BannerImg' />
+                  </label>
+                </div>
+              ))}
+            </BannerSlider>
+          </BannerSliderContainer>
         <div>
           <PageTitle>인기작</PageTitle>
         </div>
@@ -146,7 +174,6 @@ export default function Main() {
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
                   <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                  <h2 className='RankText'>{index}+1</h2>
                 </NavLink>
               </ImgLabel>
             </div>
