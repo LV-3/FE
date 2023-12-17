@@ -127,9 +127,10 @@ export const ImgLabel = styled.label`
 
 export const Poster = styled.img`
     display: flex;
-    alignSelf: stretch;
-    flex: 1 1 0;
+    flex: 0 1 0;
     border-color: black;
+    height: 100%;
+    border-radius: 3px; 
 `;
 export const RatingBox = styled.div`
   width: 80%;
@@ -152,7 +153,7 @@ export const RatingTitle = styled.div`
 export const PageTitle = styled.p`
     margin-left: 5.2%;
     margin-top: 2%;
-    margin-bottom: 3%;
+    margin-bottom: 4%;
     color:white;
     font-weight: bold;
     font-size: 22px;
@@ -215,5 +216,14 @@ export const BackButton=styled.button`
 export const BackImg= styled.img`
   width: 26px;
   height: 26px;
+`
+
+export const SearchTitle = styled.p`
+  margin-left: 16.5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color:white;
+  font-weight: bold;
+  font-size: 22px;
 `
 

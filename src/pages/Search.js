@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useNavigate} from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { getSearch} from '../apis/search/getsearch';
-import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
+import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 import '../css/Search.css';
 // import back from '../assets/back.png'
 import altImg from '../assets/altImg2.png'
@@ -34,7 +34,7 @@ export default function Search() {
            </BackButton>
       </BackButtonContainer> */}
 
-      <PageTitle className='SearchTitle'>"{input}"의 검색 결과</PageTitle>
+      <SearchTitle className='SearchTitle'>"{input}"의 검색 결과</SearchTitle>
       {search&&search.length !== 0?
       <div className='SearchVodContainer'>
         {search&&search.map((image,index) => (

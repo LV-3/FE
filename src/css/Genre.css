@@ -14,9 +14,29 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 3%
+    margin-left: 15%;
+    margin-bottom: 2%;
 }
 
 .GenreLabel{
     margin: 2% 1.55%;
+}
+
+.GnereVodBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.GenreLink{
+    text-decoration: none;
+}
+
+.GenreVodTitle{
+    width: 176px;
+    position: absolute;
+    color: white;
+    word-break: break-all;
+    line-height: 95%;
+    justify-content: center;
+    display: flex;
 }
