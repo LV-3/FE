@@ -82,7 +82,7 @@ export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: -8vw;
+    right: -8.5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
