@@ -1,10 +1,10 @@
-import React,{useEffect, useState, useNavigate} from 'react'
+/* eslint-disable */
+import React,{useEffect, useState} from 'react'
 import '../css/Genre.css';
-import { useParams } from 'react-router-dom';
+import { useParams,NavLink, useNavigate } from 'react-router-dom';
 import { movieGenreList } from '../apis/genres/getMovieGenreList';
-import { NavLink } from 'react-router-dom';
-import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
-// import back from '../assets/back.png'
+import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
+import back from '../assets/back2.png'
 import altImg from '../assets/altImg2.png'
 
 export default function Mood() {
@@ -14,39 +14,59 @@ export default function Mood() {
 
     const [genreVods,setGenreVods]=useState();
 
-    // const navigate=useNavigate;
+   const navigate = useNavigate();
+
+   const [loading, setLoading] = useState(true);
 
     //각 genre 별 검색 목록 불러오기
     useEffect(()=>{
       try {
+        setLoading(true);
             const getgenreList = async()=>{
               const result =await movieGenreList(genre2);
               setGenreVods(result.data)
               console.log(result)
+              setLoading(false);
             }
             getgenreList();
     }catch (error){
-          console.log(error)
+        
+        console.log("getMovieGenreList error: ",error);
+
+        if (Object.keys(error).includes("response")){
+        setGenreVods(-1)
+        }else{
+          navigate("/noResponse");
+        }
         }
     },[genre2]);
 
     return (
     <div className='GenreBackground'>
-      {/* <BackButtonContainer>
+      <BackButtonContainer>
       <BackButton>
-          <BackImg src={back} onClick={()=>{navigate("/mypage")}}/>
+          <BackImg src={back} onClick={()=>{navigate(-1)}}/>
            </BackButton>
-      </BackButtonContainer> */}
+      </BackButtonContainer>
 
-          <PageTitle>{genre2.replace(':', '/')}</PageTitle>
+          <SearchTitle>{genre2.replace(':', '/')}</SearchTitle>
+          {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
+          {genreVods ? 
+          (genreVods===-1? 
+          <text className='GenreText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
+         :
           <div className='GenreVodContainer'>
           {genreVods&&genreVods.map((image,index) => (
               <ImgLabel key={index} className='GenreLabel'>
-                <NavLink to={"/detail/"+image.content_id}>
-                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
+                <div className='GenreVodBox'>
+                  <NavLink to={"/detail/"+image.content_id} className='GenreLink'>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                    <div className='GenreVodTitle'>{image.title}</div>
+                  </NavLink>
+                </div>
               </ImgLabel>))} 
-          </div> 
+          </div>)
+          :<text className='GenreText'>VOD 목록이 없습니다.</text>}</div>}
         </div>
     );
 

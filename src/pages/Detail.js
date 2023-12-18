@@ -16,7 +16,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-import back from '../assets/back.png'
+import back from '../assets/back2.png'
 
 
 export default function Detail() {
@@ -35,11 +35,13 @@ export default function Detail() {
     //all rating 데이터
     const [allRatingData, setAllRatingData] = useState([]);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     //찜하기
     //const [count,setCount]=useState(0);
     const [wish, setWish] = useState();
     //const [wishClick,setWishClick]=useState(0);
+
 
     // VOD GET 요청
     useEffect(()=> {
@@ -48,6 +50,7 @@ export default function Detail() {
           const response = await getVodData(content_id);
           setVodData(response.data);
           console.log(response)
+
         }catch (error){
           if(Object.keys(error).includes("response")){
               setVodData(-1);
@@ -171,8 +174,7 @@ export default function Detail() {
                   {/* <DelConfirmAlert/>*/}
                   
                   <br />
-                  {ratingData.review}
-                  
+                  <div className='RatingText'>{ratingData.review}</div>
                 </div>
               {/* ))) */}
             {/* } */}
@@ -191,7 +193,7 @@ export default function Detail() {
                     readonly="true"
                   />&emsp;
                   {item.rating_date}<br />
-                  {item.review}
+                  <div className='RatingText'>{item.review}</div>
                 </div>
               )))
             }

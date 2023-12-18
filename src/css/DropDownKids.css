@@ -51,6 +51,7 @@
 .KidsEtc{
   display: flex;
   white-space: nowrap;
+  font-size: 25px;
+  font-weight: bold;
 }
-
 

@@ -67,7 +67,7 @@ export default function DropDownMovies() {
       className='moviedropdownbutton'
       onClick={toggleDropdown}>
         {/* <img src={MenuIcon} className='DropDownHamburg'/> */}
-        <h2>영화</h2>
+        <p className='movietitle'>영화</p>
       </button>
       {isOpen && (
         <div className="moviedropdown-content">

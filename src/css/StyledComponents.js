@@ -2,14 +2,14 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 export const MainStyledSlider = styled(Slider)`
-  margin-left: 7%;
+  margin-left: 16.5%;
   width: 90%;
   height: 270px;
-  text-align: center;
+  align-items: center;
   justify-content: center;
   
   .slick-list {
-    margin: 0 -130px;
+    margin: 0 -90px;
     overflow: hidden;
     height: 300px;
     text-align: left;
@@ -34,14 +34,14 @@ export const MainStyledSlider = styled(Slider)`
 `;
 
 export const StyledSlider = styled(Slider)`
-  margin-left: 7%;
+  margin-left: 15.5%;
   width: 90%;
   height: 270px;
   text-align: center;
   justify-content: center;
   
   .slick-list {
-    margin: 0 -130px;
+    margin: 0 -85px;
     overflow: hidden;
     height: 270px;
     text-align: center;
@@ -65,6 +65,11 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
+export const BannerSlider = styled(Slider)`
+  width: 100vw;
+  height: 250px;
+`;
+
 export const SliderContainer = styled.div`
   height: 250px;
   margin: 0 10%;
@@ -78,11 +83,19 @@ export const MainSliderContainer = styled.div`
   margin-top: -2%;
 `;
 
+export const BannerSliderContainer = styled.div`
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 250px;
+  width: 100vw;
+`;
+
 export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: -8vw;
+    right: -5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -93,7 +106,7 @@ export const DivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -10.5vw;
+    left: -6.5vw;
     top: -1vw;
     z-index: 99;
     text-align: left;
@@ -107,7 +120,7 @@ export const MypageTitle = styled.h3`
 `;
 
 export const MypageText = styled.text`
-  margin-left: 10%;
+  margin-left: 16%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
@@ -127,12 +140,13 @@ export const ImgLabel = styled.label`
 
 export const Poster = styled.img`
     display: flex;
-    alignSelf: stretch;
-    flex: 1 1 0;
+    flex: 0 1 0;
     border-color: black;
+    height: 100%;
+    border-radius: 3px; 
 `;
 export const RatingBox = styled.div`
-  width: 80%;
+  width: 90%;
   height: 180px;
   margin-left: 10%;
   margin-bottom: 1%;
@@ -150,9 +164,9 @@ export const RatingTitle = styled.div`
 `;
 
 export const PageTitle = styled.p`
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 3%;
+    margin-left: 16%;
+    margin-top: 4%;
+    margin-bottom: 4%;
     color:white;
     font-weight: bold;
     font-size: 22px;
@@ -213,7 +227,18 @@ export const BackButton=styled.button`
   `
 
 export const BackImg= styled.img`
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
+  margin-left: 25%;
+  margin-top: 20%;
+`
+
+export const SearchTitle = styled.p`
+  margin-left: 16.5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color:white;
+  font-weight: bold;
+  font-size: 22px;
 `
 

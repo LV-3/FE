@@ -13,10 +13,13 @@ import Search from './pages/Search';
 import MovieGenre from './pages/MovieGenre';
 import TvGenre from './pages/TvGenre';
 import KidsGenre from './pages/KidsGenre';
+import ScrollToTop from './components/ScrollToTop';
+import ErrorReload from './errors/ErrorReload';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/mypage' element={<><Navbar /><Mypage /></>} />
@@ -29,6 +32,7 @@ function App() {
         <Route path='/kids/:genre3' element={<><Navbar /><KidsGenre /></>} />
 
         <Route path='/noResponse' element={<><NoResponse /></>} />
+        <Route path='/errorReload' element={<><ErrorReload /></>} />
       </Routes>
     </BrowserRouter>
   );

@@ -8,6 +8,7 @@ import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage/session';
 import replaySlice from "../reducer/ReplayReducer";
 import popularSlice from "../reducer/PopularReducer";
+import weatherSlice from '../reducer/WeatherReducer';
 
 const reducers = combineReducers({
     Vods: vodSlice.reducer,
@@ -16,12 +17,13 @@ const reducers = combineReducers({
     KidsGenres: kidsSlice.reducer,
     Replays: replaySlice.reducer,
     Populars: popularSlice.reducer,
+    Weathers: weatherSlice.reducer,
 });
 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['Vods', 'MovieGenres', 'TvGenres', 'KidsGenres', 'Replays', "Populars"]
+    whitelist: ['Vods', 'MovieGenres', 'TvGenres', 'KidsGenres', 'Replays', "Populars", "Weathers"]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

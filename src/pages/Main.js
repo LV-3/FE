@@ -2,19 +2,24 @@
 import {React, useState, useEffect} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import { Loading } from '../components/Loading';
 import altImg from '../assets/altImg2.png'
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
-  MainSliderContainer, PageTitle, MypageText} from '../css/StyledComponents';
+  MainSliderContainer, PageTitle, MypageText, BannerSlider, BannerSliderContainer} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
+import lgevent from '../assets/lgevent.png'
+import lginternet from '../assets/lginternet.png'
+import lgmarket from '../assets/lgmarket.png'
+import lgmobile from '../assets/lgmobile.png'
+import lgrental from '../assets/lgrental.png'
 // import { getWeather } from '../apis/main/getweather';
 
 
@@ -27,6 +32,8 @@ export default function Main() {
   // const [VODs3, setVODs3] = useState([]);
 
   // const [weather, setWeather] = useState();
+
+  const navigate = useNavigate();
  
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
@@ -38,7 +45,13 @@ export default function Main() {
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
   const popular = useSelector(state=>state.Populars.vodData);
+  const weather = useSelector(state=>state.Weathers.vodData['weather']);
+  const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
+  const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
+  const voderror = useSelector(state=>state.Vods.error);
+  console.log('weather', weather);
 
+  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -63,21 +76,13 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
-
-  // useEffect(()=>{
-  //   const getweatherRec =  async () => {
-  //     try {
-  //       result = await getWeather();
-  //       setWeather(result.data);
-  //       console.log('result', result);
-  //       console.log('result.data', result.data);
-  //     } catch(error) {
-  //       console.log('Weather Error : ', error);
-  //       setWeather(-1);
-  //     }
-  //   }
-  //   getweatherRec();
-  // })
+  useEffect(()=>{
+    if(voderror){
+      navigate('/noResponse')
+    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&personal_words){
+      navigate('/errorReload')
+    }
+  }, [status]);
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -113,8 +118,8 @@ export default function Main() {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 7,
+      slidesToShow: 6,
+      slidesToScroll: 6,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
@@ -123,15 +128,36 @@ export default function Main() {
       dots: false,
       infinite: true,
       speed: 200,
-      slidesToShow: 7,
+      slidesToShow: 6,
       slidesToScroll: 2,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
 
+    const settingsbanner = {
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+    };
+
     return (
       <div>
         {status ? <Loading /> :null}
+          <BannerSliderContainer>
+            <BannerSlider {...settingsbanner}>
+              {lgimg&&lgimg.map((img, index) => (
+                <div key={index}>
+                  <label className='BannerContainer'>
+                    <img src={img} alt={img} className='BannerImg' />
+                  </label>
+                </div>
+              ))}
+            </BannerSlider>
+          </BannerSliderContainer>
         <div>
           <PageTitle>인기작</PageTitle>
         </div>
@@ -145,7 +171,7 @@ export default function Main() {
             <div key={index}>
               <ImgLabel>
                 <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
               </ImgLabel>
             </div>
@@ -154,8 +180,32 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
         }
+
         <div>
-        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
+          <PageTitle>"{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요</PageTitle>
+        </div>
+        {!weather?
+        <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
+        :
+        <MainSliderContainer>
+          <MainStyledSlider {...settings}>
+        {/* <button onClick={getVOD2}>새로고침</button> */}
+          {weathervods&&weathervods.map((image,index) => (
+            <div key={index}>
+              <ImgLabel>
+                <NavLink to={"/detail/"+image.content_id}>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                </NavLink>
+              </ImgLabel>
+            </div>
+            ))
+          }
+          </MainStyledSlider>
+        </MainSliderContainer>
+        } 
+
+        <div>
+        <PageTitle>줄거리 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -180,7 +230,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>장르 기반 추천</PageTitle>
+        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
@@ -205,7 +255,7 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
 
-        <PageTitle>줄거리 기반 추천</PageTitle>
+        <PageTitle>개인화 추천</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
