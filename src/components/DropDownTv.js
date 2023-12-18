@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownTv.css'
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import { genres } from '../apis/genres/getGenres';
 import { getTvs } from '../reducer/TvReducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +14,11 @@ export default function DropDownGenres() {
     const dispatch = useDispatch();
     const tvgenre = useSelector(state=>state.TvGenres.genreData)
     
+    // const navigate=useNavigate();
+
+    // const navigateTo=(genre)=>{
+    //   navigate(`../tv/${genre.replace('/', ':')}`)
+    // }
     useEffect(()=>{
       if(!tvgenre.length) {
         dispatch(getTvs());
@@ -66,9 +71,10 @@ export default function DropDownGenres() {
         <div className="tvdropdown-content">
           {tvgenre&&tvgenre.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../tv/${genre.replace('/', ':')}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <Link to={`../tv/${genre.replace('/', ':')}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              {/* to={`../tv/${genre.replace('/', ':')}`} */}
                 <p onClick={handleLogout}>{genre}</p>
-              </NavLink></label>
+              </Link></label>
           ))}
             
         </div>
