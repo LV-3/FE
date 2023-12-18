@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useNavigate} from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import { getSearch} from '../apis/search/getsearch';
 import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 import '../css/Search.css';
-// import back from '../assets/back.png'
+import back from '../assets/back2.png'
 import altImg from '../assets/altImg2.png'
 
 
@@ -15,7 +15,8 @@ export default function Search() {
 
   const [search, setSearch] = useState();
 
-  // const navigate = useNavigate;
+  const navigate = useNavigate();
+
 
   useEffect(()=> {
     const search = async () => {
@@ -28,11 +29,11 @@ export default function Search() {
   return (
     <div className='SearchBackground'>
       
-      {/* <BackButtonContainer>
+      <BackButtonContainer>
       <BackButton>
-          <BackImg src={back} onClick={()=>{navigate("/mypage")}}/>
+          <BackImg src={back} onClick={()=>{navigate(-1)}}/>
            </BackButton>
-      </BackButtonContainer> */}
+      </BackButtonContainer>
 
       <SearchTitle className='SearchTitle'>"{input}"의 검색 결과</SearchTitle>
       {search&&search.length !== 0?
@@ -44,7 +45,7 @@ export default function Search() {
               <NavLink to={"/detail/"+image.content_id} className='SearchLink'>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 <div className='SearchVodTitle'>{image.title}</div>
-              </NavLink>
+                </NavLink>
             </div>
           </ImgLabel>))} 
       </div>
