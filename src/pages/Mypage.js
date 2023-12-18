@@ -5,7 +5,7 @@ import { Rating } from 'react-simple-star-rating'
 
 import "../css/Mypage.css"
 
-import {getReplay} from '../apis/mypage/getmypagereplay_post';
+// import {getReplay} from '../apis/mypage/getmypagereplay_post';
 import { getmypagewish } from '../apis/mypage/getmypagewish_post';
 import { getmypagerating } from '../apis/mypage/getmypagerating_post';
 
@@ -15,7 +15,7 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 import altImg from '../assets/altImg2.png'
@@ -28,7 +28,7 @@ export default function Mypage() {
   const [ratingData, setRatingData] = useState();
   const [replayError, setReplayError] = useState(0);
   console.log('replayError', replayError)
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const replayData = useSelector(state=>state.Replays.vodData);
   
