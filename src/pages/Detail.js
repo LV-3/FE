@@ -35,11 +35,13 @@ export default function Detail() {
     //all rating 데이터
     const [allRatingData, setAllRatingData] = useState([]);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
     //찜하기
     //const [count,setCount]=useState(0);
     const [wish, setWish] = useState();
     //const [wishClick,setWishClick]=useState(0);
+
 
     // VOD GET 요청
     useEffect(()=> {
@@ -48,6 +50,7 @@ export default function Detail() {
           const response = await getVodData(content_id);
           setVodData(response.data);
           console.log(response)
+
         }catch (error){
           if(Object.keys(error).includes("response")){
               setVodData(-1);

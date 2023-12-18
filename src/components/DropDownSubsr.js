@@ -2,17 +2,18 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownSubsr.css'
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
-import { useNavigate } from 'react-router-dom';
 
 export default function DropDownSubsr() {
     const subsr = localStorage.getItem('subsr')
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
+
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
   
+    
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         // 클릭된 요소가 드롭다운 외부에 있으면 드롭다운을 닫음
@@ -59,6 +60,7 @@ export default function DropDownSubsr() {
       };
       const handleMyPageClick = () => {
         setIsOpen(false);
+        
       };
 
 
