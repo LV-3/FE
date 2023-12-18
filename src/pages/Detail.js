@@ -16,7 +16,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-import back from '../assets/back.png'
+import back from '../assets/back2.png'
 
 
 export default function Detail() {
@@ -174,8 +174,7 @@ export default function Detail() {
                   {/* <DelConfirmAlert/>*/}
                   
                   <br />
-                  {ratingData.review}
-                  
+                  <div className='RatingText'>{ratingData.review}</div>
                 </div>
               {/* ))) */}
             {/* } */}
@@ -194,7 +193,7 @@ export default function Detail() {
                     readonly="true"
                   />&emsp;
                   {item.rating_date}<br />
-                  {item.review}
+                  <div className='RatingText'>{item.review}</div>
                 </div>
               )))
             }
