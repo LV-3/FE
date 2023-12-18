@@ -35,6 +35,7 @@ const Login = () => {
     };
     
     useEffect(()=> {
+        sessionStorage.removeItem("persist:root");
         changeButton(subsr);
     }, [subsr]);
 
@@ -44,7 +45,6 @@ const Login = () => {
         try{
             const response = await login(subsr)
                 if (response.data===Number(subsr)&&response.status===200){
-                    dispatch(getVODs(subsr));
                     dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     dispatch(getPopulars());
