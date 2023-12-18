@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { getVODs } from '../reducer/VodReducer';
 import { getReplays } from '../reducer/ReplayReducer';
 import { getPopulars } from '../reducer/PopularReducer';
+import { getWeathers } from '../reducer/WeatherReducer';
 
 // 로그인 화면
 
@@ -47,6 +48,7 @@ const Login = () => {
                     dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     dispatch(getPopulars());
+                    dispatch(getWeathers());
                     localStorage.setItem('subsr', response.data);
                     console.log("getlogin_post: ",response)
                     navigate("/main");
