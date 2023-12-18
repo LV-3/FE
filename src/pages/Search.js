@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect} from 'react';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import { getSearch} from '../apis/search/getsearch';

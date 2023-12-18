@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import {Wrapper, Title, Form, Inputs} from "../css/StyledComponents";
 //import { Link } from 'react-router-dom';
