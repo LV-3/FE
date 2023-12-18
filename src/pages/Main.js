@@ -15,11 +15,7 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
-import lgevent from '../assets/lgevent.png'
-import lginternet from '../assets/lginternet.png'
-import lgmarket from '../assets/lgmarket.png'
-import lgmobile from '../assets/lgmobile.png'
-import lgrental from '../assets/lgrental.png'
+import {banner} from '../components/Banner';
 // import { getWeather } from '../apis/main/getweather';
 
 
@@ -51,7 +47,6 @@ export default function Main() {
   const voderror = useSelector(state=>state.Vods.error);
   console.log('weather', weather);
 
-  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -149,10 +144,12 @@ export default function Main() {
         {status ? <Loading /> :null}
           <BannerSliderContainer>
             <BannerSlider {...settingsbanner}>
-              {lgimg&&lgimg.map((img, index) => (
+              {banner&&banner.map((img, index) => (
                 <div key={index}>
                   <label className='BannerContainer'>
-                    <img src={img} alt={img} className='BannerImg' />
+                    <NavLink to={img.bannerurl}>
+                      <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
+                    </NavLink>
                   </label>
                 </div>
               ))}
