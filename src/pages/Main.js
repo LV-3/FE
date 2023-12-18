@@ -109,8 +109,8 @@ export default function Main() {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 7,
+      slidesToShow: 6,
+      slidesToScroll: 6,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
@@ -119,7 +119,7 @@ export default function Main() {
       dots: false,
       infinite: true,
       speed: 200,
-      slidesToShow: 7,
+      slidesToShow: 6,
       slidesToScroll: 2,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
@@ -173,10 +173,10 @@ export default function Main() {
         }
 
         <div>
-          <PageTitle>"{weather}" 날씨에 잘 어울리는 VOD </PageTitle>
+          <PageTitle>"{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요</PageTitle>
         </div>
         {!weather?
-        <MypageText className='PopularText'>날씨에 따른 추천을 불러올 수 없습니다.</MypageText>
+        <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
         :
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -196,7 +196,7 @@ export default function Main() {
         } 
 
         <div>
-        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
+        <PageTitle>줄거리 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -221,7 +221,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>장르 기반 추천</PageTitle>
+        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
@@ -246,7 +246,7 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
 
-        <PageTitle>줄거리 기반 추천</PageTitle>
+        <PageTitle>개인화 추천</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>

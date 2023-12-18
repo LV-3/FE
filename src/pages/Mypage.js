@@ -129,8 +129,8 @@ export default function Mypage() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
   };
@@ -193,8 +193,9 @@ export default function Mypage() {
         )}
      </SliderContainer>
 
-      <div className="RatingContainer">
+      
       <PageTitle>리뷰 목록</PageTitle> 
+      <div className="RatingContainer">
         { ratingData ? 
         (ratingData===-1? 
           <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>

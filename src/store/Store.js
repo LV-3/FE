@@ -23,7 +23,7 @@ const reducers = combineReducers({
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['Vods', 'MovieGenres', 'TvGenres', 'KidsGenres', 'Replays', "Populars", "Wethers"]
+    whitelist: ['Vods', 'MovieGenres', 'TvGenres', 'KidsGenres', 'Replays', "Populars", "Weathers"]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

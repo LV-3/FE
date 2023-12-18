@@ -41,6 +41,7 @@ progress::-webkit-progress-value {
 }
 
 .RatingContainer{
+    margin-left: 7%;
     flex-direction: row;
     display: inline-block;
 }
