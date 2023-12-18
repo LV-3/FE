@@ -173,9 +173,11 @@ export const PageTitle = styled.p`
 `;
 
 export const Wrapper = styled.div`
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 `;
 
 export const Form = styled.div`

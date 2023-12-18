@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react'
 import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
@@ -50,13 +51,12 @@ export default function Detail() {
           const response = await getVodData(content_id);
           setVodData(response.data);
           console.log(response)
-
         }catch (error){
           if(Object.keys(error).includes("response")){
-              setVodData(-1);
-              console.log('getVodData', error)
-          }else{
             navigate("/noResponse");
+          }else{
+            setVodData(-1);
+            console.log('getVodData', error)
           }
         }
       };
