@@ -43,7 +43,11 @@ export default function Main() {
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
   const popular = useSelector(state=>state.Populars.vodData);
-  const error = useSelector(state=>state.Vods.error);
+  const weather = useSelector(state=>state.Weathers.vodData['weather']);
+  const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
+  const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
+  const voderror = useSelector(state=>state.Vods.error);
+  console.log('weather', weather);
 
   const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
@@ -70,21 +74,6 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
-
-  // useEffect(()=>{
-  //   const getweatherRec =  async () => {
-  //     try {
-  //       result = await getWeather();
-  //       setWeather(result.data);
-  //       console.log('result', result);
-  //       console.log('result.data', result.data);
-  //     } catch(error) {
-  //       console.log('Weather Error : ', error);
-  //       setWeather(-1);
-  //     }
-  //   }
-  //   getweatherRec();
-  // })
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -182,6 +171,30 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
         }
+
+        <div>
+          <PageTitle>"{weather}" 날씨에 잘 어울리는 VOD </PageTitle>
+        </div>
+        {!weather?
+        <MypageText className='PopularText'>날씨에 따른 추천을 불러올 수 없습니다.</MypageText>
+        :
+        <MainSliderContainer>
+          <MainStyledSlider {...settings}>
+        {/* <button onClick={getVOD2}>새로고침</button> */}
+          {weathervods&&weathervods.map((image,index) => (
+            <div key={index}>
+              <ImgLabel>
+                <NavLink to={"/detail/"+image.content_id}>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                </NavLink>
+              </ImgLabel>
+            </div>
+            ))
+          }
+          </MainStyledSlider>
+        </MainSliderContainer>
+        } 
+
         <div>
         <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
