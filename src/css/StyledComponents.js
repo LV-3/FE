@@ -227,12 +227,10 @@ export const BackButton=styled.button`
   `
 
 export const BackImg= styled.img`
-  position: absolute;
-  display: flex;
   width: 30px;
   height: 30px;
-  margin-left: 13%;
-  margin-top: 15%;
+  margin-left: 25%;
+  margin-top: 20%;
 `
 
 export const SearchTitle = styled.p`

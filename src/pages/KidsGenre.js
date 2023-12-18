@@ -3,7 +3,7 @@ import '../css/Genre.css';
 import { NavLink,useParams, useNavigate} from 'react-router-dom';
 import { kidGenreList } from '../apis/genres/getKidGenreList';
 import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
-import back from '../assets/back.png'
+import back from '../assets/back2.png'
 import altImg from '../assets/altImg2.png'
 
 export default function Mood() {

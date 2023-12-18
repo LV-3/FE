@@ -32,6 +32,8 @@
 }
 
 .GenreVodTitle{
+    margin-top: 0.4%;
+    font-weight: 500;
     width: 176px;
     position: absolute;
     color: white;
