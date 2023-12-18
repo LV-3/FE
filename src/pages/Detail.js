@@ -50,13 +50,12 @@ export default function Detail() {
           const response = await getVodData(content_id);
           setVodData(response.data);
           console.log(response)
-
         }catch (error){
           if(Object.keys(error).includes("response")){
-              setVodData(-1);
-              console.log('getVodData', error)
-          }else{
             navigate("/noResponse");
+          }else{
+            setVodData(-1);
+            console.log('getVodData', error)
           }
         }
       };
