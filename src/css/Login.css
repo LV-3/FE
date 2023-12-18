@@ -41,13 +41,16 @@
 
 .LoginBackground {
     height: 100vh;
+    width: 100vw;
 }
 
 .LoginLogo{
-    height: 90px;
+    width: 250px;
     position: absolute;
-    top: 25px;
-    left:2%;
+    margin-top: -40%;
+    margin-left: -10%;
+    display: flex;
+    justify-content: center;
  }
 
 .playgif{

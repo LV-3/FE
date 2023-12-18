@@ -215,7 +215,8 @@ export default function Main() {
                     <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </NavLink>
-                  </ImgLabel><div className="Tagbox">
+                  </ImgLabel>
+                  {/* <div className="Tagbox">
                     {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
@@ -223,7 +224,7 @@ export default function Main() {
                       </NavLink>&nbsp;
                       </label>
                     ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))
               }
@@ -240,7 +241,8 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel>  <div className="Tagbox">
+              </ImgLabel>  
+              {/* <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -248,7 +250,7 @@ export default function Main() {
                   </NavLink>&nbsp;
                   </label>
                 ))}
-                </div>
+                </div> */}
               </div>
             ))
           }
@@ -265,7 +267,8 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel><div className="Tagbox">
+              </ImgLabel>
+                {/* <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -273,7 +276,7 @@ export default function Main() {
                   </NavLink>&nbsp;
                   </label>
                 ))}
-                </div>
+                </div> */}
               </div>
             ))
           }

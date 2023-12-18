@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react'
 import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
