@@ -27,7 +27,7 @@ export default function Main() {
   // const [VODs2, setVODs2] = useState([]);
   // const [VODs3, setVODs3] = useState([]);
 
-  // const [weather, setWeather] = useState();
+  const [time, setTime] = useState("");
 
   const navigate = useNavigate();
  
@@ -45,7 +45,7 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
-  console.log('weather', weather);
+  console.log('popular', popular);
 
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
@@ -78,6 +78,18 @@ export default function Main() {
       navigate('/errorReload')
     }
   }, [status]);
+
+  useEffect(()=>{
+    if(popular[0].timeGroup==='am'){
+      setTime('오전')
+    }else if(popular[0].timeGroup==='pm'){
+      setTime('오후')
+    }else if(popular[0].timeGroup==='night'){
+      setTime('저녁')
+    }else if(popular[0].timeGroup==='dawn'){
+      setTime('새벽')
+    }
+  }, [popular])
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -147,7 +159,7 @@ export default function Main() {
               {banner&&banner.map((img, index) => (
                 <div key={index}>
                   <label className='BannerContainer'>
-                    <NavLink to={img.bannerurl}>
+                    <NavLink to={img.bannerurl} target="_blank">
                       <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
                     </NavLink>
                   </label>
@@ -156,7 +168,7 @@ export default function Main() {
             </BannerSlider>
           </BannerSliderContainer>
         <div>
-          <PageTitle>인기작</PageTitle>
+          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요</PageTitle>
         </div>
         {!popular.length?
         <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
