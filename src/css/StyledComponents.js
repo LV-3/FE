@@ -84,6 +84,7 @@ export const MainSliderContainer = styled.div`
 `;
 
 export const BannerSliderContainer = styled.div`
+  margin-bottom: -7%;
   display: grid;
   align-items: center;
   justify-items: center;
