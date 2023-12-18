@@ -17,13 +17,27 @@ export default function Search() {
 
   const navigate = useNavigate();
 
+  const [loading, setLoading] = useState(true);
 
   useEffect(()=> {
-    const search = async () => {
-      const result = await getSearch(input);
-      setSearch(result.data);
+    try{
+      setLoading(true);
+      const search = async () => {
+        const result = await getSearch(input);
+        setSearch(result.data);
+        setLoading(false);
     }
      search();
+    }catch (error){
+      console.log("getSearch error: ",error);
+
+      if (Object.keys(error).includes("response")){
+        setSearch(-1)
+      }else{
+          navigate("/noResponse");
+      }
+
+    }
   }, [input]);
 
   return (
@@ -36,7 +50,12 @@ export default function Search() {
       </BackButtonContainer>
 
       <SearchTitle className='SearchTitle'>"{input}"의 검색 결과</SearchTitle>
+      {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
+
       {search&&search.length !== 0?
+      (search===-1?
+        <text className='SearchText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
+        :
       <div className='SearchVodContainer'>
         {search&&search.map((image,index) => (
     
@@ -47,10 +66,10 @@ export default function Search() {
                 <div className='SearchVodTitle'>{image.title}</div>
                 </NavLink>
             </div>
-          </ImgLabel>))} 
-      </div>
-      :<div className='NoResult'>검색결과가 없습니다. <br /> 맞춤법과 띄어쓰기를 확인해주세요.</div>
-      }
+          </ImgLabel>))}
+      </div>)
+      :<text className='SearchText'>검색 결과가 없습니다. </text>
+      }:</div>}
     </div>
     
   )
