@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { ImgLabel, PageTitle, Poster, BackButtonContainer, BackButton, BackImg } from '../css/StyledComponents';
 import '../css/Mood.css';
 import back from '../assets/back.png'
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 
 
 

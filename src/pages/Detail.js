@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
 import ReviewModal from '../components/ReviewModal';
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 
 //상세페이지 동적 url 라우팅 위한 useParams 
 import { useParams } from 'react-router-dom';
@@ -17,7 +17,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-import back from '../assets/back2.png'
+import back from '../assets/back.png'
 
 
 export default function Detail() {

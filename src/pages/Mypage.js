@@ -18,7 +18,7 @@ import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, Rat
 import { useSelector } from 'react-redux';
 
 
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 
 
 export default function Mypage() {

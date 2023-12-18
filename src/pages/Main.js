@@ -4,7 +4,7 @@ import {React, useState, useEffect} from 'react'
 import "react-multi-carousel/lib/styles.css";
 import {NavLink, useNavigate} from "react-router-dom";
 import { Loading } from '../components/Loading';
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,

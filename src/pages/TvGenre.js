@@ -5,8 +5,8 @@ import { useParams,NavLink, useNavigate  } from 'react-router-dom';
 import { tvGenreList } from '../apis/genres/getTvGenreList';
 import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 // import { useSelector } from 'react-redux';
-import back from '../assets/back2.png'
-import altImg from '../assets/altImg2.png'
+import back from '../assets/back.png'
+import altImg from '../assets/altImg.png'
 
 
 export default function Mood() {

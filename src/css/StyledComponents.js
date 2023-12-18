@@ -183,22 +183,22 @@ export const Wrapper = styled.div`
 
 export const Form = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-content: center;
 `;
 
 export const Inputs = styled.div`
     position: relative;
-    top: 180px;
+    top: 250px;
     display: flex;
     height: 400px;
-    width: 500px;
+    width: 600px;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     border-radius: 10px;
-    background-color:black;
+    background-color:transparent;
 `;
 
 export const Title = styled.div`

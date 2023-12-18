@@ -1,8 +1,8 @@
-import lgevent from '../assets/lgevent.png'
-import lginternet from '../assets/lginternet.png'
-import lgmarket from '../assets/lgmarket.png'
-import lgmobile from '../assets/lgmobile.png'
-import lgrental from '../assets/lgrental.png'
+import lgevent from '../assets/banners/lgevent.png'
+import lginternet from '../assets/banners/lginternet.png'
+import lgmarket from '../assets/banners/lgmarket.png'
+import lgmobile from '../assets/banners/lgmobile.png'
+import lgrental from '../assets/banners/lgrental.png'
 
 export const banner = [
                         {bannerimg: lgevent, bannerurl: 'https://www.lghellovision.net/benefits/event/eventMain.do?Ls_Type=0'},
