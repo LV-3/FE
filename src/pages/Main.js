@@ -2,7 +2,7 @@
 import {React, useState, useEffect} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import { Loading } from '../components/Loading';
 import altImg from '../assets/altImg2.png'
 //추천 결과 요청
@@ -32,6 +32,8 @@ export default function Main() {
   // const [VODs3, setVODs3] = useState([]);
 
   // const [weather, setWeather] = useState();
+
+  const navigate = useNavigate();
  
   //subsr 변수
   const subsr=localStorage.getItem('subsr')
@@ -74,6 +76,13 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
+  useEffect(()=>{
+    if(voderror){
+      navigate('/noResponse')
+    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&personal_words){
+      navigate('/errorReload')
+    }
+  }, [status]);
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
