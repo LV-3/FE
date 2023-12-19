@@ -51,11 +51,6 @@ export default function Main() {
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
   
-  console.log('voderror : ', voderror);
-  console.log('VODs1 : ', VODs1);
-
-
-  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -84,7 +79,7 @@ export default function Main() {
       if(voderror===500){
         navigate('/mainError')
   
-    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
+      }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
         navigate('/errorReload')
       }
   }, [status]);

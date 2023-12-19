@@ -16,8 +16,8 @@ import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import { StyledSlider, Div, DivPre, ImgLabel, Poster, RatingBox, MypageText, RatingTitle,
         SliderContainer, PageTitle} from '../css/StyledComponents';
 import { useSelector } from 'react-redux';
-
-
+import { useDispatch } from 'react-redux';
+import { getReplays } from '../reducer/ReplayReducer';
 import altImg from '../assets/altImg.png'
 
 
@@ -26,21 +26,19 @@ export default function Mypage() {
 
   const [wishData, setWishData] = useState();
   const [ratingData, setRatingData] = useState();
-  const [replayError, setReplayError] = useState(0);
-  console.log('replayError', replayError)
   // const dispatch = useDispatch();
 
   const replayData = useSelector(state=>state.Replays.vodData);
+  const replayError = useSelector(state=>state.Replays.error);
+  console.log('replayError : ', replayError)
+
+  const dispatch = useDispatch();
   
   //replayData 리덕스 적용
   useEffect(()=>{
-    const catchError = async() => {
-        if(!replayData||replayData.length === 0){
-          setReplayError(-1)
-          console.log("getmypagereplay_post", error);
-        }
+    if(replayError){
+      dispatch(getReplays(subsr));
     }
-    catchError();
   },[]);
 
   //replay GET
@@ -145,7 +143,7 @@ export default function Mypage() {
       <PageTitle>시청중인 컨텐츠</PageTitle>
       <SliderContainer>
         {replayData?
-        (replayError===-1? 
+        (replayError>=500? 
         <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
          :<StyledSlider {...settings}>
         {(replayData&&replayData.map((item, index) =>(
