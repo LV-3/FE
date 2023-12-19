@@ -4,7 +4,7 @@
 
 .NavBar {
     height: 120px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex: 1 0 auto;
     align-items: center;

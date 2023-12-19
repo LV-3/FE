@@ -123,7 +123,7 @@ export const MypageTitle = styled.h3`
 `;
 
 export const MypageText = styled.text`
-  margin-left: 16%;
+  margin-left: 13%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
@@ -160,19 +160,20 @@ export const RatingBox = styled.div`
 
 export const RatingTitle = styled.div`
   margin-left: 1%;
-  margin-right: 2%;
   display: inline-flex;
   text-align: start;
   white-space: nowrap;
+  font-size:20px;
+  font-weight:500;
 `;
 
 export const PageTitle = styled.p`
-    margin-left: 16%;
+    margin-left: 13%;
     margin-top: 4%;
     margin-bottom: 4%;
     color:white;
-    font-weight: bold;
-    font-size: 22px;
+    font-weight: 500;
+    font-size: 23px;
 `;
 
 export const Wrapper = styled.div`
@@ -239,11 +240,11 @@ export const BackImg= styled.img`
 `
 
 export const SearchTitle = styled.p`
-  margin-left: 16.5%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-left: 13%;
+  margin-top: 4%;
+  margin-bottom: 4%;
   color:white;
-  font-weight: bold;
-  font-size: 22px;
+  font-weight: 500;
+  font-size: 23px;
 `
 
