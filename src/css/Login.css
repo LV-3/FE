@@ -88,15 +88,18 @@
 }
 
 .Loginwrapper {
+    display: inline-flex;
     height: 50px;
+    width: 880px;
     position: absolute;
     left: 33%;
     display: grid;
     place-items: center;
+    white-space: wrap;
   }
   
   .typing-demo {
-    width: 100vw;
+    width: 880px;
     animation: typing 3s steps(40), blink .5s step-end infinite alternate;
     white-space: nowrap;
     color: white;

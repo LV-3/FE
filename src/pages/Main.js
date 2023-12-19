@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {React, useState, useEffect} from 'react' 
+import {React, useState, useEffect, useRef} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
 import {NavLink, useNavigate} from "react-router-dom";
@@ -31,6 +31,7 @@ export default function Main() {
 
 
   const [time, setTime] = useState("");
+  const isMounted = useRef(false);
 
 
   const navigate = useNavigate();
@@ -49,8 +50,9 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
-
-  console.log('popular', popular);
+  
+  console.log('voderror : ', voderror);
+  console.log('VODs1 : ', VODs1);
 
 
   const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
@@ -79,23 +81,24 @@ export default function Main() {
   //   getAllVODs();
   // },[]);
   useEffect(()=>{
-    if(voderror){
-      navigate('/noResponse')
-
-    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
-      navigate('/errorReload')
-    }
+      if(voderror===500){
+        navigate('/mainError')
+      }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
+        navigate('/errorReload')
+      }
   }, [status]);
 
   useEffect(()=>{
-    if(popular[0].timeGroup==='am'){
-      setTime('오전')
-    }else if(popular[0].timeGroup==='pm'){
-      setTime('오후')
-    }else if(popular[0].timeGroup==='night'){
-      setTime('저녁')
-    }else if(popular[0].timeGroup==='dawn'){
-      setTime('새벽')
+    if(popular[0]?.timeGroup){
+      if(popular[0]?.timeGroup==='am'){
+        setTime('오전')
+      }else if(popular[0]?.timeGroup==='pm'){
+        setTime('오후')
+      }else if(popular[0]?.timeGroup==='night'){
+        setTime('저녁')
+      }else if(popular[0]?.timeGroup==='dawn'){
+        setTime('새벽')
+      }
     }
   }, [popular])
 

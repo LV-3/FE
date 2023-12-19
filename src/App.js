@@ -15,6 +15,7 @@ import TvGenre from './pages/TvGenre';
 import KidsGenre from './pages/KidsGenre';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorReload from './errors/ErrorReload';
+import MainError from './errors/MainError';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
         <Route path='/noResponse' element={<><NoResponse /></>} />
         <Route path='/errorReload' element={<><ErrorReload /></>} />
+        <Route path='/mainError' element={<><MainError /></>} />
       </Routes>
     </BrowserRouter>
   );
