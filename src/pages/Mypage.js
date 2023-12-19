@@ -212,9 +212,9 @@ export default function Mypage() {
                 </NavLink>
                   <div className="RatingDataContainer">
                     <div className="RatingTitleContainer">
-                      <RatingTitle>{item.title}</RatingTitle>
+                      <RatingTitle>{item.title}</RatingTitle><br/><br/>
                         <Rating
-                          size="20"
+                          size="30"
                           initialValue={item.rating}
                           readonly="true"
                           fillColor="#a50034"
