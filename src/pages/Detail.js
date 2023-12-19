@@ -17,7 +17,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 import { delReview } from '../apis/detail/deldetailrating';
 import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-import back from '../assets/back.png'
+import back from '../assets/back2.png'
 
 
 export default function Detail() {
@@ -51,6 +51,7 @@ export default function Detail() {
           const response = await getVodData(content_id);
           setVodData(response.data);
           console.log(response)
+
         }catch (error){
           if(Object.keys(error).includes("response")){
             navigate("/noResponse");

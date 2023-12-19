@@ -15,7 +15,9 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
+
 import {banner} from '../components/Banner';
+
 // import { getWeather } from '../apis/main/getweather';
 
 
@@ -27,7 +29,9 @@ export default function Main() {
   // const [VODs2, setVODs2] = useState([]);
   // const [VODs3, setVODs3] = useState([]);
 
+
   const [time, setTime] = useState("");
+
 
   const navigate = useNavigate();
  
@@ -45,8 +49,11 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
+
   console.log('popular', popular);
 
+
+  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -74,6 +81,7 @@ export default function Main() {
   useEffect(()=>{
     if(voderror){
       navigate('/noResponse')
+
     }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
       navigate('/errorReload')
     }
@@ -90,6 +98,7 @@ export default function Main() {
       setTime('새벽')
     }
   }, [popular])
+
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -156,12 +165,14 @@ export default function Main() {
         {status ? <Loading /> :null}
           <BannerSliderContainer>
             <BannerSlider {...settingsbanner}>
+
               {banner&&banner.map((img, index) => (
                 <div key={index}>
                   <label className='BannerContainer'>
                     <NavLink to={img.bannerurl} target="_blank">
                       <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
                     </NavLink>
+
                   </label>
                 </div>
               ))}
