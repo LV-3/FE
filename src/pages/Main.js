@@ -83,7 +83,8 @@ export default function Main() {
   useEffect(()=>{
       if(voderror===500){
         navigate('/mainError')
-      }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
+  
+    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
         navigate('/errorReload')
       }
   }, [status]);
