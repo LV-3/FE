@@ -140,11 +140,11 @@ export default function Mypage() {
       <MypageText>
         셋탑박스 번호 : {subsr}
       </MypageText> </div>*/}
-      <PageTitle>시청중인 컨텐츠</PageTitle>
+      <PageTitle>시청중인 컨텐츠 👀</PageTitle>
       <SliderContainer>
         {replayData?
         (replayError>=500? 
-        <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
+        <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다 잠시 후 다시 시도해 주세요.</MypageText>
          :<StyledSlider {...settings}>
         {(replayData&&replayData.map((item, index) =>(
           <figure key={index} className='fig'>
@@ -165,7 +165,7 @@ export default function Mypage() {
       </SliderContainer>
 
       
-      <PageTitle>찜 목록</PageTitle>
+      <PageTitle>찜 목록 ❤️</PageTitle>
       <SliderContainer>
         {wishData ? 
         (wishData===-1? 
@@ -192,7 +192,7 @@ export default function Mypage() {
      </SliderContainer>
 
       
-      <PageTitle>리뷰 목록</PageTitle> 
+      <PageTitle>리뷰 목록 ✏️ </PageTitle> 
       <div className="RatingContainer">
         { ratingData ? 
         (ratingData===-1? 
