@@ -34,7 +34,7 @@ export const MainStyledSlider = styled(Slider)`
 `;
 
 export const StyledSlider = styled(Slider)`
-  margin-left: 15.5%;
+  margin-left: 12.5%;
   width: 90%;
   height: 270px;
   text-align: center;
