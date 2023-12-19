@@ -84,6 +84,9 @@ export const MainSliderContainer = styled.div`
 `;
 
 export const BannerSliderContainer = styled.div`
+
+  margin-bottom: -7%;
+
   display: grid;
   align-items: center;
   justify-items: center;
@@ -173,29 +176,31 @@ export const PageTitle = styled.p`
 `;
 
 export const Wrapper = styled.div`
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 `;
 
 export const Form = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-content: center;
 `;
 
 export const Inputs = styled.div`
     position: relative;
-    top: 180px;
+    top: 250px;
     display: flex;
     height: 400px;
-    width: 500px;
+    width: 600px;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
     border-radius: 10px;
-    background-color:black;
+    background-color:transparent;
 `;
 
 export const Title = styled.div`

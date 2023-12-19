@@ -4,7 +4,7 @@ import {React, useState, useEffect} from 'react'
 import "react-multi-carousel/lib/styles.css";
 import {NavLink, useNavigate} from "react-router-dom";
 import { Loading } from '../components/Loading';
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
 import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
@@ -15,11 +15,9 @@ import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
 import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 import '../css/Main.css';
 import { useSelector } from 'react-redux';
-import lgevent from '../assets/lgevent.png'
-import lginternet from '../assets/lginternet.png'
-import lgmarket from '../assets/lgmarket.png'
-import lgmobile from '../assets/lgmobile.png'
-import lgrental from '../assets/lgrental.png'
+
+import {banner} from '../components/Banner';
+
 // import { getWeather } from '../apis/main/getweather';
 
 
@@ -31,7 +29,9 @@ export default function Main() {
   // const [VODs2, setVODs2] = useState([]);
   // const [VODs3, setVODs3] = useState([]);
 
-  // const [weather, setWeather] = useState();
+
+  const [time, setTime] = useState("");
+
 
   const navigate = useNavigate();
  
@@ -49,7 +49,9 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
-  console.log('weather', weather);
+
+  console.log('popular', popular);
+
 
   const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
@@ -79,10 +81,24 @@ export default function Main() {
   useEffect(()=>{
     if(voderror){
       navigate('/noResponse')
-    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&personal_words){
+
+    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
       navigate('/errorReload')
     }
   }, [status]);
+
+  useEffect(()=>{
+    if(popular[0].timeGroup==='am'){
+      setTime('오전')
+    }else if(popular[0].timeGroup==='pm'){
+      setTime('오후')
+    }else if(popular[0].timeGroup==='night'){
+      setTime('저녁')
+    }else if(popular[0].timeGroup==='dawn'){
+      setTime('새벽')
+    }
+  }, [popular])
+
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -149,17 +165,21 @@ export default function Main() {
         {status ? <Loading /> :null}
           <BannerSliderContainer>
             <BannerSlider {...settingsbanner}>
-              {lgimg&&lgimg.map((img, index) => (
+
+              {banner&&banner.map((img, index) => (
                 <div key={index}>
                   <label className='BannerContainer'>
-                    <img src={img} alt={img} className='BannerImg' />
+                    <NavLink to={img.bannerurl} target="_blank">
+                      <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
+                    </NavLink>
+
                   </label>
                 </div>
               ))}
             </BannerSlider>
           </BannerSliderContainer>
         <div>
-          <PageTitle>인기작</PageTitle>
+          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요</PageTitle>
         </div>
         {!popular.length?
         <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
@@ -215,7 +235,8 @@ export default function Main() {
                     <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </NavLink>
-                  </ImgLabel><div className="Tagbox">
+                  </ImgLabel>
+                  {/* <div className="Tagbox">
                     {image.tags&&image.tags.map((mood,index)=>(
                       <label key={index}>
                       <NavLink to={"/main/"+mood} className='MainLink'>
@@ -223,7 +244,7 @@ export default function Main() {
                       </NavLink>&nbsp;
                       </label>
                     ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))
               }
@@ -240,7 +261,8 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel>  <div className="Tagbox">
+              </ImgLabel>  
+              {/* <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -248,7 +270,7 @@ export default function Main() {
                   </NavLink>&nbsp;
                   </label>
                 ))}
-                </div>
+                </div> */}
               </div>
             ))
           }
@@ -265,7 +287,8 @@ export default function Main() {
                 <NavLink to={"/detail/"+image.content_id}>
                 <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                 </NavLink>
-              </ImgLabel><div className="Tagbox">
+              </ImgLabel>
+                {/* <div className="Tagbox">
                 {image.tags&&image.tags.map(mood=>(
                   <label key={mood}>
                   <NavLink to={"/main/"+mood} className='MainLink'>
@@ -273,7 +296,7 @@ export default function Main() {
                   </NavLink>&nbsp;
                   </label>
                 ))}
-                </div>
+                </div> */}
               </div>
             ))
           }

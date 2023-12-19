@@ -1,8 +1,9 @@
+/* eslint-disable */
 import React, {useState, useEffect} from 'react'
 import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
 import ReviewModal from '../components/ReviewModal';
-import altImg from '../assets/altImg2.png'
+import altImg from '../assets/altImg.png'
 
 //상세페이지 동적 url 라우팅 위한 useParams 
 import { useParams } from 'react-router-dom';
@@ -53,10 +54,10 @@ export default function Detail() {
 
         }catch (error){
           if(Object.keys(error).includes("response")){
-              setVodData(-1);
-              console.log('getVodData', error)
-          }else{
             navigate("/noResponse");
+          }else{
+            setVodData(-1);
+            console.log('getVodData', error)
           }
         }
       };

@@ -7,7 +7,9 @@ import DropDownMovie from '../components/DropDownMovie';
 import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
 import searchIcon from "../assets/search.png"
-import logo from "../assets/logo2.png"
+
+import logo from "../assets/logo.png"
+
 
 export default function Navbar() {
 
