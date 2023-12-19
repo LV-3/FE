@@ -64,7 +64,7 @@
 }
 
 .ReviewBox{
-    margin-left:16%;
+    margin-left:20%;
     margin-right:11%;
     margin-bottom: 4%;
     border-bottom: 2px solid white;
@@ -100,4 +100,16 @@
 .RatingText{
     margin-top: 3%;
     font-size: 16px;
+}
+
+.Tag{
+    color: white;
+}
+
+.TagText{
+    margin-top: 4%;
+    margin-left: 20%;
+    font-size: 18px;
+    color: white;
+    text-decoration: underline;
 }
