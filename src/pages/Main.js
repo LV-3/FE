@@ -78,13 +78,13 @@ export default function Main() {
     try{
       if(popular[0]?.timeGroup){
         if(popular[0]?.timeGroup==='am'){
-          setTime('오전')
+          setTime('아침 태양과 함께하는 에너지 부스터')
         }else if(popular[0]?.timeGroup==='pm'){
-          setTime('오후')
+          setTime('오후의 소소한 기쁨을 느끼는 시간')
         }else if(popular[0]?.timeGroup==='night'){
-          setTime('저녁')
+          setTime('일상의 마무리, 저녁의 행복')
         }else if(popular[0]?.timeGroup==='dawn'){
-          setTime('새벽')
+          setTime('고요한 새벽의 여유로움')
         }
       }
     }catch (error){
@@ -171,7 +171,7 @@ export default function Main() {
             </BannerSlider>
           </BannerSliderContainer>
         <div>
-          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요.</PageTitle>
+          <PageTitle>"{time}"</PageTitle>
         </div>
         {!popular.length?
         <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
