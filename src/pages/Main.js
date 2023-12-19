@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {React, useState, useEffect, useRef} from 'react' 
+import {React, useState, useEffect} from 'react' 
 //import imageData from "../components/imgdata";
 import "react-multi-carousel/lib/styles.css";
 import {NavLink, useNavigate} from "react-router-dom";
@@ -31,13 +31,10 @@ export default function Main() {
 
 
   const [time, setTime] = useState("");
-  const isMounted = useRef(false);
 
-
-  const navigate = useNavigate();
  
   //subsr 변수
-  const subsr=localStorage.getItem('subsr')
+  // const subsr=localStorage.getItem('subsr')
 
   //리덕스 사용   
   const status = useSelector(state=>state.Vods.status);
@@ -75,29 +72,25 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
-  useEffect(()=>{
-      if(voderror===500){
-        navigate('/mainError')
-  
-      }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
-        navigate('/errorReload')
-      }
-  }, [status]);
+
 
   useEffect(()=>{
-    if(popular[0]?.timeGroup){
-      if(popular[0]?.timeGroup==='am'){
-        setTime('오전')
-      }else if(popular[0]?.timeGroup==='pm'){
-        setTime('오후')
-      }else if(popular[0]?.timeGroup==='night'){
-        setTime('저녁')
-      }else if(popular[0]?.timeGroup==='dawn'){
-        setTime('새벽')
+    try{
+      if(popular[0]?.timeGroup){
+        if(popular[0]?.timeGroup==='am'){
+          setTime('오전')
+        }else if(popular[0]?.timeGroup==='pm'){
+          setTime('오후')
+        }else if(popular[0]?.timeGroup==='night'){
+          setTime('저녁')
+        }else if(popular[0]?.timeGroup==='dawn'){
+          setTime('새벽')
+        }
       }
+    }catch (error){
+      console.log("popular error : ", error);
     }
   }, [popular])
-
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -178,7 +171,7 @@ export default function Main() {
             </BannerSlider>
           </BannerSliderContainer>
         <div>
-          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요</PageTitle>
+          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요.</PageTitle>
         </div>
         {!popular.length?
         <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
@@ -201,7 +194,7 @@ export default function Main() {
         }
 
         <div>
-          <PageTitle>"{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요</PageTitle>
+          <PageTitle>"{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요.</PageTitle>
         </div>
         {!weather?
         <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
@@ -250,7 +243,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
+        <PageTitle>"{personal_words}" 분위기의 컨텐츠를 준비했어요.</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}

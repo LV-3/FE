@@ -3,29 +3,29 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownMovie.css'
 import { NavLink } from 'react-router-dom';
 //import { genres } from '../apis/genres/getGenres';
-import { useSelector, useDispatch } from 'react-redux';
-import { getMovies } from '../reducer/MovieReducer';
+import { Category } from './Category';
 
 
 export default function DropDownMovies() {
     const [isOpen, setIsOpen] = useState(false);
     //const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
+    const [category, setCategory] = useState([]);
 
-    const moviegenre = useSelector(state=>state.MovieGenres.genreData)
-    // const status = useSelector(state=>state.MovieGenres.status)
+    useEffect(()=>{
+      setCategory(Category['영화'])
+    }, [])
     
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
 
-    const dispatch = useDispatch();
 
-    useEffect(()=>{
-      if(!moviegenre.length){
-        dispatch(getMovies());
-      }
-    }, [])
+    // useEffect(()=>{
+    //   if(!moviegenre.length){
+    //     dispatch(getMovies());
+    //   }
+    // }, [])
 
     //확인용 status
     // console.log('afterstatus', status);
@@ -72,9 +72,9 @@ export default function DropDownMovies() {
       </button>
       {isOpen && (
         <div className="moviedropdown-content">
-          {moviegenre&&moviegenre.map((genre,index)=>(
+          {category&&category.map((genre,index)=>(
             <label key={index}>
-              <NavLink to={`../movie/${genre.replace('/', ':')}`} className="movieDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
+              <NavLink to={`../movie/${genre.replace('/', ':')}`} className="movieDropDownNav">
                 <p onClick={handleLogout}>{genre}</p>
               </NavLink></label>
           ))}
