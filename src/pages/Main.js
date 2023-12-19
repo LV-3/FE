@@ -50,7 +50,7 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
-
+  
   console.log('voderror : ', voderror);
   console.log('VODs1 : ', VODs1);
 
