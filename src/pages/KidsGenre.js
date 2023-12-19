@@ -49,7 +49,7 @@ export default function Mood() {
            </BackButton>
       </BackButtonContainer>
 
-          <SearchTitle>{genre3.replace(':', '/')}</SearchTitle>
+          <SearchTitle>키즈/기타 &gt; {genre3.replace(':', '/')}</SearchTitle>
           {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
           {genreVods ? 
           (genreVods===-1? 

@@ -14,12 +14,13 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    margin-left: 15%;
+    margin-left: 12%;
     margin-bottom: 2%;
+    margin-top: -3%;
 }
     
 .SearchLabel{
-    margin: 2% 1.55%;
+    margin: 2.5% 1.1%;
 }
 
 .SearchTitle{
@@ -46,8 +47,8 @@
 }
 
 .SearchVodTitle{
-    margin-top: 0.4%;
-    font-weight: 500;
+    margin-top: 0.5%;
+    font-weight: 400;
     width: 176px;
     position: absolute;
     color: white;
@@ -62,7 +63,7 @@
 }
 
 .SearchText{
-    margin-left: 16%;
+    margin-left: 13%;
     font-size: 18px;
     color: white;
     text-decoration: underline;

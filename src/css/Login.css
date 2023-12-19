@@ -89,12 +89,11 @@
 
 .Loginwrapper {
     display: inline-flex;
-    height: 50px;
+    height: 100px;
     width: 880px;
     position: absolute;
     left: 33%;
     display: grid;
-    place-items: center;
     white-space: wrap;
   }
   
