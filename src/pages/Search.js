@@ -1,11 +1,15 @@
+
 /* eslint-disable */
+
 import React, { useState, useEffect} from 'react';
 import { useLocation, NavLink, useNavigate } from 'react-router-dom';
 import { getSearch} from '../apis/search/getsearch';
 import { ImgLabel, SearchTitle, Poster, BackButtonContainer, BackButton, BackImg} from '../css/StyledComponents'
 import '../css/Search.css';
+
 import back from '../assets/back.png'
 import altImg from '../assets/altImg.png'
+
 
 
 export default function Search() {
