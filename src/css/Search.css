@@ -55,7 +55,9 @@
 }
 
 .SearchText{
-    margin-left: 13%;
+    display: flex;
+    margin-top: 5%;
+    margin-left: 2%;
     font-size: 18px;
     color: white;
     text-decoration: underline;
