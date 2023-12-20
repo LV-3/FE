@@ -174,7 +174,9 @@ export default function Main() {
           :
           <MainSliderContainer>
             <MainStyledSlider {...settingspopular}>
+
             {popular&&popular.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -196,7 +198,9 @@ export default function Main() {
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
+
             {weathervods&&weathervods.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -214,7 +218,9 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
           </div>
+
           {!VODs1?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
@@ -236,12 +242,16 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠를 확인하세요 💘</PageTitle>
           </div>
+
           {!VODs2?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
+
             {VODs2&&VODs2.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -258,7 +268,9 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
           </div>
+
           {!VODs1?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
