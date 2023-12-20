@@ -47,32 +47,6 @@ export default function Main() {
   const weather = useSelector(state=>state.Weathers.vodData['weather']);
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
 
-  //로딩 페이지 변수
-  // const [loading, setLoading] = useState(true);
-  
-  // 전체 모델 결과
-  // useEffect(()=>{
-  //   const getAllVODs = async () => {
-      
-  //     setLoading(true);
-  //     try {
-  //       const result = await allVods(subsr);
-  //       setVODs1(result.data["description_data"]);
-  //       setVODs2(result.data["genre_data"]);
-  //       setVODs3(result.data["personal_data"]);
-  //       setLoading(false);
-  //       console.log(result)
-  //       console.log(VODs1);
-  //       console.log(VODs2);
-  //       console.log(VODs3);
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-  //   };
-  //   getAllVODs();
-  // },[]);
-
-
   useEffect(()=>{
     try{
       if(popular[0]?.timeGroup){
@@ -200,7 +174,9 @@ export default function Main() {
           :
           <MainSliderContainer>
             <MainStyledSlider {...settingspopular}>
-            {popular&&popular.map((image,index) => (
+
+            {popular&&popular.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -222,7 +198,9 @@ export default function Main() {
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-            {weathervods&&weathervods.map((image,index) => (
+
+            {weathervods&&weathervods.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -240,12 +218,14 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
           </div>
-          {!VODs1.length?
+
+          {!VODs1?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-                {VODs1&&VODs1.map((image,index) => (
+                {VODs1&&VODs1.filter(image=>image.posterurl).map((image,index) => (
                   <div key={index}>  
                     <ImgLabel> 
                       <NavLink to={"/detail/"+image.content_id}>
@@ -262,12 +242,16 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠를 확인하세요 💘</PageTitle>
           </div>
-          {!VODs2.length?
+
+          {!VODs2?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-            {VODs2&&VODs2.map((image,index) => (
+
+            {VODs2&&VODs2.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -284,12 +268,14 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
           </div>
-          {!VODs1.length?
+
+          {!VODs1?
+
           <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-            {VODs3&&VODs3.map((image,index) => (
+            {VODs3&&VODs3.filter(image=>image.posterurl).map((image,index) => (
               <div key={index}>  
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
