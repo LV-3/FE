@@ -2,7 +2,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    padding-bottom: 20%;
     z-index: 999;
     top: 0;
     left: 0;
@@ -23,3 +22,25 @@
   margin-bottom: 2%;
 }
 
+.LoadingRobot{
+  margin-top: -12%;
+  height: 50px;
+
+  animation-name: LoadingRotation;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  animation-iteration-count: infinite;
+}
+
+@keyframes LoadingRotation {
+  from{
+
+       transform: rotate(-360deg);
+   }
+   to{
+
+       transform: rotate(0deg);
+   }
+}

@@ -17,7 +17,7 @@ import { delReview } from '../apis/detail/deldetailrating';
 import {DetailTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg, 
         DetailSliderContainer, DetailSlider, DDivPre, DDiv } from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
-import back from '../assets/back2.png'
+import back from '../assets/back.png'
 import { getTags } from '../apis/detail/gettags';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

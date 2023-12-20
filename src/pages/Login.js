@@ -16,6 +16,7 @@ import { getReplays } from '../reducer/ReplayReducer';
 import { getPopulars } from '../reducer/PopularReducer';
 import { getWeathers } from '../reducer/WeatherReducer';
 import { useSelector } from 'react-redux';
+import robot from "../assets/robot.png"
 
 // 로그인 화면
 
@@ -117,6 +118,7 @@ const Login = () => {
                   {/* <img className='playgif'src={playgif} alt='playgif'></img> */}
                     {/* <img src={logo} className='LoginLogo' alt='logo' /> */}
                     <text className="LoginText">Hello GPTv</text>
+                    <img src={robot} className='LoginRobot' alt='Robot' />
                     <div className='Loginwrapper'>
                     <div className="typing-demo">LG헬로티비 고객 맞춤형 VOD 추천 서비스를 경험하세요.<br/>
                     GPT, 딥러닝을 활용하여 시청 기록을 기반으로 컨텐츠를 추천드립니다.<br/>
