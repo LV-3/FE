@@ -47,8 +47,9 @@
 }
 
 .GenreText{
+    display: flex;
     margin-top: 5%;
-    margin-left: 0%;
+    margin-left: 1%;
     font-size: 18px;
     color: white;
     text-decoration: underline;
