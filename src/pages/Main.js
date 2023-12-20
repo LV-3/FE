@@ -31,12 +31,11 @@ export default function Main() {
 
 
   const [time, setTime] = useState("");
+  const [icon, setIcon] = useState("");
 
-
-  const navigate = useNavigate();
  
   //subsr 변수
-  const subsr=localStorage.getItem('subsr')
+  // const subsr=localStorage.getItem('subsr')
 
   //리덕스 사용   
   const status = useSelector(state=>state.Vods.status);
@@ -50,10 +49,6 @@ export default function Main() {
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
 
-  console.log('popular', popular);
-
-
-  const lgimg = [lgevent, lginternet, lgmarket, lgmobile, lgrental]
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -78,14 +73,47 @@ export default function Main() {
   //   };
   //   getAllVODs();
   // },[]);
-  useEffect(()=>{
-    if(voderror){
-      navigate('/noResponse')
 
-    }else if(!voderror&&!status&&!VODs1&&!VODs2&&!VODs3&&!personal_words){
-      navigate('/errorReload')
+
+  useEffect(()=>{
+    try{
+      if(popular[0]?.timeGroup){
+        if(popular[0]?.timeGroup==='am'){
+          setTime('🌄 아침 태양과 함께하는 에너지 부스터')
+        }else if(popular[0]?.timeGroup==='pm'){
+          setTime('🏙️ 오후의 소소한 기쁨을 느끼는 시간')
+        }else if(popular[0]?.timeGroup==='night'){
+          setTime('🌃 일상의 마무리, 저녁의 행복')
+        }else if(popular[0]?.timeGroup==='dawn'){
+          setTime('🌇 고요한 새벽의 여유로움')
+        }
+      }
+    }catch (error){
+      console.log("popular error : ", error);
     }
-  }, [status]);
+  }, [popular])
+
+  useEffect(()=>{
+    if(weather==='맑음'){
+      setIcon('🌞')
+    }else if(weather==='비'){
+      setIcon('🌧️')
+    }else if(weather==='비/눈'){
+      setIcon('🌧️❄️')
+    }else if(weather==='눈'){
+      setIcon('🌨️')
+    }else if(weather==='빗방울'){
+      setIcon('🌧️')
+    }else if(weather==='빗방울/눈날림'){
+      setIcon('🌧️🌨️')
+    }else if(weather==='눈날림'){
+      setIcon('🌨️')
+    }else if(weather==='구름많음'){
+      setIcon('⛅')
+    }else if(weather==='흐림'){
+      setIcon('🌥️')
+    }
+  })
 
   useEffect(()=>{
     if(popular[0].timeGroup==='am'){
@@ -179,7 +207,7 @@ export default function Main() {
             </BannerSlider>
           </BannerSliderContainer>
         <div>
-          <PageTitle>"{time}" 시간대에 많이 시청하는 컨텐츠를 추천해드릴게요</PageTitle>
+          <PageTitle>{time}</PageTitle>
         </div>
         {!popular.length?
         <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
@@ -202,7 +230,7 @@ export default function Main() {
         }
 
         <div>
-          <PageTitle>"{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요</PageTitle>
+          <PageTitle>현재 "{weather}{icon}"와 잘 어울리는 컨텐츠를 추천해드려요.</PageTitle>
         </div>
         {!weather?
         <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
@@ -225,7 +253,7 @@ export default function Main() {
         } 
 
         <div>
-        <PageTitle>줄거리 기반 추천</PageTitle>
+        <PageTitle>📜 내가 본 컨텐츠와 유사한 줄거리의 컨텐츠!</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -251,7 +279,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>{personal_words} 분위기 기반 추천</PageTitle>
+        <PageTitle>💘 내가 본 컨텐츠와 유사한 장르의 컨텐츠!</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
@@ -277,7 +305,7 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
 
-        <PageTitle>개인화 추천</PageTitle>
+        <PageTitle>🎯 내가 본 "{personal_words}"와 비슷한 분위기의 컨텐츠!</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>

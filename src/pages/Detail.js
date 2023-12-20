@@ -15,10 +15,15 @@ import { getwishdata } from '../apis/detail/getmywish_post';
 import { getratingdata } from '../apis/detail/getdetailrating';
 //import DelConfirmAlert from '../components/__DelConfirmAlert';
 import { delReview } from '../apis/detail/deldetailrating';
-import {PageTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg} from '../css/StyledComponents';
+import {DetailTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg, 
+        MainSliderContainer, MainStyledSlider} from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
 import back from '../assets/back2.png'
-
+import { getTags } from '../apis/detail/gettags';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import {ReactComponent as Next} from '../assets/slider-arrow-right.svg'
+import {ReactComponent as Prev} from '../assets/slider-arrow-left.svg'
 
 export default function Detail() {
     
@@ -35,6 +40,12 @@ export default function Detail() {
 
     //all rating 데이터
     const [allRatingData, setAllRatingData] = useState([]);
+
+    const [tags, setTags] = useState([]);
+    const [tagsData1, setTagsData1] = useState([]);
+    const [tagsData2, setTagsData2] = useState([]);
+    const [tagsData3, setTagsData3] = useState([]);
+    const tagsData = [...tagsData1, ...tagsData2, ...tagsData3];
 
     const navigate = useNavigate();
 
@@ -119,6 +130,64 @@ export default function Detail() {
       getRatingData();
     }, [ratingData]);
 
+    useEffect(()=>{
+      const gettags = async () => {
+        try{
+          const result = await getTags(content_id)
+            setTags(result['tags']);
+            setTagsData1(result['tags1']);
+            setTagsData2(result['tags2']);
+            setTagsData3(result['tags3']);
+            console.log('result', result)
+        }catch(error){
+          console.log("tag error : ", error);
+
+        }
+      }
+      gettags();
+    })
+    console.log('tags', tags)
+
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-prev slick-arrow" +
+          (currentSlide === 0 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === 0 ? true : false}
+        type="button"
+      >
+      <DivPre><Prev /></DivPre>
+      </button>
+    );
+  
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-next slick-arrow" +
+          (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+        }
+        aria-hidden="true"
+        aria-disabled={currentSlide === slideCount - 1 ? true : false}
+        type="button"
+      >
+      <Div><Next /></Div>
+      </button>
+    );
+
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      prevArrow: <SlickArrowLeft />,
+      nextArrow: <SlickArrowRight />,
+    };
+
     return (
     <div className='Detaildivbg'>
       <BackButtonContainer>
@@ -153,12 +222,46 @@ export default function Detail() {
             <div><b>출연진</b> &nbsp;&nbsp;{vodData?.actors}</div>
             <div><b>줄거리</b> &nbsp;&nbsp;<div className='Vodsumrybox'>{vodData?.description}</div></div>
             </div>  
+            <div className='TagContainer'>
+              {tags&&tags.map((tag, index)=>{
+                <div key={index}>
+                  <div className='Tag'>
+                    {tag}
+                  </div>
+                </div>
+              })}
+            </div>
           </div>
-          
         </div>
+
+        
+          
+        <DetailTitle>연관 컨텐츠</DetailTitle>
+        {!tagsData.length?
+        <div className='TagText'>연관 컨텐츠를 불러올 수 없습니다.</div>
+        :
+        <div>
+        <DetailTitle>#{tags}  </DetailTitle>
+        <MainSliderContainer>
+          <MainStyledSlider {...settings}>
+          {/* <button onClick={getVOD2}>새로고침</button> */}
+            {tagsData&&tagsData.map((image,index) => (
+              <div key={index}>
+                <ImgLabel>
+                  <NavLink to={"/detail/"+image.content_id}>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  </NavLink>
+                </ImgLabel>
+              </div>
+              ))
+            }
+          </MainStyledSlider>
+        </MainSliderContainer>
+        </div>
+        }
         
        {ratingData?<div>
-          <PageTitle>나의 리뷰</PageTitle>
+          <DetailTitle>나의 리뷰</DetailTitle>
             {/*{
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(*/}
                 <div className="ReviewBox">
@@ -179,10 +282,10 @@ export default function Detail() {
                 </div>
               {/* ))) */}
             {/* } */}
-          </div>:<><PageTitle>나의 리뷰</PageTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
+          </div>:<><DetailTitle>나의 리뷰</DetailTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
           <><br/><br/></>
         {allRatingData.length>0?<div>
-          <PageTitle>모든 리뷰</PageTitle>
+          <DetailTitle>모든 리뷰</DetailTitle>
             {
               (allRatingData&&allRatingData.filter((allRatingData)=>allRatingData.subsr !== subsr).map((item, index)=>(
                 <div key={index} className="ReviewBox">
@@ -201,7 +304,7 @@ export default function Detail() {
 
         </div>:
           <div className='AllReviewConatiner'>
-            <PageTitle>모든 리뷰</PageTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text>
+            <DetailTitle>모든 리뷰</DetailTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text>
           </div>}
           </>
           ):(<MypageText>VOD정보가 없습니다.</MypageText>)}

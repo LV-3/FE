@@ -3,17 +3,14 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownTv.css'
 import { Link } from 'react-router-dom';
 //import { genres } from '../apis/genres/getGenres';
-import { getTvs } from '../reducer/TvReducer';
-import { useDispatch, useSelector } from 'react-redux';
+import { Category } from './Category';
 
 
 export default function DropDownGenres() {
     const [isOpen, setIsOpen] = useState(false);
     //const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
-    
-    const dispatch = useDispatch();
-    const tvgenre = useSelector(state=>state.TvGenres.genreData)
+    const [category, setCategory] = useState([]);
     
     // const navigate=useNavigate();
 
@@ -21,9 +18,7 @@ export default function DropDownGenres() {
     //   navigate(`../tv/${genre.replace('/', ':')}`)
     // }
     useEffect(()=>{
-      if(!tvgenre.length) {
-        dispatch(getTvs());
-      }
+      setCategory(Category['TV'])
     }, [])
 
     const toggleDropdown = () => {
@@ -70,10 +65,9 @@ export default function DropDownGenres() {
       </button>
       {isOpen && (
         <div className="tvdropdown-content">
-          {tvgenre&&tvgenre.map((genre,index)=>(
+          {category&&category.map((genre,index)=>(
             <label key={index}>
-              <Link to={`../tv/${genre.replace('/', ':')}`} className="tvDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
-              {/* to={`../tv/${genre.replace('/', ':')}`} */}
+              <Link to={`../tv/${genre.replace('/', ':')}`} className="tvDropDownNav">
                 <p onClick={handleLogout}>{genre}</p>
               </Link></label>
           ))}

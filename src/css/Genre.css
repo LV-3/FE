@@ -4,22 +4,25 @@
     flex-direction: column;
     background-size: cover;
     background-attachment: fixed;
-    margin-left: 3%;
+    margin-left: 0%;
     margin-top:1%;
+    overflow-x: hidden;
+    align-items: center;
+
 }
 
 .GenreVodContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 15%;
+    justify-content: center;
+    margin-left: 12%;
     margin-bottom: 2%;
+    margin-top: -2%;
 }
 
 .GenreLabel{
-    margin: 2% 1.55%;
+    margin: 2.5% 1.1%;
 }
 
 .GnereVodBox{
@@ -32,8 +35,8 @@
 }
 
 .GenreVodTitle{
-    margin-top: 0.4%;
-    font-weight: 500;
+    margin-top: 0.5%;
+    font-weight: 400;
     width: 176px;
     position: absolute;
     color: white;
@@ -44,7 +47,8 @@
 }
 
 .GenreText{
-    margin-left: 16%;
+    margin-top: 5%;
+    margin-left: 0%;
     font-size: 18px;
     color: white;
     text-decoration: underline;

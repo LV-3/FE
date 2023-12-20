@@ -51,8 +51,8 @@ export default function Mood() {
            </BackButton>
       </BackButtonContainer>
 
-          <SearchTitle>{genre2.replace(':', '/')}</SearchTitle>
-          {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
+          <SearchTitle>영화 &gt;  {genre2.replace(':', '/')}</SearchTitle>
+          {loading? <text className='GenreText'>VOD 목록을 불러오는 중입니다. 잠시만 기다려 주세요.</text>:<div>
           {genreVods ? 
           (genreVods===-1? 
           <text className='GenreText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>

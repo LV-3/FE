@@ -36,11 +36,12 @@ export default function Navbar() {
 
   return (
     <div className='NavBar'>
-        <div className='LinkContainer'>
+        <div className='NavContainer'>
           <Link to='/main' className='NavbarLink'>
               <img src={logo} className='Logo' alt='logo' />
           </Link>
-        </div>
+        
+
           <div className='HomeBtnContainer'>
             <Link to ='/main' className='HomeBtn'>
               홈
@@ -67,11 +68,11 @@ export default function Navbar() {
           </button>
         </div>
 
-
         <div className="SubsrContainer"> 
           <DropDownSubsr/>
+        </div>
 
         </div>
-    </div>
+        </div>
   )
 }
