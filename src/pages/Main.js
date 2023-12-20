@@ -48,7 +48,7 @@ export default function Main() {
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
   const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
   const voderror = useSelector(state=>state.Vods.error);
-  
+
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
   
@@ -114,6 +114,19 @@ export default function Main() {
       setIcon('🌥️')
     }
   })
+
+  useEffect(()=>{
+    if(popular[0].timeGroup==='am'){
+      setTime('오전')
+    }else if(popular[0].timeGroup==='pm'){
+      setTime('오후')
+    }else if(popular[0].timeGroup==='night'){
+      setTime('저녁')
+    }else if(popular[0].timeGroup==='dawn'){
+      setTime('새벽')
+    }
+  }, [popular])
+
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
