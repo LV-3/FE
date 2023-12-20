@@ -150,7 +150,7 @@ export default function Main() {
     return (
       <div className='MainBg'>
         <div className='MainContainer'>
-          {!status ? <Loading /> :<div>
+          {status ? <Loading /> :<div>
             <BannerSliderContainer>
               <BannerSlider {...settingsbanner}>
 
