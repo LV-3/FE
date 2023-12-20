@@ -248,7 +248,6 @@ export const SearchTitle = styled.p`
   font-size: 23px;
 `
 export const DetailTitle = styled.p`
-  margin-left: 16%;
   margin-top: 4%;
   margin-bottom: 4%;
   color:white;
