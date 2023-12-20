@@ -45,7 +45,7 @@ export default function Detail() {
     const [tagsData2, setTagsData2] = useState([]);
     const [tagsData3, setTagsData3] = useState([]);
     const tagsData = [...tagsData1, ...tagsData2, ...tagsData3];
-    console.log('tagsData :', tagsData)
+    // console.log('tagsData :', tagsData)
     const navigate = useNavigate();
 
     //찜하기
@@ -146,7 +146,7 @@ export default function Detail() {
       }
       gettags();
     }, [])
-    console.log('tags', tags)
+    // console.log('tags', tags)
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
