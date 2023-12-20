@@ -7,7 +7,7 @@ import { Loading } from '../components/Loading';
 import altImg from '../assets/altImg.png'
 //추천 결과 요청
 // import { allVods } from '../apis/main/getmain_post';
-import { MainStyledSlider, Div, DivPre, ImgLabel, Poster,
+import { MainStyledSlider, MDiv, MDivPre, ImgLabel, Poster,
   MainSliderContainer, PageTitle, MypageText, BannerSlider, BannerSliderContainer} from '../css/StyledComponents';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -124,7 +124,7 @@ export default function Main() {
         aria-disabled={currentSlide === 0 ? true : false}
         type="button"
       >
-      <DivPre><Prev /></DivPre>
+      <MDivPre><Prev /></MDivPre>
       </button>
     );
   
@@ -139,7 +139,7 @@ export default function Main() {
         aria-disabled={currentSlide === slideCount - 1 ? true : false}
         type="button"
       >
-      <Div><Next /></Div>
+      <MDiv><Next /></MDiv>
       </button>
     );
 
@@ -174,147 +174,155 @@ export default function Main() {
     };
 
     return (
-      <div>
-        {status ? <Loading /> :null}
-          <BannerSliderContainer>
-            <BannerSlider {...settingsbanner}>
+      <div className='MainBg'>
+        <div className='MainContainer'>
+          {status ? <Loading /> :null}
+            <BannerSliderContainer>
+              <BannerSlider {...settingsbanner}>
 
-              {banner&&banner.map((img, index) => (
-                <div key={index}>
-                  <label className='BannerContainer'>
-                    <NavLink to={img.bannerurl} target="_blank">
-                      <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
-                    </NavLink>
+                {banner&&banner.map((img, index) => (
+                  <div key={index}>
+                    <label className='BannerContainer'>
+                      <NavLink to={img.bannerurl} target="_blank">
+                        <img src={img.bannerimg} alt={img.bannerimg} className='BannerImg' />
+                      </NavLink>
 
-                  </label>
-                </div>
-              ))}
-            </BannerSlider>
-          </BannerSliderContainer>
-        <div>
-          <PageTitle>{time}</PageTitle>
-        </div>
-        {!popular.length?
-        <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
-        :
-        <MainSliderContainer>
-          <MainStyledSlider {...settingspopular}>
-        {/* <button onClick={getVOD2}>새로고침</button> */}
-          {popular&&popular.map((image,index) => (
-            <div key={index}>
-              <ImgLabel>
-                <NavLink to={"/detail/"+image.content_id}>
-                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
-              </ImgLabel>
-            </div>
-            ))
-          }
-          </MainStyledSlider>
-        </MainSliderContainer>
-        }
-
-        <div>
-          <PageTitle>현재 "{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요. {icon}</PageTitle>
-        </div>
-        {!weather?
-        <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
-        :
-        <MainSliderContainer>
-          <MainStyledSlider {...settings}>
-        {/* <button onClick={getVOD2}>새로고침</button> */}
-          {weathervods&&weathervods.map((image,index) => (
-            <div key={index}>
-              <ImgLabel>
-                <NavLink to={"/detail/"+image.content_id}>
-                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
-              </ImgLabel>
-            </div>
-            ))
-          }
-          </MainStyledSlider>
-        </MainSliderContainer>
-        } 
-
-        <div>
-        <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
-        {/* <button onClick={getVOD1}>새로고침</button> */}
-        <MainSliderContainer>
-          <MainStyledSlider {...settings}>
-              {VODs1&&VODs1.map((image,index) => (
-                <div key={index}>  
-                  <ImgLabel> 
-                    <NavLink to={"/detail/"+image.content_id}>
-                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                    </NavLink>
-                  </ImgLabel>
-                  {/* <div className="Tagbox">
-                    {image.tags&&image.tags.map((mood,index)=>(
-                      <label key={index}>
-                      <NavLink to={"/main/"+mood} className='MainLink'>
-                        #{mood}
-                      </NavLink>&nbsp;
-                      </label>
-                    ))}
-                    </div> */}
+                    </label>
                   </div>
-                ))
-              }
-          </MainStyledSlider>  
-        </MainSliderContainer>
-        
-        <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠 💘</PageTitle>
-        <MainSliderContainer>
-          <MainStyledSlider {...settings}>
-        {/* <button onClick={getVOD2}>새로고침</button> */}
-          {VODs2&&VODs2.map((image,index) => (
-            <div key={index}>
-              <ImgLabel>
-                <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
-              </ImgLabel>  
-              {/* <div className="Tagbox">
-                {image.tags&&image.tags.map(mood=>(
-                  <label key={mood}>
-                  <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
-                  </NavLink>&nbsp;
-                  </label>
                 ))}
-                </div> */}
+              </BannerSlider>
+            </BannerSliderContainer>
+          <div className='MainTitle'>
+            <PageTitle>{time}</PageTitle>
+          </div>
+          {!popular.length?
+          <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
+          :
+          <MainSliderContainer>
+            <MainStyledSlider {...settingspopular}>
+          {/* <button onClick={getVOD2}>새로고침</button> */}
+            {popular&&popular.map((image,index) => (
+              <div key={index}>
+                <ImgLabel>
+                  <NavLink to={"/detail/"+image.content_id}>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  </NavLink>
+                </ImgLabel>
               </div>
-            ))
+              ))
+            }
+            </MainStyledSlider>
+          </MainSliderContainer>
           }
-          </MainStyledSlider>
-        </MainSliderContainer>
 
-        <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
-        {/* <button onClick={getVOD3}>새로고침</button> */}
-        <MainSliderContainer>
-          <MainStyledSlider {...settings}>
-          {VODs3&&VODs3.map((image,index) => (
-            <div key={index}>  
-              <ImgLabel>
-                <NavLink to={"/detail/"+image.content_id}>
-                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                </NavLink>
-              </ImgLabel>
-                {/* <div className="Tagbox">
-                {image.tags&&image.tags.map(mood=>(
-                  <label key={mood}>
-                  <NavLink to={"/main/"+mood} className='MainLink'>
-                    #{mood}
-                  </NavLink>&nbsp;
-                  </label>
-                ))}
-                </div> */}
+          <div className='MainTitle'>
+            <PageTitle>현재 "{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요. {icon}</PageTitle>
+          </div>
+          {!weather?
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
+          :
+          <MainSliderContainer>
+            <MainStyledSlider {...settings}>
+          {/* <button onClick={getVOD2}>새로고침</button> */}
+            {weathervods&&weathervods.map((image,index) => (
+              <div key={index}>
+                <ImgLabel>
+                  <NavLink to={"/detail/"+image.content_id}>
+                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  </NavLink>
+                </ImgLabel>
               </div>
-            ))
-          }
-          </MainStyledSlider>
-        </MainSliderContainer>
+              ))
+            }
+            </MainStyledSlider>
+          </MainSliderContainer>
+          } 
+
+          <div>
+          <div className='MainTitle'>
+            <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
+          </div>
+          {/* <button onClick={getVOD1}>새로고침</button> */}
+          <MainSliderContainer>
+            <MainStyledSlider {...settings}>
+                {VODs1&&VODs1.map((image,index) => (
+                  <div key={index}>  
+                    <ImgLabel> 
+                      <NavLink to={"/detail/"+image.content_id}>
+                      <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                      </NavLink>
+                    </ImgLabel>
+                    {/* <div className="Tagbox">
+                      {image.tags&&image.tags.map((mood,index)=>(
+                        <label key={index}>
+                        <NavLink to={"/main/"+mood} className='MainLink'>
+                          #{mood}
+                        </NavLink>&nbsp;
+                        </label>
+                      ))}
+                      </div> */}
+                    </div>
+                  ))
+                }
+            </MainStyledSlider>  
+          </MainSliderContainer>
+          
+          <div className='MainTitle'>
+            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠 💘</PageTitle>
+          </div>
+          <MainSliderContainer>
+            <MainStyledSlider {...settings}>
+          {/* <button onClick={getVOD2}>새로고침</button> */}
+            {VODs2&&VODs2.map((image,index) => (
+              <div key={index}>
+                <ImgLabel>
+                  <NavLink to={"/detail/"+image.content_id}>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  </NavLink>
+                </ImgLabel>  
+                {/* <div className="Tagbox">
+                  {image.tags&&image.tags.map(mood=>(
+                    <label key={mood}>
+                    <NavLink to={"/main/"+mood} className='MainLink'>
+                      #{mood}
+                    </NavLink>&nbsp;
+                    </label>
+                  ))}
+                  </div> */}
+                </div>
+              ))
+            }
+            </MainStyledSlider>
+          </MainSliderContainer>
+
+          <div className='MainTitle'>
+            <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
+          </div>
+          {/* <button onClick={getVOD3}>새로고침</button> */}
+          <MainSliderContainer>
+            <MainStyledSlider {...settings}>
+            {VODs3&&VODs3.map((image,index) => (
+              <div key={index}>  
+                <ImgLabel>
+                  <NavLink to={"/detail/"+image.content_id}>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  </NavLink>
+                </ImgLabel>
+                  {/* <div className="Tagbox">
+                  {image.tags&&image.tags.map(mood=>(
+                    <label key={mood}>
+                    <NavLink to={"/main/"+mood} className='MainLink'>
+                      #{mood}
+                    </NavLink>&nbsp;
+                    </label>
+                  ))}
+                  </div> */}
+                </div>
+              ))
+            }
+            </MainStyledSlider>
+          </MainSliderContainer>
+          </div>
         </div>
       </div>
   );

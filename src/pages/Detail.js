@@ -190,7 +190,7 @@ export default function Detail() {
 
     return (
     <div className='Detaildivbg'>
-      <div className='Conatiner'>
+      <div className='DetailConatiner'>
       <BackButtonContainer>
       <BackButton>
           <BackImg src={back} onClick={()=>{navigate(-1)}}/>
