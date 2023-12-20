@@ -150,7 +150,7 @@ export default function Main() {
     return (
       <div className='MainBg'>
         <div className='MainContainer'>
-          {status ? <Loading /> :null}
+          {!status ? <Loading /> :<div>
             <BannerSliderContainer>
               <BannerSlider {...settingsbanner}>
 
@@ -290,8 +290,8 @@ export default function Main() {
           }
           
           </div>
-        </div>
-        </div>
+        </div>}
+        </div></div>
 
   );
 };

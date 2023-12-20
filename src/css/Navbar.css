@@ -26,19 +26,52 @@
 
 .NavbarLink {
     text-decoration: none;
-    margin-top:-2.3%;
+
+}
+.LogoText{
+    display: flex;
+    width: 100%;
+ font-size: 25px;
+ font-weight: 1000;
 }
 
 .Logo{
     height: 90px;
     position: absolute;
-    margin-left: 2%;
+    margin-left: 1.4%;
+    margin-top: -1.2%;
  }
+ .Robot{
+    height: 30px;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: -3%;
+
+    animation-name: Rotate;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+ }
+
+ @keyframes Rotate {
+    from {
+        margin-left: 5%;
+        transform: rotate(-460deg);
+    }
+    to {
+        margin-left: 15%;
+        transform: rotate(60deg);
+    }
+}
+
 
  .HomeBtnContainer{
     position: absolute;
     display:flex;
-    margin-left: 22%;
+    margin-left: 23%;
 }
 
 .HomeBtn{
@@ -51,17 +84,17 @@
 .DropDownTv{
     position: absolute;
     display:flex;
-    margin-left: 28%;
+    margin-left: 29%;
 }
 .DropDownMovie{
     position: absolute;
     display:flex;
-    margin-left: 34%;
+    margin-left: 35%;
 }
 .DropDownKids{
     position: absolute;
     display:flex;
-    margin-left: 42%;
+    margin-left: 43%;
 }
 
 .SearchContainer{
