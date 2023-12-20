@@ -36,13 +36,42 @@ export const StyledSlider = styled(Slider)`
   width: 80%;
   height: 270px;
   text-align: center;
-  margin-left: -2.5%;
   
   .slick-list {
-    margin: 0 -20px;
+    margin: 0 5%;
     overflow: hidden;
     height: 270px;
-    text-align: center;
+    text-align: left;
+  }
+  .slick-arrow {
+    display: block;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    align-self: stretch;
+  }
+
+  .slick-arrow:hover {
+    height: 30px;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+`;
+
+export const DetailSlider = styled(Slider)`
+  width: 100%;
+  height: 270px;
+  text-align: center;
+  
+  .slick-list {
+    margin: 0 7%;
+    overflow: hidden;
+    height: 270px;
+    text-align: left;
   }
   .slick-arrow {
     display: block;
@@ -72,12 +101,19 @@ export const SliderContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 250px;
-  margin: 0 10%;
   margin-bottom: 5%;
-  width: 100%;
+  margin-left: 1%;
 `;
 
 export const MainSliderContainer = styled.div`
+  display:flex;
+  justify-content: center;
+  height: 250px;
+  margin-top: -2%;
+  margin-bottom: 3%;
+`;
+
+export const DetailSliderContainer = styled.div`
   display:flex;
   justify-content: center;
   height: 250px;
@@ -100,7 +136,7 @@ export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 0.5vw;
+    right: 4.5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -111,7 +147,7 @@ export const DivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -1.5vw;
+    left: 2.5vw;
     top: -1vw;
     z-index: 99;
     text-align: left;
@@ -140,6 +176,28 @@ export const MDivPre = styled.div`
     line-height: 30px;
 `;
 
+export const DDiv = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 6vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: right;
+    line-height: 30px;
+`;
+
+export const DDivPre = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 3.5vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: left;
+    line-height: 30px;
+`;
+
 export const MypageTitle = styled.h3`
   margin-top: 4%;
   margin-bottom: 2%;
@@ -147,7 +205,7 @@ export const MypageTitle = styled.h3`
 `;
 
 export const MypageText = styled.text`
-  margin-left: 13%;
+  margin-left: 15%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
@@ -173,10 +231,9 @@ export const Poster = styled.img`
     border-radius: 3px; 
 `;
 export const RatingBox = styled.div`
-  width: 90%;
+  width: 100%;
   height: 180px;
-  margin-left: 10%;
-  margin-bottom: 1%;
+  margin-bottom: 3%;
   border-bottom : 2px #d4d4d4 solid;
   display: inline-flex;
   flexDirection: row;
@@ -271,8 +328,8 @@ export const SearchTitle = styled.p`
   font-size: 23px;
 `
 export const DetailTitle = styled.p`
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   color:white;
   font-weight: 500;
   font-size: 23px;

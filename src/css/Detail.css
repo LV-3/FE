@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    width: 70%;
 }
 
 .VodDataContainer{
@@ -105,20 +106,17 @@
     font-size: 16px;
 }
 
-.Tag{
-    color: white;
-}
-
-.TagText{
-    margin-top: 4%;
-    font-size: 18px;
-    color: white;
-    text-decoration: underline;
-}
-
 .MyReviewBox{
     display: flex;
     flex-direction: row;
 }
 
+.Tags{
+    color: white;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 3%;
+    margin-left: 7%;
+}
 
