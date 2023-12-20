@@ -77,13 +77,14 @@ export default function Main() {
     try{
       if(popular[0]?.timeGroup){
         if(popular[0]?.timeGroup==='am'){
-          setTime('아침 태양과 함께하는 에너지 부스터 🌄')
+          setTime(`아침 태양과 함께하는 에너지 부스터 🌄 
+          아침에 인기가 많은 작품을 추천드려요!`)
         }else if(popular[0]?.timeGroup==='pm'){
-          setTime('오후의 소소한 기쁨을 느끼는 시간 🏙️')
+          setTime('오후의 소소한 기쁨을 느끼는 시간 🏙️ 오후에 인기가 많은 작품을 추천드려요!')
         }else if(popular[0]?.timeGroup==='night'){
-          setTime('일상의 마무리, 저녁의 행복 🌃')
+          setTime(`일상의 마무리, 저녁의 행복 🌃 저녁에 인기가 많은 작품을 추천드려요!`)
         }else if(popular[0]?.timeGroup==='dawn'){
-          setTime('고요한 새벽의 여유로움 🌇')
+          setTime('고요한 새벽의 여유로움 🌇 새벽에 인기가 많은 작품을 추천드려요!')
         }
       }
     }catch (error){
@@ -196,7 +197,7 @@ export default function Main() {
             <PageTitle>{time}</PageTitle>
           </div>
           {!popular.length?
-          <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settingspopular}>
@@ -268,7 +269,7 @@ export default function Main() {
           </MainSliderContainer>
           
           <div className='MainTitle'>
-            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠 💘</PageTitle>
+            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠를 확인하세요 💘</PageTitle>
           </div>
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
