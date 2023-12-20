@@ -141,7 +141,9 @@ export default function Mypage() {
         셋탑박스 번호 : {subsr}
       </MypageText> </div>*/}
       <div className='MyPageContainer'>
-      <PageTitle>시청중인 컨텐츠 👀</PageTitle>
+      <div className='MyPageTitle'>
+        <PageTitle>시청중인 컨텐츠 👀</PageTitle>
+      </div>
       <SliderContainer>
         {replayData?
         (replayError>=500? 
@@ -165,8 +167,9 @@ export default function Mypage() {
         ):(<MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>)}
       </SliderContainer>
 
-      
-      <PageTitle>찜 목록 ❤️</PageTitle>
+      <div className='MyPageTitle'>
+        <PageTitle>찜 목록 ❤️</PageTitle>
+      </div>
       <SliderContainer>
         {wishData ? 
         (wishData===-1? 
@@ -192,56 +195,57 @@ export default function Mypage() {
         )}
      </SliderContainer>
 
-      
-      <PageTitle>리뷰 목록 ✏️ </PageTitle> 
-      <div className="RatingContainer">
-        { ratingData ? 
-        (ratingData===-1? 
-          <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>
-           :
-          <div className='ReviewContainer'>
-          {(ratingData.map((item, index) => (
-              <RatingBox key={index}>
-                <NavLink to={"/detail/"+item.content_id} className="LinkText">
-                  <label className='RatingImgContainer'>
-                    <img
-                      className="RatingImg"
-                      src={item.posterurl?item.posterurl:altImg}
-                      alt={item.title}
-                      />
-                  </label>
-                </NavLink>
-                  <div className="RatingDataContainer">
-                    <div className="RatingTitleContainer">
-                      <RatingTitle>{item.title}</RatingTitle><br/><br/>
-                        <Rating
-                          size="30"
-                          initialValue={item.rating}
-                          readonly="true"
-                          fillColor="#a50034"
-                          className="Rating"
-                        />
-                        <div className="RatingDate">
-                          {item.rating_date}
+        <div className='MyPageTitle'>
+          <PageTitle>리뷰 목록 ✏️ </PageTitle> 
+        </div>
+          <div className="RatingContainer">
+            { ratingData ? 
+            (ratingData===-1? 
+              <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>
+              :
+              <div className='ReviewContainer'>
+              {(ratingData.map((item, index) => (
+                  <RatingBox key={index}>
+                    <NavLink to={"/detail/"+item.content_id} className="LinkText">
+                      <label className='RatingImgContainer'>
+                        <img
+                          className="RatingImg"
+                          src={item.posterurl?item.posterurl:altImg}
+                          alt={item.title}
+                          />
+                      </label>
+                    </NavLink>
+                      <div className="RatingDataContainer">
+                        <div className="RatingTitleContainer">
+                          <RatingTitle>{item.title}</RatingTitle><br/><br/>
+                            <Rating
+                              size="30"
+                              initialValue={item.rating}
+                              readonly="true"
+                              fillColor="#a50034"
+                              className="Rating"
+                            />
+                            <div className="RatingDate">
+                              {item.rating_date}
+                            </div>
                         </div>
-                    </div>
-                      <div className="Review">
-                        {item.review}
+                          <div className="Review">
+                            {item.review}
+                          </div>
                       </div>
-                  </div>
-                {/* 평점 데이터에서 subsr과 content_id로 다시 리뷰 데이터 가져와서 매핑 
-                <text>리뷰: {reviewData.filter((reviewitem) => reviewitem.subsr === item.subsr
-                &&reviewitem.content_id === item.content_id)
-                .map((item2, index)=>(
-                  <label key={index}>{item2.review}</label>
-                ))}</text>*/}
-              </RatingBox>
-            )))}
-          </div> 
-        ): (
-          <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
-        )}
-      </div>
+                    {/* 평점 데이터에서 subsr과 content_id로 다시 리뷰 데이터 가져와서 매핑 
+                    <text>리뷰: {reviewData.filter((reviewitem) => reviewitem.subsr === item.subsr
+                    &&reviewitem.content_id === item.content_id)
+                    .map((item2, index)=>(
+                      <label key={index}>{item2.review}</label>
+                    ))}</text>*/}
+                  </RatingBox>
+                )))}
+              </div> 
+            ): (
+              <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
+            )}
+          </div>
       </div>
     </div>
   )

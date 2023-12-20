@@ -36,13 +36,12 @@ export const StyledSlider = styled(Slider)`
   width: 80%;
   height: 270px;
   text-align: center;
-  margin-left: -2.5%;
   
   .slick-list {
-    margin: 0 -20px;
+    margin: 0 5%;
     overflow: hidden;
     height: 270px;
-    text-align: center;
+    text-align: left;
   }
   .slick-arrow {
     display: block;
@@ -72,9 +71,8 @@ export const SliderContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 250px;
-  margin: 0 10%;
   margin-bottom: 5%;
-  width: 100%;
+  margin-left: 1%;
 `;
 
 export const MainSliderContainer = styled.div`
@@ -100,7 +98,7 @@ export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 0.5vw;
+    right: 4.5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -111,7 +109,7 @@ export const DivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -1.5vw;
+    left: 2.5vw;
     top: -1vw;
     z-index: 99;
     text-align: left;
@@ -147,7 +145,7 @@ export const MypageTitle = styled.h3`
 `;
 
 export const MypageText = styled.text`
-  margin-left: 13%;
+  margin-left: 15%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
@@ -173,10 +171,9 @@ export const Poster = styled.img`
     border-radius: 3px; 
 `;
 export const RatingBox = styled.div`
-  width: 90%;
+  width: 100%;
   height: 180px;
-  margin-left: 10%;
-  margin-bottom: 1%;
+  margin-bottom: 3%;
   border-bottom : 2px #d4d4d4 solid;
   display: inline-flex;
   flexDirection: row;
