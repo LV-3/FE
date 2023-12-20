@@ -1,12 +1,15 @@
 .Mypagebg{
-    background-color: black;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    margin-left: 3%;
-    margin-top:1%;
     flex-direction: column;
+}
+
+.MyPageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3%;
 }
 
 .LinkText{
@@ -40,12 +43,6 @@ progress::-webkit-progress-value {
 
 .Rating{
     display: block;
-}
-
-.RatingContainer{
-    margin-left: 7%;
-    flex-direction: row;
-    display: inline-block;
 }
 
 .RatingImgContainer{
@@ -95,8 +92,9 @@ progress::-webkit-progress-value {
 }
 
 .RatingContainer{
+    display: flex;
+    justify-content: center;
     margin-bottom: 3%;
-    margin-left: 3%;
 }
 
 .RatingError{
@@ -107,3 +105,14 @@ progress::-webkit-progress-value {
     text-decoration: underline;
 }
 
+.ReviewContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+.MyPageTitle{
+    display: flex;
+    margin-left: 15%;
+}
