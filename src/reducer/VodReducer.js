@@ -26,10 +26,12 @@ const vodSlice = createSlice({
         builder
             .addCase(getVODs.pending, (state)=> {
                 state.status = true;
+                state.error = null;
             })
             .addCase(getVODs.fulfilled, (state, action)=>{
                 state.vodData = action.payload;
                 state.status = false;
+                state.error = null;
             })
             .addCase(getVODs.rejected, (state, action)=>{
                 state.error = action.payload;

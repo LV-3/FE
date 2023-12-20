@@ -3,26 +3,25 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownKids.css'
 import { NavLink } from 'react-router-dom';
 // import { genres } from '../apis/genres/getGenres';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 import { getKids } from '../reducer/KidsReducer';
-
+import { Category } from './Category';
 
 export default function DropDownGenres() {
     const [isOpen, setIsOpen] = useState(false);
     // const [allGenres,setGenres] = useState();
     const dropdownRef = useRef(null);
+    const [category, setCategory] = useState([]);
 
-    const kidsgenre = useSelector(state=>state.KidsGenres.genreData)
-    const dispatch = useDispatch();
+    // const kidsgenre = useSelector(state=>state.KidsGenres.genreData)
+    // const dispatch = useDispatch();
 
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
 
     useEffect(()=>{
-      if(!kidsgenre.length){
-        dispatch(getKids());
-      }
+      setCategory(Category['키즈/기타'])
     }, [])
 
     // useEffect(()=>{
@@ -65,7 +64,7 @@ export default function DropDownGenres() {
       </button>
       {isOpen && (
         <div className="kidsdropdown-content">
-          {kidsgenre&&kidsgenre.map((genre,index)=>(
+          {category&&category.map((genre,index)=>(
             <label key={index}>
               <NavLink to={`../kids/${genre.replace('/', ':')}`} className="kidsDropDownNav"> {/*{`../genre/${encodeURIComponent(genre)}`} */}
                 <p onClick={handleLogout}>{genre}</p>
