@@ -320,12 +320,11 @@ export const BackImg= styled.img`
 `
 
 export const SearchTitle = styled.p`
-  margin-left: 13%;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-left: 1%;
+  margin-top: 5%;
   color:white;
-  font-weight: 500;
-  font-size: 23px;
+  font-weight: bold;
+  font-size: 24px;
 `
 export const DetailTitle = styled.p`
   margin-top: 1%;

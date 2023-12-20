@@ -45,30 +45,32 @@ export default function Mood() {
 
     return (
     <div className='GenreBackground'>
-      <BackButtonContainer>
-      <BackButton>
-          <BackImg src={back} onClick={()=>{navigate(-1)}}/>
-           </BackButton>
-      </BackButtonContainer>
+      <div className='SearchCategoryContainer'>
+        <BackButtonContainer>
+          <BackButton>
+            <BackImg src={back} onClick={()=>{navigate(-1)}}/>
+            </BackButton>
+        </BackButtonContainer>
 
-          <SearchTitle>영화 &gt;  {genre2.replace(':', '/')}</SearchTitle>
-          {loading? <text className='GenreText'>VOD 목록을 불러오는 중입니다. 잠시만 기다려 주세요.</text>:<div>
-          {genreVods ? 
-          (genreVods===-1? 
-          <text className='GenreText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
-         :
-          <div className='GenreVodContainer'>
-          {genreVods&&genreVods.map((image,index) => (
-              <ImgLabel key={index} className='GenreLabel'>
-                <div className='GenreVodBox'>
-                  <NavLink to={"/detail/"+image.content_id} className='GenreLink'>
-                    <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                    <div className='GenreVodTitle'>{image.title}</div>
-                  </NavLink>
-                </div>
-              </ImgLabel>))} 
-          </div>)
-          :<text className='GenreText'>VOD 목록이 없습니다.</text>}</div>}
+            <SearchTitle>영화 &gt;  {genre2.replace(':', '/')}</SearchTitle>
+            {loading? <text className='GenreText'>VOD 목록을 불러오는 중입니다. 잠시만 기다려 주세요.</text>:<div>
+            {genreVods ? 
+            (genreVods===-1? 
+            <text className='GenreText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
+          :
+            <div className='GenreVodContainer'>
+            {genreVods&&genreVods.map((image,index) => (
+                <ImgLabel key={index} className='GenreLabel'>
+                  <div className='GenreVodBox'>
+                    <NavLink to={"/detail/"+image.content_id} className='GenreLink'>
+                      <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                      <div className='GenreVodTitle'>{image.title}</div>
+                    </NavLink>
+                  </div>
+                </ImgLabel>))} 
+            </div>)
+            :<text className='GenreText'>VOD 목록이 없습니다.</text>}</div>}
+          </div>
         </div>
     );
 

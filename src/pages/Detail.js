@@ -4,9 +4,8 @@ import '../css/Detail.css';
 import {HeartOutlined, HeartFilled} from '@ant-design/icons';	
 import ReviewModal from '../components/ReviewModal';
 import altImg from '../assets/altImg.png'
-
 //상세페이지 동적 url 라우팅 위한 useParams 
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { postwish } from '../apis/detail/postdetailwish';
 import { Rating } from 'react-simple-star-rating'
@@ -46,7 +45,7 @@ export default function Detail() {
     const [tagsData2, setTagsData2] = useState([]);
     const [tagsData3, setTagsData3] = useState([]);
     const tagsData = [...tagsData1, ...tagsData2, ...tagsData3];
-
+    console.log('tagsData :', tagsData)
     const navigate = useNavigate();
 
     //찜하기
@@ -243,12 +242,12 @@ export default function Detail() {
           <DetailSliderContainer>
             <DetailSlider {...settings}>
             {/* <button onClick={getVOD2}>새로고침</button> */}
-              {tagsData&&tagsData.map((image,index) => (
+              {tagsData&&tagsData.map((image, index) => (
                 <div key={index}>
                   <ImgLabel>
-                    <NavLink to={"/detail/"+image.content_id}>
+                    <a href={"/detail/"+image.content_id}>
                       <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                    </NavLink>
+                    </a>
                   </ImgLabel>
                 </div>
                 ))
