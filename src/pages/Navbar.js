@@ -8,7 +8,8 @@ import DropDownTv from '../components/DropDownTv';
 import DropDownKids from '../components/DropDownKids';
 import searchIcon from "../assets/search.png"
 
-import logo from "../assets/logo.png"
+import logo from "../assets/logo2.png"
+import robot from "../assets/robot.png"
 
 
 export default function Navbar() {
@@ -38,7 +39,9 @@ export default function Navbar() {
     <div className='NavBar'>
         <div className='NavContainer'>
           <Link to='/main' className='NavbarLink'>
-              <img src={logo} className='Logo' alt='logo' />
+             
+               <img src={logo} className='Logo' alt='logo' />
+               <img src={robot} className='Robot' alt='Robot' />
           </Link>
         
 

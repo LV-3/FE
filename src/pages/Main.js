@@ -47,43 +47,17 @@ export default function Main() {
   const weather = useSelector(state=>state.Weathers.vodData['weather']);
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
 
-  //로딩 페이지 변수
-  // const [loading, setLoading] = useState(true);
-  
-  // 전체 모델 결과
-  // useEffect(()=>{
-  //   const getAllVODs = async () => {
-      
-  //     setLoading(true);
-  //     try {
-  //       const result = await allVods(subsr);
-  //       setVODs1(result.data["description_data"]);
-  //       setVODs2(result.data["genre_data"]);
-  //       setVODs3(result.data["personal_data"]);
-  //       setLoading(false);
-  //       console.log(result)
-  //       console.log(VODs1);
-  //       console.log(VODs2);
-  //       console.log(VODs3);
-  //     }catch(error){
-  //       console.log(error);
-  //     }
-  //   };
-  //   getAllVODs();
-  // },[]);
-
-
   useEffect(()=>{
     try{
       if(popular[0]?.timeGroup){
         if(popular[0]?.timeGroup==='am'){
-          setTime('아침 태양과 함께하는 에너지 부스터 🌄')
+          setTime(`아침 태양과 함께하는 에너지 부스터 🌄 아침에 인기가 많은 작품을 추천드려요!`)
         }else if(popular[0]?.timeGroup==='pm'){
-          setTime('오후의 소소한 기쁨을 느끼는 시간 🏙️')
+          setTime('오후의 소소한 기쁨을 느끼는 시간 🏙️ 오후에 인기가 많은 작품을 추천드려요!')
         }else if(popular[0]?.timeGroup==='night'){
-          setTime('일상의 마무리, 저녁의 행복 🌃')
+          setTime(`일상의 마무리, 저녁의 행복 🌃 저녁에 인기가 많은 작품을 추천드려요!`)
         }else if(popular[0]?.timeGroup==='dawn'){
-          setTime('고요한 새벽의 여유로움 🌇')
+          setTime('고요한 새벽의 여유로움 🌇 새벽에 인기가 많은 작품을 추천드려요!')
         }
       }
     }catch (error){
@@ -176,7 +150,7 @@ export default function Main() {
     return (
       <div className='MainBg'>
         <div className='MainContainer'>
-          {status ? <Loading /> :null}
+          {!status ? <Loading /> :<div>
             <BannerSliderContainer>
               <BannerSlider {...settingsbanner}>
 
@@ -193,15 +167,16 @@ export default function Main() {
               </BannerSlider>
             </BannerSliderContainer>
           <div className='MainTitle'>
-            <PageTitle>{time}</PageTitle>
+            <PageTitle>{time?time:<div>시간대 별 인기작</div>}</PageTitle>
           </div>
           {!popular.length?
-          <MypageText className='PopularText'>인기작을 불러올 수 없습니다.</MypageText>
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
           :
           <MainSliderContainer>
             <MainStyledSlider {...settingspopular}>
-          {/* <button onClick={getVOD2}>새로고침</button> */}
-            {popular&&popular.map((image,index) => (
+
+            {popular&&popular.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -223,8 +198,9 @@ export default function Main() {
           :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-          {/* <button onClick={getVOD2}>새로고침</button> */}
-            {weathervods&&weathervods.map((image,index) => (
+
+            {weathervods&&weathervods.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
@@ -242,88 +218,80 @@ export default function Main() {
           <div className='MainTitle'>
             <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
           </div>
-          {/* <button onClick={getVOD1}>새로고침</button> */}
+
+          {!VODs1?
+
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
+          :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-                {VODs1&&VODs1.map((image,index) => (
+                {VODs1&&VODs1.filter(image=>image.posterurl).map((image,index) => (
                   <div key={index}>  
                     <ImgLabel> 
                       <NavLink to={"/detail/"+image.content_id}>
                       <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                       </NavLink>
                     </ImgLabel>
-                    {/* <div className="Tagbox">
-                      {image.tags&&image.tags.map((mood,index)=>(
-                        <label key={index}>
-                        <NavLink to={"/main/"+mood} className='MainLink'>
-                          #{mood}
-                        </NavLink>&nbsp;
-                        </label>
-                      ))}
-                      </div> */}
                     </div>
                   ))
                 }
             </MainStyledSlider>  
           </MainSliderContainer>
+          }
           
           <div className='MainTitle'>
-            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠 💘</PageTitle>
+            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠를 확인하세요 💘</PageTitle>
           </div>
+
+          {!VODs2?
+
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
+          :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-          {/* <button onClick={getVOD2}>새로고침</button> */}
-            {VODs2&&VODs2.map((image,index) => (
+
+            {VODs2&&VODs2.filter(image=>image.posterurl).map((image,index) => (
+
               <div key={index}>
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
                   <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                   </NavLink>
                 </ImgLabel>  
-                {/* <div className="Tagbox">
-                  {image.tags&&image.tags.map(mood=>(
-                    <label key={mood}>
-                    <NavLink to={"/main/"+mood} className='MainLink'>
-                      #{mood}
-                    </NavLink>&nbsp;
-                    </label>
-                  ))}
-                  </div> */}
                 </div>
               ))
             }
             </MainStyledSlider>
           </MainSliderContainer>
+          }
 
           <div className='MainTitle'>
             <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
           </div>
-          {/* <button onClick={getVOD3}>새로고침</button> */}
+
+          {!VODs1?
+
+          <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
+          :
           <MainSliderContainer>
             <MainStyledSlider {...settings}>
-            {VODs3&&VODs3.map((image,index) => (
+            {VODs3&&VODs3.filter(image=>image.posterurl).map((image,index) => (
               <div key={index}>  
                 <ImgLabel>
                   <NavLink to={"/detail/"+image.content_id}>
                   <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                   </NavLink>
                 </ImgLabel>
-                  {/* <div className="Tagbox">
-                  {image.tags&&image.tags.map(mood=>(
-                    <label key={mood}>
-                    <NavLink to={"/main/"+mood} className='MainLink'>
-                      #{mood}
-                    </NavLink>&nbsp;
-                    </label>
-                  ))}
-                  </div> */}
                 </div>
               ))
             }
             </MainStyledSlider>
           </MainSliderContainer>
+          }
+          
           </div>
-        </div>
-      </div>
+        </div>}
+        </div></div>
+
   );
 };

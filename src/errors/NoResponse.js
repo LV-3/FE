@@ -6,14 +6,14 @@ const NoResponse = () => {
   const navigate = useNavigate();
 
   const Click = () => {
-    navigate(-1);
+    navigate("/");
   }
   return (
     <div className='NoResBg'>
         <div className='container'>
           <div className='NoResponseText'>서버 연결에 문제가 있습니다. <br /> 잠시 후 다시 접속해 주세요.</div>
           <div className='BtnContainer'>
-            <a onClick={Click} className='BackBtn'>뒤로가기</a>
+            <a onClick={Click} className='BackBtn'>다시 접속하기</a>
           </div>
         </div>
     </div>
