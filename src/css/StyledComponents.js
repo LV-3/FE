@@ -2,17 +2,16 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 export const MainStyledSlider = styled(Slider)`
-  margin-left: 16.5%;
-  width: 90%;
+  width: 80%;
   height: 270px;
   align-items: center;
-  justify-content: center;
   
   .slick-list {
-    margin: 0 -90px;
+    margin: 0 6%;
     overflow: hidden;
-    height: 300px;
+    height: 250px;
     text-align: left;
+    margin-bottom: 10%;
   }
   .slick-arrow {
     display: block;
@@ -34,14 +33,13 @@ export const MainStyledSlider = styled(Slider)`
 `;
 
 export const StyledSlider = styled(Slider)`
-  margin-left: 12.5%;
-  width: 90%;
+  width: 80%;
   height: 270px;
   text-align: center;
-  justify-content: center;
+  margin-left: -2.5%;
   
   .slick-list {
-    margin: 0 -85px;
+    margin: 0 -20px;
     overflow: hidden;
     height: 270px;
     text-align: center;
@@ -71,16 +69,20 @@ export const BannerSlider = styled(Slider)`
 `;
 
 export const SliderContainer = styled.div`
+  display: flex;
+  justify-content: center;
   height: 250px;
   margin: 0 10%;
   margin-bottom: 5%;
+  width: 100%;
 `;
 
 export const MainSliderContainer = styled.div`
-  height: 300px;
-  margin: 0 10%;
-  margin-bottom: 2%;
+  display:flex;
+  justify-content: center;
+  height: 250px;
   margin-top: -2%;
+  margin-bottom: 3%;
 `;
 
 export const BannerSliderContainer = styled.div`
@@ -98,7 +100,7 @@ export const Div = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: -5vw;
+    right: 0.5vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -109,7 +111,29 @@ export const DivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -6.5vw;
+    left: -1.5vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: left;
+    line-height: 30px;
+`;
+
+export const MDiv = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 5vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: right;
+    line-height: 30px;
+`;
+
+export const MDivPre = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 3.5vw;
     top: -1vw;
     z-index: 99;
     text-align: left;
@@ -168,7 +192,6 @@ export const RatingTitle = styled.div`
 `;
 
 export const PageTitle = styled.p`
-    margin-left: 13%;
     margin-top: 4%;
     margin-bottom: 4%;
     color:white;
@@ -248,7 +271,6 @@ export const SearchTitle = styled.p`
   font-size: 23px;
 `
 export const DetailTitle = styled.p`
-  margin-left: 16%;
   margin-top: 4%;
   margin-bottom: 4%;
   color:white;

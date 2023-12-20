@@ -1,3 +1,17 @@
+.MainBg{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+
 .MainLink {
     color: white;
     font-size:14px
@@ -28,4 +42,9 @@ word-break: break-all;
     justify-content: center;
     width: 100vw;
     overflow: hidden;
+}
+
+.MainTitle{
+    display:flex;
+    margin-left: 15%;;
 }

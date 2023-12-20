@@ -140,6 +140,7 @@ export default function Mypage() {
       <MypageText>
         셋탑박스 번호 : {subsr}
       </MypageText> </div>*/}
+      <div className='MyPageContainer'>
       <PageTitle>시청중인 컨텐츠 👀</PageTitle>
       <SliderContainer>
         {replayData?
@@ -198,7 +199,7 @@ export default function Mypage() {
         (ratingData===-1? 
           <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>
            :
-          <div>
+          <div className='ReviewContainer'>
           {(ratingData.map((item, index) => (
               <RatingBox key={index}>
                 <NavLink to={"/detail/"+item.content_id} className="LinkText">
@@ -240,6 +241,7 @@ export default function Mypage() {
         ): (
           <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
         )}
+      </div>
       </div>
     </div>
   )

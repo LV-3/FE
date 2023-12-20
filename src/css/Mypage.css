@@ -7,6 +7,14 @@
     margin-left: 3%;
     margin-top:1%;
     flex-direction: column;
+    width: 100vw;
+}
+
+.MyPageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
 }
 
 .LinkText{
@@ -45,7 +53,8 @@ progress::-webkit-progress-value {
 .RatingContainer{
     margin-left: 7%;
     flex-direction: row;
-    display: inline-block;
+    display: flex;
+    width: 100%;
 }
 
 .RatingImgContainer{
@@ -97,6 +106,7 @@ progress::-webkit-progress-value {
 .RatingContainer{
     margin-bottom: 3%;
     margin-left: 3%;
+    width: 100%;
 }
 
 .RatingError{
@@ -107,3 +117,6 @@ progress::-webkit-progress-value {
     text-decoration: underline;
 }
 
+.ReviewContainer{
+    width: 100%;
+}

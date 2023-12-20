@@ -190,6 +190,7 @@ export default function Detail() {
 
     return (
     <div className='Detaildivbg'>
+      <div className='DetailConatiner'>
       <BackButtonContainer>
       <BackButton>
           <BackImg src={back} onClick={()=>{navigate(-1)}}/>
@@ -282,7 +283,7 @@ export default function Detail() {
                 </div>
               {/* ))) */}
             {/* } */}
-          </div>:<><DetailTitle>나의 리뷰</DetailTitle><text className="ReviewBox">리뷰가 없습니다.</text><text className="firstReviewButton"><ReviewModal /></text></>}
+          </div>:<><DetailTitle>나의 리뷰</DetailTitle><div className="ReviewBox">리뷰가 없습니다.<text className="firstReviewButton"><ReviewModal /></text></div></>}
           <><br/><br/></>
         {allRatingData.length>0?<div>
           <DetailTitle>모든 리뷰</DetailTitle>
@@ -304,10 +305,11 @@ export default function Detail() {
 
         </div>:
           <div className='AllReviewConatiner'>
-            <DetailTitle>모든 리뷰</DetailTitle><text className="ReviewBox">다른 이용자의 리뷰가 없습니다.</text>
+            <DetailTitle>모든 리뷰</DetailTitle><div className="ReviewBox">다른 이용자의 리뷰가 없습니다.</div>
           </div>}
           </>
           ):(<MypageText>VOD정보가 없습니다.</MypageText>)}
+      </div>
     </div>
   )
 }
