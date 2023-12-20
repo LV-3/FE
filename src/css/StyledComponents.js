@@ -62,6 +62,36 @@ export const StyledSlider = styled(Slider)`
   }
 `;
 
+export const DetailSlider = styled(Slider)`
+  width: 100%;
+  height: 270px;
+  text-align: center;
+  
+  .slick-list {
+    margin: 0 7%;
+    overflow: hidden;
+    height: 270px;
+    text-align: left;
+  }
+  .slick-arrow {
+    display: block;
+    z-index: 10;
+    width: 24px;
+    height: 24px;
+    align-self: stretch;
+  }
+
+  .slick-arrow:hover {
+    height: 30px;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+`;
+
 export const BannerSlider = styled(Slider)`
   width: 100vw;
   height: 250px;
@@ -76,6 +106,14 @@ export const SliderContainer = styled.div`
 `;
 
 export const MainSliderContainer = styled.div`
+  display:flex;
+  justify-content: center;
+  height: 250px;
+  margin-top: -2%;
+  margin-bottom: 3%;
+`;
+
+export const DetailSliderContainer = styled.div`
   display:flex;
   justify-content: center;
   height: 250px;
@@ -128,6 +166,28 @@ export const MDiv = styled.div`
 `;
 
 export const MDivPre = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 3.5vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: left;
+    line-height: 30px;
+`;
+
+export const DDiv = styled.div`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 6vw;
+    top: -1vw;
+    z-index: 99;
+    text-align: right;
+    line-height: 30px;
+`;
+
+export const DDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
@@ -268,8 +328,8 @@ export const SearchTitle = styled.p`
   font-size: 23px;
 `
 export const DetailTitle = styled.p`
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   color:white;
   font-weight: 500;
   font-size: 23px;
