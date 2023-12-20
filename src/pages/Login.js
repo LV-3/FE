@@ -15,6 +15,7 @@ import { getVODs } from '../reducer/VodReducer';
 import { getReplays } from '../reducer/ReplayReducer';
 import { getPopulars } from '../reducer/PopularReducer';
 import { getWeathers } from '../reducer/WeatherReducer';
+import { useSelector } from 'react-redux';
 
 // 로그인 화면
 
@@ -24,6 +25,8 @@ const Login = () => {
     
     const [button, setButton] = useState(true);
 
+    const voderror = useSelector(state=>state.Vods.error);
+    
     const dispatch = useDispatch();
 
     function changeButton(subsr) {
@@ -46,7 +49,7 @@ const Login = () => {
         //토큰 없이 json-server 이용 로그인
         try{
             const response = await login(subsr)
-                if (response.data===Number(subsr)&&response.status===200){
+                if (response.data===Number(subsr)&&response.status===200&&voderror===null){
                     dispatch(getVODs(subsr));
                     dispatch(getReplays(subsr));
                     dispatch(getPopulars());
@@ -54,7 +57,8 @@ const Login = () => {
                     localStorage.setItem('subsr', response.data);
                     console.log("getlogin_post: ",response)
                     navigate("/main");
-
+                }else if(voderror===500){
+                    navigate('/noResponse');
                 }else{
                     console.log("getlogin_post: ",response)
                     alert('셋탑박스 회원 정보가 틀렸습니다.\n정보 확인을 부탁드립니다.');
@@ -115,8 +119,8 @@ const Login = () => {
                     <text className="LoginText">Hello GPTv</text>
                     <div className='Loginwrapper'>
                     <div className="typing-demo">LG헬로티비 고객 맞춤형 VOD 추천 서비스를 경험하세요.<br/>
-                    GPT, 딥러닝를 활용하여 시청 기록을 기반으로 컨텐츠를 추천드립니다.<br/>
-                    셋톱박스 번호를 입력하여 당장 이용해보세요! </div></div>
+                    GPT, 딥러닝을 활용하여 시청 기록을 기반으로 컨텐츠를 추천드립니다.<br/>
+                    셋톱박스 번호를 입력하여 이용해보세요! </div></div>
                     <input className="LoginInput" placeholder="  셋탑박스 번호 입력" value={subsr} onChange={onChangeId}
                     onKeyDown={keyPress} />
                     {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}

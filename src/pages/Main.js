@@ -46,8 +46,6 @@ export default function Main() {
   const popular = useSelector(state=>state.Populars.vodData);
   const weather = useSelector(state=>state.Weathers.vodData['weather']);
   const weathervods = useSelector(state=>state.Weathers.vodData['vodsList']);
-  const weatherImg = useSelector(state=>state.Weathers.vodData['weatherImg']);
-  const voderror = useSelector(state=>state.Vods.error);
 
   //로딩 페이지 변수
   // const [loading, setLoading] = useState(true);
@@ -79,13 +77,13 @@ export default function Main() {
     try{
       if(popular[0]?.timeGroup){
         if(popular[0]?.timeGroup==='am'){
-          setTime('🌄 아침 태양과 함께하는 에너지 부스터')
+          setTime('아침 태양과 함께하는 에너지 부스터 🌄')
         }else if(popular[0]?.timeGroup==='pm'){
-          setTime('🏙️ 오후의 소소한 기쁨을 느끼는 시간')
+          setTime('오후의 소소한 기쁨을 느끼는 시간 🏙️')
         }else if(popular[0]?.timeGroup==='night'){
-          setTime('🌃 일상의 마무리, 저녁의 행복')
+          setTime('일상의 마무리, 저녁의 행복 🌃')
         }else if(popular[0]?.timeGroup==='dawn'){
-          setTime('🌇 고요한 새벽의 여유로움')
+          setTime('고요한 새벽의 여유로움 🌇')
         }
       }
     }catch (error){
@@ -114,19 +112,6 @@ export default function Main() {
       setIcon('🌥️')
     }
   })
-
-  useEffect(()=>{
-    if(popular[0].timeGroup==='am'){
-      setTime('오전')
-    }else if(popular[0].timeGroup==='pm'){
-      setTime('오후')
-    }else if(popular[0].timeGroup==='night'){
-      setTime('저녁')
-    }else if(popular[0].timeGroup==='dawn'){
-      setTime('새벽')
-    }
-  }, [popular])
-
 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
@@ -230,7 +215,7 @@ export default function Main() {
         }
 
         <div>
-          <PageTitle>현재 "{weather}{icon}"와 잘 어울리는 컨텐츠를 추천해드려요.</PageTitle>
+          <PageTitle>현재 "{weather}" 날씨와 잘 어울리는 컨텐츠를 추천해드려요. {icon}</PageTitle>
         </div>
         {!weather?
         <MypageText className='PopularText'>추천 결과를 불러올 수 없습니다.</MypageText>
@@ -253,7 +238,7 @@ export default function Main() {
         } 
 
         <div>
-        <PageTitle>📜 내가 본 컨텐츠와 유사한 줄거리의 컨텐츠!</PageTitle>
+        <PageTitle>내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜</PageTitle>
         {/* <button onClick={getVOD1}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
@@ -279,7 +264,7 @@ export default function Main() {
           </MainStyledSlider>  
         </MainSliderContainer>
         
-        <PageTitle>💘 내가 본 컨텐츠와 유사한 장르의 컨텐츠!</PageTitle>
+        <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠 💘</PageTitle>
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
         {/* <button onClick={getVOD2}>새로고침</button> */}
@@ -305,7 +290,7 @@ export default function Main() {
           </MainStyledSlider>
         </MainSliderContainer>
 
-        <PageTitle>🎯 내가 본 "{personal_words}"와 비슷한 분위기의 컨텐츠!</PageTitle>
+        <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
         {/* <button onClick={getVOD3}>새로고침</button> */}
         <MainSliderContainer>
           <MainStyledSlider {...settings}>
