@@ -47,35 +47,36 @@ export default function Search() {
 
   return (
     <div className='SearchBackground'>
+      <div className='SearchPageContainer'>
+        <BackButtonContainer>
+          <BackButton>
+            <BackImg src={back} onClick={()=>{navigate(-1)}}/>
+          </BackButton>
+        </BackButtonContainer>
+
+        <SearchTitle className='SearchTitle'>"{input}"의 검색 결과</SearchTitle>
+        {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
+
+        {search&&search.length !== 0?
+        (search===-1?
+          <text className='SearchText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
+          :
+        <div className='SearchVodContainer'>
+          {search&&search.map((image,index) => (
       
-      <BackButtonContainer>
-      <BackButton>
-          <BackImg src={back} onClick={()=>{navigate(-1)}}/>
-           </BackButton>
-      </BackButtonContainer>
-
-      <SearchTitle className='SearchTitle'>"{input}"의 검색 결과</SearchTitle>
-      {loading? <text className='GenreText'>로딩중입니다.</text>:<div>
-
-      {search&&search.length !== 0?
-      (search===-1?
-        <text className='SearchText'>VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</text>
-        :
-      <div className='SearchVodContainer'>
-        {search&&search.map((image,index) => (
-    
-          <ImgLabel key={index} className='SearchLabel'>
-            <div className='SearchVodbox'>
-              <NavLink to={"/detail/"+image.content_id} className='SearchLink'>
-                <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
-                <div className='SearchVodTitle'>{image.title}</div>
-                </NavLink>
-            </div>
-          </ImgLabel>))}
-      </div>)
-      :<text className='SearchText'>검색 결과가 없습니다. </text>
-      }:</div>}
+            <ImgLabel key={index} className='SearchLabel'>
+              <div className='SearchVodbox'>
+                <NavLink to={"/detail/"+image.content_id} className='SearchLink'>
+                  <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                  <div className='SearchVodTitle'>{image.title}</div>
+                  </NavLink>
+              </div>
+            </ImgLabel>))}
+        </div>)
+        :<text className='SearchText'>검색 결과가 없습니다. </text>
+        }:</div>}
+        </div>
     </div>
-    
+
   )
 }
