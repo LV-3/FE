@@ -25,7 +25,7 @@
     height: 30px;
     border-radius: 5px;
     margin-top: 40%;
-    margin-left: 30%;
+    margin-left: 33%;
     border: none;
     padding: 15px;
     &::placeholder {
@@ -121,7 +121,7 @@
 
 .Loginwrapper {
     display: inline-flex;
-    height: 100px;
+    height: 120px;
     width: 880px;
     position: absolute;
     left: 33%;
@@ -136,8 +136,9 @@
     color: white;
     overflow: hidden;
     border-right: 3px solid transparent;
-    font-family: monospace;
-    font-size: 2em;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: "NotoSans-KR";
   }
   
   @keyframes typing {
@@ -145,14 +146,11 @@
       width: 0
     }
   }
-      
   @keyframes blink {
     50% {
       border-color: transparent
     }
   }
-
-
 
 .LoginImg1{
     position: absolute;

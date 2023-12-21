@@ -179,6 +179,7 @@ export default function Main() {
 
               <div key={index}>
                 <ImgLabel>
+                <text className='MainIndex'>{index+1}</text>
                   <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                   </NavLink>
@@ -240,7 +241,7 @@ export default function Main() {
           }
           
           <div className='MainTitle'>
-            <PageTitle>내가 본 컨텐츠와 유사한 장르의 컨텐츠를 확인하세요 💘</PageTitle>
+            <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 💘</PageTitle>
           </div>
 
           {!VODs2?
@@ -266,7 +267,7 @@ export default function Main() {
           }
 
           <div className='MainTitle'>
-            <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
+            <PageTitle> 시청 이력을 기반으로 한 맞춤 추천 🎯</PageTitle>
           </div>
 
           {!VODs1?
