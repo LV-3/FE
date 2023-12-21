@@ -182,8 +182,8 @@ export default function Detail() {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToShow: 6,
+      slidesToScroll: 6,
       prevArrow: <SlickArrowLeft />,
       nextArrow: <SlickArrowRight />,
     };
@@ -234,8 +234,8 @@ export default function Detail() {
           <div>
           <div className='Tags'>
             {tags&&tags.map((tag, index) => (
-              <div key={index}>
-                <p>#{tag}&nbsp;&nbsp;</p>
+              <div key={index} className='TagBox'>
+                <p className='Tag'>#{tag}&nbsp;&nbsp;</p>
               </div>
             ))}
           </div>
