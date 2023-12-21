@@ -179,6 +179,7 @@ export default function Main() {
 
               <div key={index}>
                 <ImgLabel>
+                <text className='MainIndex'>{index+1}</text>
                   <NavLink to={"/detail/"+image.content_id}>
                     <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                   </NavLink>

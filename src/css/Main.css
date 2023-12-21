@@ -17,6 +17,21 @@
     font-size:14px
 }
 
+.MainIndex{
+    position: absolute;
+    margin-left: 0%;
+    margin-top: 3.7%;
+    color: white;
+    font-size: 50px;
+    width: 35px;
+    height:45px;
+    font-weight: 800;
+    text-align: right;
+    vertical-align: middle;
+    font-style: italic;
+    text-shadow: 4px 4px 4px black;
+}
+
 .TextColor{
     color:white;
     font-weight: 300px;
