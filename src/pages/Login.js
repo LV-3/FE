@@ -123,7 +123,7 @@ const Login = () => {
                     <div className="typing-demo">LG헬로티비 고객 맞춤형 VOD 추천 서비스를 경험하세요.<br/>
                     GPT, 딥러닝을 활용하여 시청 기록을 기반으로 컨텐츠를 추천드립니다.<br/>
                     셋톱박스 번호를 입력하여 이용해보세요! </div></div>
-                    <input className="LoginInput" placeholder="  셋탑박스 번호 입력" value={subsr} onChange={onChangeId}
+                    <input className="LoginInput" placeholder=" 셋탑박스 번호 입력" value={subsr} onChange={onChangeId}
                     onKeyDown={keyPress} />
                     {/*<Input placeholder="비밀번호" type="password" value={password} onChange={onChangePw}/>*/}
                     <button className="LoginButton" onClick={onClick} disabled={button}><strong>추천 받으러 가기</strong></button>
