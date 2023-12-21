@@ -345,7 +345,8 @@ export const DPoster = styled.img`
     display: flex;
     border-color: black;
     border-radius: 3px; 
-    justify-content: stretch;
+    justify-content: center;
+    object-fit: cover;
 `;
 
 
