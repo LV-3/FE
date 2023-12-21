@@ -14,8 +14,7 @@ import MovieGenre from './pages/MovieGenre';
 import TvGenre from './pages/TvGenre';
 import KidsGenre from './pages/KidsGenre';
 import ScrollToTop from './components/ScrollToTop';
-import ErrorReload from './errors/ErrorReload';
-import MainError from './errors/MainError';
+
 
 function App() {
   return (
@@ -31,10 +30,7 @@ function App() {
         <Route path='/tv/:genre1' element={<><Navbar /><TvGenre /></>} />
         <Route path='/movie/:genre2' element={<><Navbar /><MovieGenre /></>} />
         <Route path='/kids/:genre3' element={<><Navbar /><KidsGenre /></>} />
-
         <Route path='/noResponse' element={<><NoResponse /></>} />
-        <Route path='/errorReload' element={<><ErrorReload /></>} />
-        <Route path='/mainError' element={<><MainError /></>} />
       </Routes>
     </BrowserRouter>
   );
