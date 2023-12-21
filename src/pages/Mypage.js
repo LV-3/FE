@@ -41,31 +41,22 @@ export default function Mypage() {
     }
   },[]);
 
-  //replay GET
-  // useEffect(()=> {
-  //   const getreplay = async () => {
-  //     try{
-  //       const response = await getReplay(subsr);
-  //       setReplayData(response.data);
-  //     }catch(error){
-  //       console.log("getmypagereplay_post",error)
-  //       setReplayData(-1);
-  //   }
-  //   };
-  //   getreplay();
-  // }, []);
-
-
   //위시 GET
   useEffect(() => {
     const checkWishes = async () => {
       try {
         const response = await getmypagewish(subsr);
         console.log("getmypagerwish_get_response",response);
-
-        const found = response.data.filter((item) => item.wish === 1);
-        console.log("getmypagerwish_get_found",found);
-        setWishData(found);
+        if (response.data){
+          const found = response.data.filter((item) => item.wish);
+          console.log("getmypagerwish_get_found",found);
+          setWishData(found);
+      
+        }
+        else{
+          setWishData();
+        }
+        
       }catch(error) {
         console.log("getmypagerwish_get_error",error);
         setWishData(-1);
@@ -171,7 +162,7 @@ export default function Mypage() {
         <PageTitle>찜 목록 ❤️</PageTitle>
       </div>
       
-        {wishData ? 
+        {wishData&&wishData.length>0 ? 
         (wishData===-1? 
           <MypageText>찜 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
          :
