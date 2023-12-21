@@ -68,7 +68,7 @@ export const DetailSlider = styled(Slider)`
   text-align: center;
   
   .slick-list {
-    margin: 0 0%;
+    margin: 0 2%;
     overflow: hidden;
     height: 270px;
     text-align: left;
@@ -110,16 +110,16 @@ export const MainSliderContainer = styled.div`
   display:flex;
   justify-content: center;
   height: 250px;
-  margin-top: -2%;
+  margin-top: 0%;
   margin-bottom: 3%;
 `;
 
 export const DetailSliderContainer = styled.div`
   display:flex;
   justify-content: center;
-  height: 250px;
+  height: 260px;
   margin-top: -2%;
-  margin-bottom: 3%;
+  margin-bottom: 7%;
 `;
 
 export const BannerSliderContainer = styled.div`
@@ -181,8 +181,8 @@ export const DDiv = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 0.75vw;
-    top: -1vw;
+    right: 2.5vw;
+    top: -2vw;
     z-index: 99;
     text-align: right;
     line-height: 30px;
@@ -192,8 +192,8 @@ export const DDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -1vw;
-    top: -1vw;
+    left: 0.5vw;
+    top: -2vw;
     z-index: 99;
     text-align: left;
     line-height: 30px;
@@ -209,6 +209,7 @@ export const MypageText = styled.text`
 `;
 
 export const ImgLabel = styled.label`
+    display: flex;
     width: 176px; 
     height: 244px; 
     border-radius: 3px; 
@@ -224,6 +225,7 @@ export const Poster = styled.img`
     border-color: black;
     height: 100%;
     border-radius: 3px; 
+    justify-content: stretch;
 `;
 export const RatingBox = styled.div`
   width: 100%;
@@ -329,3 +331,21 @@ export const DetailTitle = styled.p`
   font-weight: 500;
   font-size: 23px;
 `
+export const DImgLabel = styled.label`
+    display: flex;
+    width: 157px; 
+    height: 219px; 
+    border-radius: 3px; 
+    overflow: hidden;
+    border: 1px black solid;
+    cursor: pointer;
+`;
+
+export const DPoster = styled.img`
+    display: flex;
+    border-color: black;
+    border-radius: 3px; 
+    justify-content: stretch;
+`;
+
+
