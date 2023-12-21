@@ -97,11 +97,12 @@ progress::-webkit-progress-value {
 }
 
 .RatingError{
-    margin-left: 18%;
+    margin-left: 15%;
     margin-bottom: 5%;
     font-size: 18px;
     color: white;
     text-decoration: underline;
+    height: 250px;
 }
 
 .ReviewContainer{

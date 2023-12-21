@@ -41,6 +41,7 @@ export default function Main() {
   const status = useSelector(state=>state.Vods.status);
   const VODs1 = useSelector(state=>state.Vods.vodData["description_data"]);
   const VODs2 = useSelector(state=>state.Vods.vodData["genre_data"]);
+  const genre_words = useSelector(state=>state.Vods.vodData["genre_words"]);
   const VODs3 = useSelector(state=>state.Vods.vodData["personal_data"]);
   const personal_words = useSelector(state=>state.Vods.vodData["personal_words"]);
   const popular = useSelector(state=>state.Populars.vodData);
@@ -241,7 +242,7 @@ export default function Main() {
           }
           
           <div className='MainTitle'>
-            <PageTitle>내가 본 "{personal_words}" 분위기의 컨텐츠들 💘</PageTitle>
+            <PageTitle>내가 본 "{genre_words}" 분위기의 컨텐츠들 💘</PageTitle>
           </div>
 
           {!VODs2?
@@ -267,7 +268,7 @@ export default function Main() {
           }
 
           <div className='MainTitle'>
-            <PageTitle> 시청 이력을 기반으로 한 맞춤 추천 🎯</PageTitle>
+            <PageTitle> 내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯</PageTitle>
           </div>
 
           {!VODs1?
