@@ -199,17 +199,13 @@ export const DDivPre = styled.div`
     line-height: 30px;
 `;
 
-export const MypageTitle = styled.h3`
-  margin-top: 4%;
-  margin-bottom: 2%;
-  margin-left: 10%
-`;
 
 export const MypageText = styled.text`
   margin-left: 15%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
+  height: 250px;
 `;
 
 export const ImgLabel = styled.label`
@@ -218,10 +214,8 @@ export const ImgLabel = styled.label`
     border-radius: 3px; 
     overflow: hidden;
     border: 1px black solid;
-    flexDirection: column;
-    justifyContent: flex-start;
-    display: flex;
     cursor: pointer;
+    position: grid;
 `;
 
 export const Poster = styled.img`
