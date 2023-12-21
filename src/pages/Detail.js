@@ -15,7 +15,7 @@ import { getratingdata } from '../apis/detail/getdetailrating';
 //import DelConfirmAlert from '../components/__DelConfirmAlert';
 import { delReview } from '../apis/detail/deldetailrating';
 import {DetailTitle, ImgLabel, Poster, MypageText, PageErrorText,BackButtonContainer,BackButton,BackImg, 
-        DetailSliderContainer, DetailSlider, DDivPre, DDiv } from '../css/StyledComponents';
+        DetailSliderContainer, DetailSlider, DDivPre, DDiv, DImgLabel, DPoster } from '../css/StyledComponents';
 import { useNavigate } from 'react-router-dom';
 import back from '../assets/back.png'
 import { getTags } from '../apis/detail/gettags';
@@ -244,11 +244,11 @@ export default function Detail() {
             {/* <button onClick={getVOD2}>새로고침</button> */}
               {tagsData&&tagsData.map((image, index) => (
                 <div key={index}>
-                  <ImgLabel>
+                  <DImgLabel>
                     <a href={"/detail/"+image.content_id}>
-                      <Poster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
+                      <DPoster src={image.posterurl?image.posterurl:altImg} alt={image.title}/>
                     </a>
-                  </ImgLabel>
+                  </DImgLabel>
                 </div>
                 ))
               }

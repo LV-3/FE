@@ -42,8 +42,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    background: white;
+    width: 400px;
+    background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -133,3 +133,8 @@
   width: 70px;
   border-radius: 3px;
 }
+
+.Review{
+  margin-top: -1%;
+}
+

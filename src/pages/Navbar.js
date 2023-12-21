@@ -37,7 +37,7 @@ export default function Navbar() {
     if (e.key==='Enter'){
       buttonClick();
     }
-}
+  }
 
   return (
     <div className='NavBar'>
@@ -49,11 +49,11 @@ export default function Navbar() {
           </Link>
         
 
-          <div className='HomeBtnContainer'>
+          {/* <div className='HomeBtnContainer'>
             <Link to ='/main' className='HomeBtn'>
               홈
             </Link>
-          </div>
+          </div> */}
         
           <div className="DropDownMovie"> 
             <DropDownMovie/>
