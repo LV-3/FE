@@ -68,7 +68,7 @@ export const DetailSlider = styled(Slider)`
   text-align: center;
   
   .slick-list {
-    margin: 0 7%;
+    margin: 0 0%;
     overflow: hidden;
     height: 270px;
     text-align: left;
@@ -106,6 +106,7 @@ export const SliderContainer = styled.div`
 `;
 
 export const MainSliderContainer = styled.div`
+  width: 100%;
   display:flex;
   justify-content: center;
   height: 250px;
@@ -180,7 +181,7 @@ export const DDiv = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 6vw;
+    right: 0.75vw;
     top: -1vw;
     z-index: 99;
     text-align: right;
@@ -191,7 +192,7 @@ export const DDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 3.5vw;
+    left: -1vw;
     top: -1vw;
     z-index: 99;
     text-align: left;
