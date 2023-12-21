@@ -218,10 +218,8 @@ export const ImgLabel = styled.label`
     border-radius: 3px; 
     overflow: hidden;
     border: 1px black solid;
-    flexDirection: column;
-    justifyContent: flex-start;
-    display: flex;
     cursor: pointer;
+    position: grid;
 `;
 
 export const Poster = styled.img`
