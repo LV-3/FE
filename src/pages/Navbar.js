@@ -25,9 +25,13 @@ export default function Navbar() {
   }
 
   const buttonClick = (()=>{
+    if(!input){
+      alert("검색어를 입력 해 주세요!")
+    }
+    else{
     navigate(`../search/?input=${searchText}`)
     setSearchText('');
-  })
+}})
 
   const keyPress=e=>{
     if (e.key==='Enter'){

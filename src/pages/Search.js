@@ -18,6 +18,7 @@ export default function Search() {
 
   const input = new URLSearchParams(location.search).get("input")
 
+
   const [search, setSearch] = useState();
 
   const navigate = useNavigate();
