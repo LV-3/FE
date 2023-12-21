@@ -7,9 +7,9 @@ export const MainStyledSlider = styled(Slider)`
   align-items: center;
   
   .slick-list {
-    margin: 0 6%;
+    margin: 0 5%;
     overflow: hidden;
-    height: 250px;
+    height: 270px;
     text-align: left;
     margin-bottom: 10%;
   }
@@ -159,8 +159,8 @@ export const MDiv = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 5vw;
-    top: -1vw;
+    right: 4.5vw;
+    top: -0.5vw;
     z-index: 99;
     text-align: right;
     line-height: 30px;
@@ -170,8 +170,8 @@ export const MDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 3.5vw;
-    top: -1vw;
+    left: 3vw;
+    top: -0.5vw;
     z-index: 99;
     text-align: left;
     line-height: 30px;
@@ -245,7 +245,8 @@ export const RatingTitle = styled.div`
 
 export const PageTitle = styled.p`
     margin-top: 4%;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
+    margin-left: -1.4%;
     color:white;
     font-weight: 500;
     font-size: 23px;
