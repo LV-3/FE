@@ -59,7 +59,7 @@ export default function Mood() {
             />
           </BackButton>
         </BackButtonContainer>
-        <div className="TitleContainer">
+        <div className="GenreTitleContainer">
           <SearchTitle>키즈/기타 &gt; {genre3.replace(":", "/")}</SearchTitle>
         </div>
         {loading ? (

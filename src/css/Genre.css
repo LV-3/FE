@@ -12,7 +12,7 @@
     width: 100vw;
 }
 
-.TitleContainer{
+.GenreTitleContainer{
     margin-left: 16.5%;
 }
 
@@ -28,6 +28,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 67%;
+    padding-bottom: 5%;
 }
 
 .GenreLabel{
