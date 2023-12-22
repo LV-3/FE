@@ -25,7 +25,7 @@
 
 .NavbarLink {
     text-decoration: none;
-
+    margin-left: 3%;
 }
 .LogoText{
     display: flex;
@@ -70,37 +70,37 @@
  .HomeBtnContainer{
     position: absolute;
     display:flex;
-    margin-left: 23%;
+    margin-left: 22%;
 }
 
-.HomeBtn{
+/* .HomeBtn{
     color: white;
     font-size: 25px;
     cursor: pointer;
     font-weight: bold;
     text-decoration: none;
-}
+} */
 .DropDownTv{
     position: absolute;
     display:flex;
-    margin-left: 29%;
+    margin-left: 27%;
 }
 .DropDownMovie{
     position: absolute;
     display:flex;
-    margin-left: 35%;
+    margin-left: 33%;
 }
 .DropDownKids{
     position: absolute;
     display:flex;
-    margin-left: 43%;
+    margin-left: 40%;
 }
 
 .SearchContainer{
     display:flex;
     margin-top: 0.1%;
     flex-direction: row;
-    margin-left: 66%;
+    margin-left: 63%;
 
 }
 

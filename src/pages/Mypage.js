@@ -41,31 +41,22 @@ export default function Mypage() {
     }
   },[]);
 
-  //replay GET
-  // useEffect(()=> {
-  //   const getreplay = async () => {
-  //     try{
-  //       const response = await getReplay(subsr);
-  //       setReplayData(response.data);
-  //     }catch(error){
-  //       console.log("getmypagereplay_post",error)
-  //       setReplayData(-1);
-  //   }
-  //   };
-  //   getreplay();
-  // }, []);
-
-
   //위시 GET
   useEffect(() => {
     const checkWishes = async () => {
       try {
         const response = await getmypagewish(subsr);
         console.log("getmypagerwish_get_response",response);
-
-        const found = response.data.filter((item) => item.wish === 1);
-        console.log("getmypagerwish_get_found",found);
-        setWishData(found);
+        if (response.data){
+          const found = response.data.filter((item) => item.wish);
+          console.log("getmypagerwish_get_found",found);
+          setWishData(found);
+      
+        }
+        else{
+          setWishData();
+        }
+        
       }catch(error) {
         console.log("getmypagerwish_get_error",error);
         setWishData(-1);
@@ -144,11 +135,11 @@ export default function Mypage() {
       <div className='MyPageTitle'>
         <PageTitle>시청중인 컨텐츠 👀</PageTitle>
       </div>
-      <SliderContainer>
+      
         {replayData?
         (replayError>=500? 
         <MypageText>시청 중인 컨텐츠를 불러올 수 없습니다 잠시 후 다시 시도해 주세요.</MypageText>
-         :<StyledSlider {...settings}>
+         :<SliderContainer><StyledSlider {...settings}>
         {(replayData&&replayData.map((item, index) =>(
           <figure key={index} className='fig'>
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
@@ -163,19 +154,19 @@ export default function Mypage() {
           </NavLink>
         </figure>
         )))}
-        </StyledSlider>
+        </StyledSlider></SliderContainer>
         ):(<MypageText>시청 중인 컨텐츠가 없습니다.</MypageText>)}
-      </SliderContainer>
+      
 
       <div className='MyPageTitle'>
         <PageTitle>찜 목록 ❤️</PageTitle>
       </div>
-      <SliderContainer>
-        {wishData ? 
+      
+        {wishData&&wishData.length>0 ? 
         (wishData===-1? 
           <MypageText>찜 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</MypageText>
          :
-        <StyledSlider {...settings}>
+         <SliderContainer><StyledSlider {...settings}>
         {(wishData.map((item, index) => (
           <figure key={index}>
           <NavLink to={"/detail/"+item.content_id} className="LinkText">
@@ -189,21 +180,21 @@ export default function Mypage() {
         </NavLink>
       </figure>
         )))} 
-        </StyledSlider>
+        </StyledSlider></SliderContainer>
         ): (
           <MypageText>찜 내역이 존재하지 않습니다.</MypageText>
         )}
-     </SliderContainer>
+     
 
         <div className='MyPageTitle'>
           <PageTitle>리뷰 목록 ✏️ </PageTitle> 
         </div>
-          <div className="RatingContainer">
+          
             { ratingData ? 
             (ratingData===-1? 
               <div className='RatingError'>리뷰 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.</div>
               :
-              <div className='ReviewContainer'>
+              <div className="RatingContainer"><div className='ReviewContainer'>
               {(ratingData.map((item, index) => (
                   <RatingBox key={index}>
                     <NavLink to={"/detail/"+item.content_id} className="LinkText">
@@ -241,11 +232,11 @@ export default function Mypage() {
                     ))}</text>*/}
                   </RatingBox>
                 )))}
-              </div> 
+              </div> </div>
             ): (
               <MypageText>평점 내역이 존재하지 않습니다.</MypageText>
             )}
-          </div>
+          
       </div>
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import '../css/DropDownSubsr.css'
 import { Link } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
+import { Rating } from 'react-simple-star-rating'
 
 export default function DropDownSubsr() {
     const subsr = localStorage.getItem('subsr')
@@ -39,7 +40,16 @@ export default function DropDownSubsr() {
             return (
               <div className='custom-ui'>
                 <h1>로그아웃 확인</h1>
-                <p>정말로 로그아웃하시겠습니까?</p>
+                <p>
+                  추천이 마음에 드셨다면 평가해주세요.<br />
+                  다음에 더 좋은 추천을 제공해드릴게요 :D
+                </p>
+                <div className='Review'>
+                  {<Rating
+                    fillColor="#A50034"
+                    size="35"
+                  />}  
+                </div>
                 <div className="ButtonSet">
                   <button onClick={onClose}>닫기</button>
                   <a className="LogoutBtn"

@@ -7,9 +7,9 @@ export const MainStyledSlider = styled(Slider)`
   align-items: center;
   
   .slick-list {
-    margin: 0 6%;
+    margin: 0 5%;
     overflow: hidden;
-    height: 250px;
+    height: 270px;
     text-align: left;
     margin-bottom: 10%;
   }
@@ -68,7 +68,7 @@ export const DetailSlider = styled(Slider)`
   text-align: center;
   
   .slick-list {
-    margin: 0 0%;
+    margin: 0 2%;
     overflow: hidden;
     height: 270px;
     text-align: left;
@@ -110,16 +110,16 @@ export const MainSliderContainer = styled.div`
   display:flex;
   justify-content: center;
   height: 250px;
-  margin-top: -2%;
+  margin-top: 0%;
   margin-bottom: 3%;
 `;
 
 export const DetailSliderContainer = styled.div`
   display:flex;
   justify-content: center;
-  height: 250px;
+  height: 260px;
   margin-top: -2%;
-  margin-bottom: 3%;
+  margin-bottom: 7%;
 `;
 
 export const BannerSliderContainer = styled.div`
@@ -159,8 +159,8 @@ export const MDiv = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 5vw;
-    top: -1vw;
+    right: 4.5vw;
+    top: -0.5vw;
     z-index: 99;
     text-align: right;
     line-height: 30px;
@@ -170,8 +170,8 @@ export const MDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 3.5vw;
-    top: -1vw;
+    left: 3vw;
+    top: -0.5vw;
     z-index: 99;
     text-align: left;
     line-height: 30px;
@@ -181,8 +181,8 @@ export const DDiv = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 0.75vw;
-    top: -1vw;
+    right: 2.5vw;
+    top: -2vw;
     z-index: 99;
     text-align: right;
     line-height: 30px;
@@ -192,27 +192,24 @@ export const DDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: -1vw;
-    top: -1vw;
+    left: 0.5vw;
+    top: -2vw;
     z-index: 99;
     text-align: left;
     line-height: 30px;
 `;
 
-export const MypageTitle = styled.h3`
-  margin-top: 4%;
-  margin-bottom: 2%;
-  margin-left: 10%
-`;
 
 export const MypageText = styled.text`
   margin-left: 15%;
   font-size: 18px;
   color: white;
   text-decoration: underline;
+  height: 250px;
 `;
 
 export const ImgLabel = styled.label`
+    display: flex;
     width: 176px; 
     height: 244px; 
     border-radius: 3px; 
@@ -228,6 +225,7 @@ export const Poster = styled.img`
     border-color: black;
     height: 100%;
     border-radius: 3px; 
+    justify-content: stretch;
 `;
 export const RatingBox = styled.div`
   width: 100%;
@@ -249,7 +247,8 @@ export const RatingTitle = styled.div`
 
 export const PageTitle = styled.p`
     margin-top: 4%;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
+    margin-left: -1.4%;
     color:white;
     font-weight: 500;
     font-size: 23px;
@@ -332,3 +331,22 @@ export const DetailTitle = styled.p`
   font-weight: 500;
   font-size: 23px;
 `
+export const DImgLabel = styled.label`
+    display: flex;
+    width: 157px; 
+    height: 219px; 
+    border-radius: 3px; 
+    overflow: hidden;
+    border: 1px black solid;
+    cursor: pointer;
+`;
+
+export const DPoster = styled.img`
+    display: flex;
+    border-color: black;
+    border-radius: 3px; 
+    justify-content: center;
+    object-fit: cover;
+`;
+
+
