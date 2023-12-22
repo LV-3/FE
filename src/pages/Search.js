@@ -59,12 +59,13 @@ export default function Search() {
             />
           </BackButton>
         </BackButtonContainer>
-
-        <SearchTitle className="SearchTitle">"{input}"의 검색 결과</SearchTitle>
+        <div className='SearchTitle'>
+          <SearchTitle>"{input}"의 검색 결과</SearchTitle>
+        </div>
         {loading ? (
           <text className="GenreText">로딩중입니다.</text>
         ) : (
-          <div>
+          <div className='SearchOuterContainer'>
             {search && search.length !== 0 ? (
               search === -1 ? (
                 <text className="SearchText">

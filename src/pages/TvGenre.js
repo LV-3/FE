@@ -59,14 +59,15 @@ export default function Mood() {
             />
           </BackButton>
         </BackButtonContainer>
-
-        <SearchTitle>TV &gt; {genre1.replace(":", "/")}</SearchTitle>
+        <div className="TitleContainer">
+          <SearchTitle>TV &gt; {genre1.replace(":", "/")}</SearchTitle>
+        </div>
         {loading ? (
           <text className="GenreText">
             VOD 목록을 불러오는 중입니다. 잠시만 기다려 주세요.
           </text>
         ) : (
-          <div>
+          <div className="VodOuterContainer">
             {genreVods && genreVods.length !== 0 ? (
               genreVods === -1 ? (
                 <text className="GenreText">
