@@ -44,15 +44,16 @@
     height: 30px;
     position: absolute;
     margin-left: 5%;
-    margin-top: -3%;
+    margin-top: -2.2%;
 
     animation-name: Rotate;
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-delay: 2s;
     
-    animation-iteration-count: infinite;
+    animation-iteration-count: 3;
     animation-direction: alternate;
+    animation-fill-mode: forwards;
  }
 
  @keyframes Rotate {
@@ -61,8 +62,8 @@
         transform: rotate(-460deg);
     }
     to {
-        margin-left: 15%;
-        transform: rotate(60deg);
+        margin-left: 13%;
+        transform: rotate(0deg);
     }
 }
 
@@ -84,6 +85,10 @@
     position: absolute;
     display:flex;
     margin-left: 27%;
+    
+    transition: all 0.5s;
+    transform-origin: bottom right;
+
 }
 .DropDownMovie{
     position: absolute;
