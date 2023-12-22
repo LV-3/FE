@@ -11,6 +11,12 @@
   flex-direction: column;
 }
 
+.ErrorGif{
+  display: flex;
+  margin-top: 1%;
+  filter: invert(100%);
+}
+
 .NoResponseText{
     display: flex;
     text-align: center;
@@ -18,14 +24,14 @@
     color:white;
     font-size: 24px;
     font-weight: 500;
-    margin-top: 20%;
+    margin-top: 3%;
   }
 
 .BtnContainer{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .BackBtn{
@@ -43,6 +49,5 @@
   align-items: center;
   justify-content: center;
 }
-
 
 

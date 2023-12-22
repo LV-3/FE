@@ -58,7 +58,15 @@
 .GenreText{
     display: flex;
     margin-top: 5%;
-    margin-left: 1%;
+    margin-left: 17%;
+    font-size: 18px;
+    color: white;
+    text-decoration: underline;
+}
+
+.NoGenreText{
+    display: flex;
+    margin-top: 5%;
     font-size: 18px;
     color: white;
     text-decoration: underline;

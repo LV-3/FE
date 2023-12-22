@@ -95,7 +95,6 @@ export default function Search() {
             ) : (
               <text className="SearchText">검색 결과가 없습니다. </text>
             )}
-            :
           </div>
         )}
       </div>
