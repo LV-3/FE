@@ -94,7 +94,7 @@ export default function Mood() {
                 </div>
               )
             ) : (
-              <text className="GenreText">VOD 목록이 없습니다.</text>
+              <text className="NoGenreText">VOD 목록이 없습니다.</text>
             )}
           </div>
         )}

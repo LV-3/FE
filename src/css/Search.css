@@ -66,8 +66,8 @@
 
 .SearchText{
     display: flex;
+    justify-content: flex-start;
     margin-top: 5%;
-    margin-left: 2%;
     font-size: 18px;
     color: white;
     text-decoration: underline;
