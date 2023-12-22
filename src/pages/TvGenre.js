@@ -59,7 +59,7 @@ export default function Mood() {
             />
           </BackButton>
         </BackButtonContainer>
-        <div className="TitleContainer">
+        <div className="GenreTitleContainer">
           <SearchTitle>TV &gt; {genre1.replace(":", "/")}</SearchTitle>
         </div>
         {loading ? (

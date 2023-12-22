@@ -31,6 +31,7 @@ export default function Navbar() {
 
   const keyPress = (e) => {
     if (e.key === "Enter") {
+      e.nativeEvent.isComposing === false
       buttonClick();
     }
   };

@@ -44,7 +44,8 @@
     white-space: nowrap;
 }
 
-.TitleContainer{
+.DetailTitleContainer{
+    display: flex;
     flex-direction: row;
 }
 

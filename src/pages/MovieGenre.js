@@ -59,7 +59,7 @@ export default function Mood() {
             />
           </BackButton>
         </BackButtonContainer>
-        <div className="TitleContainer">
+        <div className="GenreTitleContainer">
           <SearchTitle>영화 &gt; {genre2.replace(":", "/")}</SearchTitle>
         </div>
         {loading ? (
