@@ -223,7 +223,7 @@ export default function Detail() {
                   />
                 </ImgLabel>
                 <div className="VodData">
-                  <div className="TitleContainer">
+                  <div className="DetailTitleContainer">
                     <h1 className="VodTitle">{vodData?.title}</h1>
                     <button
                       className="WishButton"
