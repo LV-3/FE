@@ -33,6 +33,11 @@
 
 .GenreLabel{
     margin: 2.5% 1.1%;
+    transition: all 0.5s;
+
+}.GenreLabel:hover{
+    
+    transform: scale(1.1,1.1);
 }
 
 .GnereVodBox{
@@ -63,9 +68,6 @@
     font-size: 18px;
     color: white;
     text-decoration: underline;
-    transition: all 0.5s
-}.GenreText:hover{
-    transform: scale(1.1,1.1);
 }
 
 .NoGenreText{
