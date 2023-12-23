@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { React, useState } from "react";
 import "../css/Navbar.css";
-import { Link, useNavigate,useLocation } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import DropDownSubsr from "../components/DropDownSubsr";
 import DropDownMovie from "../components/DropDownMovie";
 import DropDownTv from "../components/DropDownTv";
@@ -13,8 +13,6 @@ import robot from "../assets/robot.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location =useLocation();
-  console.log(location);
 
   const [searchText, setSearchText] = useState("");
 
