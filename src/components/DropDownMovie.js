@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from "react";
 import "../css/DropDownMovie.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation } from "react-router-dom";
 import { Category } from "./Category";
 
 export default function DropDownMovies() {
@@ -9,6 +9,7 @@ export default function DropDownMovies() {
   const dropdownRef = useRef(null);
   const [category, setCategory] = useState([]);
 
+  const location =useLocation();
   useEffect(() => {
     setCategory(Category["영화"]);
   }, []);
@@ -41,7 +42,7 @@ export default function DropDownMovies() {
   return (
     <div className="moviedropdown" ref={dropdownRef}>
       <button className="moviedropdownbutton" onClick={toggleDropdown}>
-        <p className="movietitle">영화</p>
+        <h2 className="movietitle" style={location.pathname.includes("/movie/")?{background: "#F5ADAD",color:"black",fontsize:"40px"}:null}>영화</h2>
       </button>
       {isOpen && (
         <div className="moviedropdown-content">

@@ -35,11 +35,14 @@
 }
 
 .Logo{
-    height: 90px;
+    height: 85px;
     position: absolute;
     margin-left: 1.4%;
     margin-top: -1.2%;
- }
+    transition: all 0.5s
+}.Logo:hover{
+  transform: scale(1.1,1.1);
+}
  .Robot{
     height: 30px;
     position: absolute;
@@ -54,6 +57,7 @@
     animation-iteration-count: 3;
     animation-direction: alternate;
     animation-fill-mode: forwards;
+
  }
 
  @keyframes Rotate {
@@ -133,6 +137,9 @@
 .searchIcon{
     position: absolute;
     width:35px;
+    transition: all 0.5s
+}.searchIcon:hover{
+  transform: scale(1.2,1.2);
 }
 
 .SearchButton{
