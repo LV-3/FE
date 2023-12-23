@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from "react";
 import "../css/DropDownTv.css";
-import { Link } from "react-router-dom";
+import { Link,useLocation } from "react-router-dom";
 import { Category } from "./Category";
 
 export default function DropDownGenres() {
@@ -9,6 +9,8 @@ export default function DropDownGenres() {
   //const [allGenres,setGenres] = useState();
   const dropdownRef = useRef(null);
   const [category, setCategory] = useState([]);
+
+  const location =useLocation();
 
   useEffect(() => {
     setCategory(Category["TV"]);
@@ -42,7 +44,7 @@ export default function DropDownGenres() {
   return (
     <div className="tvdropdown" ref={dropdownRef}>
       <button className="tvdropdownbutton" onClick={toggleDropdown}>
-        <p className="tvtitle">TV</p>
+        <h2 className="tvtitle"  style={location.pathname.includes("/tv/")?{background: "#F5ADAD",color:"black",fontsize:"40px"}:null}>TV</h2>
       </button>
       {isOpen && (
         <div className="tvdropdown-content">

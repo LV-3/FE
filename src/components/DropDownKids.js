@@ -1,13 +1,15 @@
 /* eslint-disable */
 import React, { useState, useEffect, useRef } from "react";
 import "../css/DropDownKids.css";
-import { NavLink } from "react-router-dom";
+import { NavLink,useLocation } from "react-router-dom";
 import { Category } from "./Category";
 
 export default function DropDownGenres() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [category, setCategory] = useState([]);
+
+  const location =useLocation();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -41,7 +43,7 @@ export default function DropDownGenres() {
   return (
     <div className="kidsdropdown" ref={dropdownRef}>
       <button className="kidsdropdownbutton" onClick={toggleDropdown}>
-        <h2 className="KidsEtc">키즈/기타</h2>
+        <h2 className="KidsEtc" style={location.pathname.includes("/kids/")?{background: "#F5ADAD",color:"black",fontsize:"40px"}:null}>키즈/기타</h2>
       </button>
       {isOpen && (
         <div className="kidsdropdown-content">

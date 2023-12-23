@@ -106,7 +106,11 @@
   border-radius: 50%;
   background: url('../assets/user.jpg');
   background-size: cover;
+  transition: all 0.5s
+}.UserContainer:hover{
+  transform: scale(1.2,1.2);
 }
+
 
 .ButtonSet{
   display: flex;
