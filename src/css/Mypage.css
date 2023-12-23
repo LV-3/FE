@@ -50,10 +50,13 @@ progress::-webkit-progress-value {
     height: 170px; 
     border-radius: 3px; 
     overflow: hidden;
-    border: 1px black solid;
+    border: 1px transparent solid;
     display: inline-flex;
     cursor: pointer;
-}
+    transition: all 0.5s;
+}.RatingImgContainer:hover{
+    transform: scale(1.1,1.1);
+  }
 
 .RatingImg{
     align-self: stretch;

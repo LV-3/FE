@@ -214,18 +214,24 @@ export const ImgLabel = styled.label`
     height: 244px; 
     border-radius: 3px; 
     overflow: hidden;
-    border: 1px black solid;
+    border: 1px transparent solid;
     cursor: pointer;
     position: grid;
+    transition: all 0.5s;
+    &:hover{
+      transform: scale(1.05,1.05);
+    }
+
 `;
 
 export const Poster = styled.img`
     display: flex;
     flex: 0 1 0;
-    border-color: black;
+    border-color: transparent;
     height: 100%;
     border-radius: 3px; 
     justify-content: stretch;
+
 `;
 export const RatingBox = styled.div`
   width: 100%;
@@ -337,8 +343,12 @@ export const DImgLabel = styled.label`
     height: 219px; 
     border-radius: 3px; 
     overflow: hidden;
-    border: 1px black solid;
+    border: 1px transparent solid;
     cursor: pointer;
+    transition: all 0.5s;
+    &:hover{
+      transform: scale(1.1,1.1);
+    }
 `;
 
 export const DPoster = styled.img`
