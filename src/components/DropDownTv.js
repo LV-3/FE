@@ -42,7 +42,7 @@ export default function DropDownGenres() {
   return (
     <div className="tvdropdown" ref={dropdownRef}>
       <button className="tvdropdownbutton" onClick={toggleDropdown}>
-        <p className="tvtitle">TV</p>
+        <h2 className="tvtitle">TV</h2>
       </button>
       {isOpen && (
         <div className="tvdropdown-content">

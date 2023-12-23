@@ -52,5 +52,9 @@
 .tvtitle{
   font-size: 25px;
   font-weight: bold;
+  transition: all 0.5s
+}.tvtitle:hover{
+  transform: scale(1.2,1.2);
 }
+
 

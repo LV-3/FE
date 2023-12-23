@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { React, useState } from "react";
 import "../css/Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import DropDownSubsr from "../components/DropDownSubsr";
 import DropDownMovie from "../components/DropDownMovie";
 import DropDownTv from "../components/DropDownTv";
@@ -10,8 +10,11 @@ import searchIcon from "../assets/search.png";
 import logo from "../assets/logo2.png";
 import robot from "../assets/robot.png";
 
+
 export default function Navbar() {
   const navigate = useNavigate();
+  const location =useLocation();
+  console.log(location);
 
   const [searchText, setSearchText] = useState("");
 
@@ -37,11 +40,14 @@ export default function Navbar() {
 
   return (
     <div className="NavBar">
+    
       <div className="NavContainer">
+
         <Link to="/main" className="NavbarLink">
           <img src={logo} className="Logo" alt="logo" />
           <img src={robot} className="Robot" alt="Robot" />
         </Link>
+
 
         <div className="DropDownMovie">
           <DropDownMovie />

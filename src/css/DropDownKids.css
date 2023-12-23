@@ -53,5 +53,8 @@
   white-space: nowrap;
   font-size: 25px;
   font-weight: bold;
+  transition: all 0.5s
+}.KidsEtc:hover{
+  transform: scale(1.2,1.2);
 }
 
