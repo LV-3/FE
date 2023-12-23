@@ -17,9 +17,9 @@
 }
 
 .MainIndex{
+    display: flex;
     position: absolute;
-    margin-left: 0%;
-    margin-top: 3.5%;
+    margin-top: 180px;
     color: white;
     font-size: 50px;
     width: 35px;
