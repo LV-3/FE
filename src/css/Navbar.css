@@ -110,7 +110,6 @@
     margin-top: 0.1%;
     flex-direction: row;
     margin-left: 63%;
-
 }
 
 .SearchInput{
@@ -125,6 +124,7 @@
     font-size: 20px;
     font-weight: 500;
     color: white;
+    transition: all 0.5s;
     &::placeholder {
         color: #bababa;
         font-size: 20px;
@@ -132,7 +132,9 @@
         border: #d4d4d4;
         text-align: center;
     };
-}
+}.SearchInput:hover{
+    transform: scale(1.1,1.1);
+  }
 
 .searchIcon{
     position: absolute;

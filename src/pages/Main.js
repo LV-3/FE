@@ -195,8 +195,8 @@ export default function Main() {
                     popular
                       .filter((image) => image.posterurl)
                       .map((image, index) => (
-                        <div key={index}>
-                          <ImgLabel>
+                   
+                          <ImgLabel key={index}>
                             <text className="MainIndex">{index + 1}</text>
                             <NavLink to={"/detail/" + image.content_id}>
                               <Poster
@@ -205,7 +205,7 @@ export default function Main() {
                               />
                             </NavLink>
                           </ImgLabel>
-                        </div>
+                  
                       ))}
                 </MainStyledSlider>
               </MainSliderContainer>
