@@ -30,8 +30,7 @@ export default function Navbar() {
   };
 
   const keyPress = (e) => {
-    if (e.key === "Enter") {
-      e.nativeEvent.isComposing === false
+    if (e.key === "Enter"&&e.nativeEvent.isComposing === false) {
       buttonClick();
     }
   };
@@ -64,7 +63,7 @@ export default function Navbar() {
             value={searchText}
             onKeyDown={keyPress}
           ></input>
-          <button className="SearchButton" onClick={buttonClick}>
+          <button className="SearchButton" onClick={buttonClick} onKeyUp={keyPress}>
             <img src={searchIcon} className="searchIcon" alt="search" />
           </button>
         </div>
