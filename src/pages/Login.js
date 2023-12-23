@@ -119,12 +119,12 @@ const Login = () => {
                 GPT, 딥러닝을 활용하여 시청 기록을 기반으로 컨텐츠를
                 추천드립니다.
                 <br />
-                셋톱박스 번호를 입력하여 지금 이용해보세요!{" "}
+                셋탑박스 번호를 입력하여 지금 이용해보세요!{" "}
               </div>
             </div>
             <input
               className="LoginInput"
-              placeholder=" 셋탑박스 번호 입력"
+              placeholder="테스트용: 66387000"
               value={subsr}
               onChange={onChangeId}
               onKeyDown={keyPress}
