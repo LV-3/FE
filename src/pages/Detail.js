@@ -340,9 +340,9 @@ export default function Detail() {
                   <DetailTitle>나의 리뷰</DetailTitle>
                   <div className="ReviewBox">
                     리뷰가 없습니다.
-                    <text className="firstReviewButton">
+                    <div className="firstReviewButton">
                       <ReviewModal />
-                    </text>
+                    </div>
                   </div>
                 </>
               )}
