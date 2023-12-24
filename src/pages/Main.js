@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { React, useState, useEffect } from "react";
-import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import altImg from "../assets/altImg.png";
@@ -249,7 +248,7 @@ export default function Main() {
             <div>
               <div className="MainTitle">
                 <PageTitle>
-                  내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜
+                  내가 본 컨텐츠와 유사한 줄거리의 컨텐츠들 📜
                 </PageTitle>
               </div>
 
@@ -284,7 +283,7 @@ export default function Main() {
 
               <div className="MainTitle">
                 <PageTitle>
-                  내가 본 "{genre_words}" 분위기의 컨텐츠들 💘
+                  내가 본 "{genre_words}" 컨텐츠들 💘
                 </PageTitle>
               </div>
 
@@ -320,7 +319,7 @@ export default function Main() {
               <div className="MainTitle">
                 <PageTitle>
                   {" "}
-                  내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯
+                  내 취향을 저격한 "{personal_words}" 컨텐츠들 🎯
                 </PageTitle>
               </div>
 
