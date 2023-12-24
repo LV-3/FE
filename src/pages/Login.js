@@ -124,7 +124,7 @@ const Login = () => {
             </div>
             <input
               className="LoginInput"
-              placeholder="테스트용: 66387000"
+              placeholder="테스트: 61141000"
               value={subsr}
               onChange={onChangeId}
               onKeyDown={keyPress}
