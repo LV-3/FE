@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { React, useState, useEffect } from "react";
-import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
 import { Loading } from "../components/Loading";
 import altImg from "../assets/altImg.png";
@@ -174,6 +173,7 @@ export default function Main() {
                             src={img.bannerimg}
                             alt={img.bannerimg}
                             className="BannerImg"
+                            referrerPolicy="no-referrer"
                           />
                         </NavLink>
                       </label>
@@ -182,7 +182,7 @@ export default function Main() {
               </BannerSlider>
             </BannerSliderContainer>
             <div className="MainTitle">
-              <PageTitle>{time ? time : <div>시간대 별 인기작</div>}</PageTitle>
+              <PageTitle>{time ? time : '시간대 별 인기작'}</PageTitle>
             </div>
             {!popular.length ? (
               <MypageText className="PopularText">
@@ -197,11 +197,12 @@ export default function Main() {
                       .map((image, index) => (
                    
                           <ImgLabel key={index}>
-                            <text className="MainIndex">{index + 1}</text>
+                            <p className="MainIndex">{index + 1}</p>
                             <NavLink to={"/detail/" + image.content_id}>
                               <Poster
                                 src={image.posterurl ? image.posterurl : altImg}
                                 alt={image.title}
+                                referrerPolicy="no-referrer"
                               />
                             </NavLink>
                           </ImgLabel>
@@ -234,6 +235,7 @@ export default function Main() {
                               <Poster
                                 src={image.posterurl ? image.posterurl : altImg}
                                 alt={image.title}
+                                referrerPolicy="no-referrer"
                               />
                             </NavLink>
                           </ImgLabel>
@@ -246,7 +248,7 @@ export default function Main() {
             <div>
               <div className="MainTitle">
                 <PageTitle>
-                  내가 본 컨텐츠와 유사한 줄거리의 컨텐츠 📜
+                  내가 본 컨텐츠와 유사한 줄거리의 컨텐츠들 📜
                 </PageTitle>
               </div>
 
@@ -268,6 +270,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>
@@ -280,7 +283,7 @@ export default function Main() {
 
               <div className="MainTitle">
                 <PageTitle>
-                  내가 본 "{genre_words}" 분위기의 컨텐츠들 💘
+                  내가 본 "{genre_words}" 컨텐츠들 💘
                 </PageTitle>
               </div>
 
@@ -302,6 +305,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>
@@ -315,7 +319,7 @@ export default function Main() {
               <div className="MainTitle">
                 <PageTitle>
                   {" "}
-                  내가 본 "{personal_words}" 분위기의 컨텐츠들 🎯
+                  내 취향을 저격한 "{personal_words}" 컨텐츠들 🎯
                 </PageTitle>
               </div>
 
@@ -337,6 +341,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>

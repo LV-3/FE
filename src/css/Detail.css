@@ -77,10 +77,14 @@
     color:white;
     width: 100%;
     padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
 }
 
 .firstReviewButton{
     cursor: pointer;
+    display: flex;
+    margin-left: 2%;
 }
 
 .WishButton{
