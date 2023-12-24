@@ -183,7 +183,7 @@ export default function Main() {
               </BannerSlider>
             </BannerSliderContainer>
             <div className="MainTitle">
-              <PageTitle>{time ? time : <div>시간대 별 인기작</div>}</PageTitle>
+              <PageTitle>{time ? time : '시간대 별 인기작'}</PageTitle>
             </div>
             {!popular.length ? (
               <MypageText className="PopularText">
