@@ -110,7 +110,7 @@ const Login = () => {
       <Wrapper>
         <Form>
           <Inputs>
-            <text className="LoginText">Hello GPTv</text>
+            <p className="LoginText">Hello GPTv</p>
             <img src={robot} className="LoginRobot" alt="Robot" />
             <div className="Loginwrapper">
               <div className="typing-demo">

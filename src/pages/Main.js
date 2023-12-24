@@ -198,7 +198,7 @@ export default function Main() {
                       .map((image, index) => (
                    
                           <ImgLabel key={index}>
-                            <text className="MainIndex">{index + 1}</text>
+                            <p className="MainIndex">{index + 1}</p>
                             <NavLink to={"/detail/" + image.content_id}>
                               <Poster
                                 src={image.posterurl ? image.posterurl : altImg}

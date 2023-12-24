@@ -63,16 +63,16 @@ export default function Mood() {
           <SearchTitle>영화 &gt; {genre2.replace(":", "/")}</SearchTitle>
         </div>
         {loading ? (
-          <text className="GenreText">
+          <p className="GenreText">
             VOD 목록을 불러오는 중입니다. 잠시만 기다려 주세요.
-          </text>
+          </p>
         ) : (
           <div className="VodOuterContainer">
             {genreVods && genreVods.length !== 0 ? (
               genreVods === -1 ? (
-                <text className="GenreText">
+                <p className="GenreText">
                   VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.
-                </text>
+                </p>
               ) : (
                 <div className="GenreVodContainer">
                   {genreVods &&
@@ -96,7 +96,7 @@ export default function Mood() {
                 </div>
               )
             ) : (
-              <text className="GenreText">VOD 목록이 없습니다.</text>
+              <p className="GenreText">VOD 목록이 없습니다.</p>
             )}
           </div>
         )}
