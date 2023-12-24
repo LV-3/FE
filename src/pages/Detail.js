@@ -220,6 +220,7 @@ export default function Detail() {
                   <Poster
                     src={vodData.posterurl ? vodData.posterurl : altImg}
                     alt={vodData?.title}
+                    referrerPolicy="no-referrer"
                   />
                 </ImgLabel>
                 <div className="VodData">
@@ -296,6 +297,7 @@ export default function Detail() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </a>
                             </DImgLabel>

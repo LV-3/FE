@@ -154,6 +154,7 @@ export default function Mypage() {
                           <Poster
                             src={item.posterurl ? item.posterurl : altImg}
                             alt={item.title}
+                            referrerPolicy="no-referrer"
                           />
                         </ImgLabel>
                         <figcaption>
@@ -195,6 +196,7 @@ export default function Mypage() {
                         <Poster
                           src={item.posterurl ? item.posterurl : altImg}
                           alt={item.title}
+                          referrerPolicy="no-referrer"
                         />
                       </ImgLabel>
                       <figcaption>{item.title}</figcaption>
@@ -231,6 +233,7 @@ export default function Mypage() {
                           className="RatingImg"
                           src={item.posterurl ? item.posterurl : altImg}
                           alt={item.title}
+                          referrerPolicy="no-referrer"
                         />
                       </label>
                     </NavLink>

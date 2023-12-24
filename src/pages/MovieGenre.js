@@ -86,6 +86,7 @@ export default function Mood() {
                             <Poster
                               src={image.posterurl ? image.posterurl : altImg}
                               alt={image.title}
+                              referrerPolicy="no-referrer"
                             />
                             <div className="GenreVodTitle">{image.title}</div>
                           </NavLink>

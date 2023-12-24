@@ -84,6 +84,7 @@ export default function Search() {
                             <Poster
                               src={image.posterurl ? image.posterurl : altImg}
                               alt={image.title}
+                              referrerPolicy="no-referrer"
                             />
                             <div className="SearchVodTitle">{image.title}</div>
                           </NavLink>

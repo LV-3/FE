@@ -174,6 +174,7 @@ export default function Main() {
                             src={img.bannerimg}
                             alt={img.bannerimg}
                             className="BannerImg"
+                            referrerPolicy="no-referrer"
                           />
                         </NavLink>
                       </label>
@@ -202,6 +203,7 @@ export default function Main() {
                               <Poster
                                 src={image.posterurl ? image.posterurl : altImg}
                                 alt={image.title}
+                                referrerPolicy="no-referrer"
                               />
                             </NavLink>
                           </ImgLabel>
@@ -234,6 +236,7 @@ export default function Main() {
                               <Poster
                                 src={image.posterurl ? image.posterurl : altImg}
                                 alt={image.title}
+                                referrerPolicy="no-referrer"
                               />
                             </NavLink>
                           </ImgLabel>
@@ -268,6 +271,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>
@@ -302,6 +306,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>
@@ -337,6 +342,7 @@ export default function Main() {
                                     image.posterurl ? image.posterurl : altImg
                                   }
                                   alt={image.title}
+                                  referrerPolicy="no-referrer"
                                 />
                               </NavLink>
                             </ImgLabel>
