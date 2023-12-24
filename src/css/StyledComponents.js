@@ -200,7 +200,7 @@ export const DDivPre = styled.div`
 `;
 
 
-export const MypageText = styled.text`
+export const MypageText = styled.p`
   margin-left: 15%;
   font-size: 18px;
   color: white;

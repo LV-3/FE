@@ -110,7 +110,7 @@ const Login = () => {
       <Wrapper>
         <Form>
           <Inputs>
-            <text className="LoginText">Hello GPTv</text>
+            <p className="LoginText">Hello GPTv</p>
             <img src={robot} className="LoginRobot" alt="Robot" />
             <div className="Loginwrapper">
               <div className="typing-demo">
@@ -124,7 +124,7 @@ const Login = () => {
             </div>
             <input
               className="LoginInput"
-              placeholder="테스트용: 66387000"
+              placeholder="테스트: 61141000"
               value={subsr}
               onChange={onChangeId}
               onKeyDown={keyPress}

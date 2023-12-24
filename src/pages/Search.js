@@ -63,14 +63,14 @@ export default function Search() {
           <SearchTitle>"{input}"의 검색 결과</SearchTitle>
         </div>
         {loading ? (
-          <text className="GenreText">로딩중입니다.</text>
+          <p className="GenreText">로딩중입니다.</p>
         ) : (
           <div className='SearchOuterContainer'>
             {search && search.length !== 0 ? (
               search === -1 ? (
-                <text className="SearchText">
+                <p className="SearchText">
                   VOD 목록을 불러올 수 없습니다. 잠시 후 다시 시도해 주세요.
-                </text>
+                </p>
               ) : (
                 <div className="SearchVodContainer">
                   {search &&
@@ -84,6 +84,7 @@ export default function Search() {
                             <Poster
                               src={image.posterurl ? image.posterurl : altImg}
                               alt={image.title}
+                              referrerPolicy="no-referrer"
                             />
                             <div className="SearchVodTitle">{image.title}</div>
                           </NavLink>
@@ -93,7 +94,7 @@ export default function Search() {
                 </div>
               )
             ) : (
-              <text className="SearchText">검색 결과가 없습니다. </text>
+              <p className="SearchText">검색 결과가 없습니다. </p>
             )}
           </div>
         )}
