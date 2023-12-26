@@ -11,7 +11,6 @@
     width: 50px;
     left: 25%;
     top: 50%;
-
   }
   
   .kidsdropdown-content {
@@ -21,7 +20,7 @@
     position: absolute;
     background-color: #28292a;
     top:120%;
-    left:-90%;
+    left:-30%;
     width: 180px;
     height: 427px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
