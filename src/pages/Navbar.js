@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="SearchContainer">
           <input
             className="SearchInput"
-            placeholder="VOD, 배우를 검색해보세요."
+            placeholder="제목, 출연진을 검색해보세요."
             onChange={onChange}
             value={searchText}
             onKeyDown={keyPress}
