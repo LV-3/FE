@@ -315,22 +315,26 @@ export default function Detail() {
               (ratingData&&ratingData.filter((ratingData)=>ratingData.subsr === subsr).map((item, index)=>(*/}
                   <div className="ReviewBox">
                     {/* {item.subsr} */}
-                    <Rating
-                      fillColor="#A50034"
-                      size="15"
-                      initialValue={ratingData.rating}
-                      readonly="true"
-                    />
-                    &emsp;
-                    {ratingData.rating_date}
-                    &emsp;
-                    <ReviewModal />
-                    <button className="ReviewButton" onClick={deleletereview}>
-                      리뷰 삭제
-                    </button>
-                    {/* <DelConfirmAlert/>*/}
-                    <br />
-                    <div className="RatingText">{ratingData.review}</div>
+                    <div className='ReviewSort'>
+                      <div className='ReviewContent'>
+                        <Rating
+                          fillColor="#A50034"
+                          size="15"
+                          initialValue={ratingData.rating}
+                          readonly="true"
+                        />
+                        &emsp;
+                        <p className='ReviewTime'>{ratingData.rating_date}</p>
+                        &emsp;
+                        <ReviewModal />
+                        <button className="ReviewButton" onClick={deleletereview}>
+                          리뷰 삭제
+                        </button>
+                        {/* <DelConfirmAlert/>*/}
+                        <br />
+                      </div>
+                      <div className="RatingText">{ratingData.review}</div>
+                    </div>
                   </div>
                   {/* ))) */}
                   {/* } */}
@@ -358,17 +362,21 @@ export default function Detail() {
                       .filter((allRatingData) => allRatingData.subsr !== subsr)
                       .map((item, index) => (
                         <div key={index} className="ReviewBox">
-                          ID: {item.subsr}&emsp;
-                          <Rating
-                            fillColor="#A50034"
-                            size="15"
-                            initialValue={item.rating}
-                            readonly="true"
-                          />
-                          &emsp;
-                          {item.rating_date}
-                          <br />
-                          <div className="RatingText">{item.review}</div>
+                          <div className='ReviewSort'>
+                            <div className='ReviewContent'>
+                              ID: {item.subsr}&emsp;
+                              <Rating
+                                fillColor="#A50034"
+                                size="15"
+                                initialValue={item.rating}
+                                readonly="true"
+                              />
+                              &emsp;
+                              <p className='ReviewTime'>{item.rating_date}</p>
+                              <br />
+                            </div>
+                            <div className="RatingText">{item.review}</div>
+                          </div>
                         </div>
                       ))}
                 </div>
