@@ -170,7 +170,7 @@ export const MDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 3vw;
+    left: 2.75vw;
     top: -0.5vw;
     z-index: 99;
     text-align: left;
