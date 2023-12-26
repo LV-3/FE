@@ -250,6 +250,8 @@ export default function Mypage() {
                           className="Rating"
                         />
                         <div className="RatingDate">{item.rating_date}</div>
+                        <br />
+                        <br />
                       </div>
                       <div className="Review">{item.review}</div>
                     </div>
