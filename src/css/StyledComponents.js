@@ -170,7 +170,7 @@ export const MDivPre = styled.div`
     width: 24px;
     height: 24px;
     position: absolute;
-    left: 3vw;
+    left: 2.75vw;
     top: -0.5vw;
     z-index: 99;
     text-align: left;
@@ -352,11 +352,12 @@ export const DImgLabel = styled.label`
 `;
 
 export const DPoster = styled.img`
-    display: flex;
-    border-color: black;
-    border-radius: 3px; 
-    justify-content: center;
-    object-fit: cover;
+  display: flex;
+  flex: 0 1 0;
+  border-color: transparent;
+  height: 100%;
+  border-radius: 3px; 
+  justify-content: stretch;
 `;
 
 
