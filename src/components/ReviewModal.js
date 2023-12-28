@@ -98,7 +98,7 @@ export default function ReviewModal() {
   return (
     <>
       <button className="ReviewButton" onClick={openModal}>
-        {isRated ? "리뷰수정" : "리뷰작성"}
+        {isRated ? "리뷰 수정" : "리뷰 작성"}
       </button>
 
       <Modal
