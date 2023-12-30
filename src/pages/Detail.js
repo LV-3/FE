@@ -71,7 +71,7 @@ export default function Detail() {
         setVodData(response.data);
       } catch (error) {
         if (Object.keys(error).includes("response")) {
-          navigate("/noResponse");
+          //navigate("/noResponse");
         } else {
           setVodData(-1);
           console.log("getVodData", error);
