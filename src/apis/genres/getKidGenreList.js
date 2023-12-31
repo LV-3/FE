@@ -2,6 +2,6 @@ import axios from "axios";
 
 //genre별 VOD 리스트 가져오기
 export const kidGenreList = async (genre3) => {
-    const result = await axios.get(`https://hellogptv.com/kids/${genre3.replaceAll('/', ':')}`);
+    const result = await axios.get(`https://d225nwg9l5o274.cloudfront.net/kids/${genre3.replaceAll('/', ':')}`);
     return result;
 };
