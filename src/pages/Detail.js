@@ -121,13 +121,6 @@ export default function Detail() {
         const response = await getratingdata(content_id);
         const found = response.data.filter((item) => item.subsr === subsr);
         const allfound = response.data.filter((item) => item.subsr !== subsr);
-
-        if (found.length > 0) {
-          setRatingData(found[0]);
-        }
-        if (allfound.length > 0) {
-          setAllRatingData(allfound);
-        }
       } catch (error) {
         console.log("error", error);
       }
