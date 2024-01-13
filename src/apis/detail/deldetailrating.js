@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const delReview = async(subsr,content_id) => {
-    const result = await axios.delete(`https://d3l7tgeznk7sw9.cloudfront.net/${content_id}/rating`, {
+    const result = await axios.delete(`https://d3l7tgeznk7sw9.cloudfront.net/detail/${content_id}/rating`, {
         data:{subsr}
     })
     return result;
